@@ -12,3 +12,7 @@ openai-clip
 tf-keras
 umap-learn
 hdbscan
+plotly
+matplotlib
+seaborn
+

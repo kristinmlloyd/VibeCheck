@@ -7,13 +7,12 @@ from tqdm import tqdm
 from PIL import Image
 from io import BytesIO
 
-API_KEY = "WSD5IpWfhPSYvpbnjSuTNtd680-5minufNJootADxn4QJ_TF6LhL_rRZm5XLjZFMrMn1sOgThCyt0YmDI2GAfH_0-yLONjVWUNVDHNJ3UZoI4dwn23Vm5fEd4q3qaHYx"
+load_dotenv()
+
+API_KEY = os.getenv("YELP_API_KEY")  # pulls it from your .env file
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
 SEARCH_URL = "https://api.yelp.com/v3/businesses/search"
 REVIEW_URL = "https://api.yelp.com/v3/businesses/{id}/reviews"
-
-
-
 
 CITY = "New York, NY"
 CATEGORIES = "restaurants"
