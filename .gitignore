@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.env
+venv/
+restaurants.db
+.DS_Store
