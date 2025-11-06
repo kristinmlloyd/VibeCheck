@@ -10,6 +10,16 @@ import faiss
 import pandas as pd
 import plotly.express as px
 
+import transformers, sentence_transformers, huggingface_hub
+import torch, faiss
+print("versions:", {
+    "transformers": transformers.__version__,
+    "sentence-transformers": sentence_transformers.__version__,
+    "huggingface-hub": huggingface_hub.__version__,
+    "torch": torch.__version__,
+    "faiss": faiss.__version__,
+})
+
 st.set_page_config(page_title="VibeCheck", layout="wide")
 
 DB_PATH = "restaurants.db"
