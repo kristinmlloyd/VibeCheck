@@ -1,9 +1,9 @@
-streamlit
-torch
-transformers
-sentence-transformers
-faiss-cpu
-pillow
-numpy
-pandas
+streamlit==1.28.0
+torch==2.0.1
+transformers==4.35.0
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+pillow==10.0.0
+numpy==1.24.3
+pandas==2.0.3
 protobuf==3.20.3
