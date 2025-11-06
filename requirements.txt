@@ -6,4 +6,5 @@ faiss-cpu
 pillow
 numpy<2.0
 pandas
+plotly
 git+https://github.com/openai/CLIP.git
