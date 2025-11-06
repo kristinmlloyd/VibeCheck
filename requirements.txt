@@ -2,6 +2,7 @@ streamlit==1.28.0
 torch==2.0.1
 transformers==4.35.0
 sentence-transformers==2.2.2
+huggingface-hub==0.19.4
 faiss-cpu==1.7.4
 pillow==10.0.0
 numpy==1.24.3
