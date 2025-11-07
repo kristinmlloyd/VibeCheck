@@ -7,29 +7,22 @@ import hdbscan
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 import matplotlib
 matplotlib.use("Agg")
-
 DB_PATH = "restaurants.db"
 FAISS_META_PATH = "meta_ids.npy"
 EMBED_PATH = "vibecheck_index.faiss"  
 EMBED_CACHE = "vibe_embeddings.npy"   
 OUTPUT_CSV = "vibe_map.csv"
-
-
 print("Loading embeddings...")
 if not os.path.exists(EMBED_CACHE):
     raise FileNotFoundError("Run vibecheck_embeddings.py first with save_embeddings=True.")
-
 embeddings = np.load(EMBED_CACHE)
 meta_ids = np.load(FAISS_META_PATH)
 conn = sqlite3.connect(DB_PATH)
-
 names = []
 ratings = []
 cats = []
-
 for rid in tqdm(meta_ids):
     row = conn.execute("SELECT name, rating, categories FROM restaurants WHERE id=?", (rid,)).fetchone()
     if row:
@@ -41,17 +34,13 @@ for rid in tqdm(meta_ids):
         names.append("Unknown")
         ratings.append(None)
         cats.append("")
-
 print(f"Loaded {len(names)} metadata entries.")
-
 print("Running UMAP projection (2D)...")
 reducer = umap.UMAP(n_neighbors=10, min_dist=0.05, metric="cosine", random_state=42)
 embedding_2d = reducer.fit_transform(embeddings)
-
 print("Clustering with HDBSCAN...")
 clusterer = hdbscan.HDBSCAN(min_cluster_size=5, min_samples=2, metric="euclidean")
 labels = clusterer.fit_predict(embedding_2d)
-
 df = pd.DataFrame({
     "id": meta_ids,
     "x": embedding_2d[:, 0],
@@ -63,7 +52,6 @@ df = pd.DataFrame({
 })
 df.to_csv(OUTPUT_CSV, index=False)
 print(f" Saved to {OUTPUT_CSV}")
-
 plt.figure(figsize=(10, 8))
 palette = sns.color_palette("husl", len(np.unique(labels)))
 sns.scatterplot(
