@@ -163,9 +163,7 @@ with col_right:
     if os.path.exists(VIBE_MAP_CSV):
         try:
             df_map = pd.read_csv(VIBE_MAP_CSV)
-            st.write(f"✓ CSV loaded: {len(df_map)} rows")
-            st.write(f"✓ Columns: {df_map.columns.tolist()}")
-            
+
             df_map["cluster"] = df_map["cluster"].astype(str)
             
             fig = px.scatter(
@@ -179,8 +177,7 @@ with col_right:
                 height=400
             )
             st.plotly_chart(fig, use_container_width=True)
-            st.write("✓ Chart rendered successfully")
-            
+
         except Exception as e:
             st.error(f"Error loading/displaying map: {str(e)}")
             st.write(f"Error type: {type(e).__name__}")
