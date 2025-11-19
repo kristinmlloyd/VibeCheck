@@ -1,0 +1,30 @@
+{
+  "last_completed_index": 0,
+  "completed_restaurants": [
+    "Le Diplomate"
+  ],
+  "downloaded_url_hashes": {
+    "Le Diplomate": [
+      "f766d2663ae28c105b724a5653d58419",
+      "5e50b1713ab7de2f74764eb5c6b6d494",
+      "776bf68d35483f74002656d899f47212",
+      "a0545bdc36ca569b183885a91e895a43",
+      "b4e01af992a862b5015943ca8cda1ebe",
+      "a8cfc001907875b3c5c7af392ca0cb2e",
+      "7f347d06ecdff72258da20be5e038d3c",
+      "e982db4389370d322a5db03a7f31ed77",
+      "6cdfc9c1bc40ca32523cb9f62e0c8233",
+      "526f94089ce3481ef5fb772ad1a205ed",
+      "1be22c0a3f74bf0e51157e09776ff5dd",
+      "3a84dc4a5dc0266f91f95c48f7569d9f",
+      "e7ddee5f7531e771cf9d712e321e1cae",
+      "998e6e01be168a192580809d70faf618",
+      "814b06fd50c4d8456b8ee9ca6daa4c26",
+      "ec216d1e6de3688f8438afed090e1e88",
+      "fcba072bf6edeb0b28f0258fe1a01f7f",
+      "f62244293281ee2f59f109f52e8c4737",
+      "3715832e4f81e85dedbe6220334c47b3",
+      "8a6c3abe0a9d007a8b8de24c0b228df4"
+    ]
+  }
+}
