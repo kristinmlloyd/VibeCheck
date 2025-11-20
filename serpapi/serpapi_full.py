@@ -13,7 +13,7 @@ from serpapi import GoogleSearch
 ##############################################################
 
 # REPLACE WITH YOUR KEY
-SERPAPI_KEY = "4af8a5dbf43754b78c324469ab6df3dff9abeaebac9eeb1eacf1f432baa6547f"  # Replace with your SerpAPI key
+SERPAPI_KEY = "api_key"  # Replace with your SerpAPI key
 
 CSV_PATH = "restaurants_manual.csv"  # change this to the actual file listing all of our restaurants
 IMAGE_DIR = "restaurant_images"

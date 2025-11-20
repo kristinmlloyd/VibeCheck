@@ -10,7 +10,7 @@ from serpapi import GoogleSearch
 # ==========================
 # CONFIG
 # ==========================
-SERPAPI_KEY = "4af8a5dbf43754b78c324469ab6df3dff9abeaebac9eeb1eacf1f432baa6547f"  # Replace with your SerpAPI key
+SERPAPI_KEY = "api_key"  # Replace with your SerpAPI key
 CSV_PATH = "restaurants_manual.csv"
 IMAGE_DIR = "restaurant_images"
 PROGRESS_FILE = "image_collection_progress.json"
