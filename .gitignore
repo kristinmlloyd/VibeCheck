@@ -1,7 +1,30 @@
+# Data directories
+data/
+*.db
+*.npy
+*.faiss
+*.csv
+restaurant_images/
+sample_images/
+image_collection_progress.json
+
+# Old scripts (keeping for reference but not tracking)
+vibecheck_*.py
+vibe_*.png
+vibe_*.csv
+
+# Cache
 __pycache__/
 *.pyc
-.env
-venv/
-.DS_Store
-/sample_images/
+.pytest_cache/
+
+# MkDocs
 site/
+
+# Environment
+.env
+.venv/
+
+# IDE
+.vscode/
+.idea/
