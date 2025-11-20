@@ -177,16 +177,73 @@ git branch -d feature/<issue-number>-<description>
 def process_image(image_path: str, size: tuple[int, int]) -> Image:
     """
     Process an image by resizing it.
-    
+
     Args:
         image_path: Path to the image file
         size: Target size as (width, height)
-        
+
     Returns:
         Processed PIL Image object
     """
     pass
 ```
+
+## Code Style Guidelines
+
+### Python Style
+We follow PEP 8 with these specifics:
+- **Line length:** 88 characters (Black default)
+- **Quote style:** Double quotes
+- **Indentation:** 4 spaces
+- **Type hints:** Use where appropriate
+- **Docstrings:** Google-style format
+
+### Linting and Formatting
+We use **Ruff** for both linting and formatting. Configuration is in `.ruff.toml`.
+
+**Manual commands:**
+```bash
+# Check linting issues
+poetry run ruff check src/ tests/
+
+# Auto-fix linting issues
+poetry run ruff check src/ tests/ --fix
+
+# Check formatting
+poetry run ruff format --check src/ tests/
+
+# Auto-format code
+poetry run ruff format src/ tests/
+```
+
+### Pre-commit Hooks
+Pre-commit hooks automatically check and format code before each commit.
+
+**Setup (one-time):**
+```bash
+poetry run pre-commit install
+```
+
+**What the hooks do:**
+- Run ruff linting with auto-fix
+- Run ruff formatting
+- Remove trailing whitespace
+- Ensure newline at end of files
+- Validate YAML syntax
+- Prevent large file commits (>1MB)
+
+**If hooks fail:**
+The commit will be blocked. Review the changes the hooks made, stage them, and commit again.
+
+**Bypass hooks (not recommended):**
+```bash
+git commit --no-verify
+```
+
+### CI Enforcement
+- All PRs must pass `ruff check` and `ruff format --check`
+- CI runs automatically on every push and PR
+- Status checks must pass before merging
 
 ### Docstrings
 Use Google-style docstrings:
@@ -194,31 +251,18 @@ Use Google-style docstrings:
 def calculate_similarity(img1: np.ndarray, img2: np.ndarray) -> float:
     """
     Calculate similarity between two images.
-    
+
     Args:
         img1: First image as numpy array
         img2: Second image as numpy array
-        
+
     Returns:
         Similarity score between 0 and 1
-        
+
     Raises:
         ValueError: If images have different dimensions
     """
     pass
-```
-
-### Pre-commit Hooks
-We use pre-commit hooks to enforce style:
-```bash
-# Install pre-commit
-pip install pre-commit
-
-# Install hooks
-pre-commit install
-
-# Run manually
-pre-commit run --all-files
 ```
 
 ## Testing
