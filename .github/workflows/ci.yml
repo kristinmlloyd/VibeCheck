@@ -21,11 +21,8 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.7.1
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      run: |
+        pip install poetry==1.7.1
     
     - name: Load cached venv
       id: cached-poetry-dependencies
@@ -63,11 +60,8 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.7.1
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      run: |
+        pip install poetry==1.7.1
     
     - name: Load cached venv
       id: cached-poetry-dependencies
@@ -109,11 +103,8 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.7.1
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+      run: |
+        pip install poetry==1.7.1
     
     - name: Load cached venv
       id: cached-poetry-dependencies
@@ -149,9 +140,8 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: 1.7.1
+      run: |
+        pip install poetry==1.7.1
     
     - name: Build package
       run: poetry build
