@@ -1,24 +1,29 @@
 import os
 import sqlite3
-import numpy as np
-import torch
+
 import clip
-from PIL import Image
-import streamlit as st
-from sentence_transformers import SentenceTransformer
 import faiss
+import huggingface_hub
+import numpy as np
 import pandas as pd
 import plotly.express as px
+import sentence_transformers
+import streamlit as st
+import torch
+import transformers
+from PIL import Image
+from sentence_transformers import SentenceTransformer
 
-import transformers, sentence_transformers, huggingface_hub
-import torch, faiss
-print("versions:", {
-    "transformers": transformers.__version__,
-    "sentence-transformers": sentence_transformers.__version__,
-    "huggingface-hub": huggingface_hub.__version__,
-    "torch": torch.__version__,
-    "faiss": faiss.__version__,
-})
+print(
+    "versions:",
+    {
+        "transformers": transformers.__version__,
+        "sentence-transformers": sentence_transformers.__version__,
+        "huggingface-hub": huggingface_hub.__version__,
+        "torch": torch.__version__,
+        "faiss": faiss.__version__,
+    },
+)
 
 st.set_page_config(page_title="VibeCheck", layout="wide")
 
@@ -29,6 +34,7 @@ META_PATH = "meta_ids.npy"
 VIBE_MAP_CSV = "vibe_map.csv"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+
 @st.cache_resource
 def load_models():
     text_model = SentenceTransformer("all-MiniLM-L6-v2", device=DEVICE)
@@ -36,6 +42,7 @@ def load_models():
     index = faiss.read_index(FAISS_PATH)
     meta_ids = np.load(META_PATH)
     return text_model, clip_model, clip_preprocess, index, meta_ids
+
 
 text_model, clip_model, clip_preprocess, index, meta_ids = load_models()
 
@@ -48,23 +55,21 @@ Upload an image of a space you like, or describe your desired vibe in words.
 """
 )
 
-col_left, col_right = st.columns([2, 1]) 
+col_left, col_right = st.columns([2, 1])
 
 with col_left:
-    
-    
-    col_left1, col_right1 = st.columns([1, 1])  
+    col_left1, col_right1 = st.columns([1, 1])
 
     with col_left1:
         query_text = st.text_input(
-            "Describe your desired vibe:", 
-            placeholder="e.g., cozy cafe with plants and warm lighting"
+            "Describe your desired vibe:",
+            placeholder="e.g., cozy cafe with plants and warm lighting",
         )
         query_image = st.file_uploader("Or upload an image", type=["jpg", "png"])
 
     with col_right1:
         if query_image:
-            img_size = (200, 200)  
+            img_size = (200, 200)
             img = Image.open(query_image)
             img = img.resize(img_size)
             st.image(img, caption="Your uploaded image")
@@ -72,10 +77,9 @@ with col_left:
             st.empty()
             st.markdown("<div style='height:250px'></div>", unsafe_allow_html=True)
 
-
     # query_text = st.text_input("Describe your desired vibe:", placeholder="e.g., cozy cafe with plants and warm lighting")
     # query_image = st.file_uploader("Or upload an image", type=["jpg", "png"])
-    
+
     # if query_image:
     #     img_size = (200, 200)
     #     img = Image.open(query_image)
@@ -83,8 +87,10 @@ with col_left:
     #     st.image(img, caption="Your uploaded image")
 
     def encode_query(text=None, image=None):
-        t_vec = text_model.encode(text or "", convert_to_numpy=True, normalize_embeddings=True)
-        
+        t_vec = text_model.encode(
+            text or "", convert_to_numpy=True, normalize_embeddings=True
+        )
+
         if image:
             img = clip_preprocess(Image.open(image)).unsqueeze(0).to(DEVICE)
             with torch.no_grad():
@@ -93,13 +99,14 @@ with col_left:
             i_vec = i_vec.cpu().numpy()[0]
         else:
             i_vec = np.zeros((512,))
-        
+
         return np.concatenate([t_vec, i_vec]).astype("float32")[None, :]
 
     def get_restaurant_info(rid):
         with sqlite3.connect(DB_PATH) as conn:
             row = conn.execute(
-                "SELECT name, rating, address, image_url FROM restaurants WHERE id=?", (rid,)
+                "SELECT name, rating, address, image_url FROM restaurants WHERE id=?",
+                (rid,),
             ).fetchone()
         return row  # returns tuple: (name, rating, address, image_url)
 
@@ -122,8 +129,6 @@ with col_left:
     #                 st.image(img_path, width=250)
     #             st.markdown(f"**{name}** — ⭐ {rating}\n\n📍 {addr}")
 
-
-
     if st.button("🔍 Search"):
         if not query_text and not query_image:
             st.warning("Please enter text or upload an image to search!")
@@ -138,9 +143,9 @@ with col_left:
             img_size = (200, 200)  # fixed width & height
 
             for i in range(0, len(results), cols_per_row):
-                row_results = results[i:i+cols_per_row]
+                row_results = results[i : i + cols_per_row]
                 cols = st.columns(len(row_results))
-                for col, rid in zip(cols, row_results):
+                for col, rid in zip(cols, row_results, strict=False):
                     info = get_restaurant_info(rid)
                     if not info:
                         continue
@@ -153,19 +158,18 @@ with col_left:
                         st.markdown(f"**{name}** — ⭐ {rating}\n\n📍 {addr}")
 
 
-
 with col_right:
     st.header("🎨 Explore the Restaurant Vibe Map")
-    
+
     # DEBUG - Remove after fixing
     st.write(f"✓ CSV exists: {os.path.exists(VIBE_MAP_CSV)}")
-    
+
     if os.path.exists(VIBE_MAP_CSV):
         try:
             df_map = pd.read_csv(VIBE_MAP_CSV)
 
             df_map["cluster"] = df_map["cluster"].astype(str)
-            
+
             fig = px.scatter(
                 df_map,
                 x="x",
@@ -174,7 +178,7 @@ with col_right:
                 hover_data=["name", "rating", "categories"],
                 title="Aesthetic Map of Restaurant Vibes (UMAP + HDBSCAN)",
                 width=600,
-                height=400
+                height=400,
             )
             st.plotly_chart(fig, use_container_width=True)
 
@@ -182,6 +186,7 @@ with col_right:
             st.error(f"Error loading/displaying map: {str(e)}")
             st.write(f"Error type: {type(e).__name__}")
             import traceback
+
             st.code(traceback.format_exc())
     else:
         st.warning("Run `python vibecheck_map.py` first to generate the aesthetic map.")

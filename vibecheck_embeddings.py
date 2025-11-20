@@ -1,12 +1,13 @@
 import os
 import sqlite3
+
+import clip
+import faiss
 import numpy as np
 import torch
-import clip
 from PIL import Image
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
-import faiss
 
 DB_PATH = "restaurants.db"
 IMAGE_DIR = "sample_images"

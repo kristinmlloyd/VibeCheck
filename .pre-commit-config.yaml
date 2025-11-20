@@ -2,9 +2,13 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.4
     hooks:
+      # Run the linter
       - id: ruff
         args: [ --fix ]
+        exclude: ^(serpapi/|vibecheck_app\.py|vibecheck_embeddings\.py|vibecheck_data\.py|vibecheck_map\.py)
+      # Run the formatter
       - id: ruff-format
+        exclude: ^(serpapi/|vibecheck_app\.py|vibecheck_embeddings\.py|vibecheck_data\.py|vibecheck_map\.py)
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0

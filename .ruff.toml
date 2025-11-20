@@ -1,6 +1,15 @@
 line-length = 88
 target-version = "py311"
 
+# Exclude old/temporary files
+extend-exclude = [
+    "serpapi/",
+    "vibecheck_app.py",
+    "vibecheck_embeddings.py",
+    "vibecheck_data.py",
+    "vibecheck_map.py",
+]
+
 [lint]
 select = [
     "E",   # pycodestyle errors
