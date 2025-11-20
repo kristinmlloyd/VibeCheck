@@ -21,30 +21,16 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      run: |
-        pip install poetry==1.7.1
-    
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v3
-      with:
-        path: .venv
-        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+      run: pip install poetry==1.7.1
     
     - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
-    
-    - name: Install project
       run: poetry install --no-interaction
     
     - name: Run ruff linting
-      run: |
-        poetry run ruff check . || true  # Don't fail on lint errors yet
+      run: poetry run ruff check src/ tests/
     
     - name: Run ruff formatting check
-      run: |
-        poetry run ruff format --check src/ tests/
+      run: poetry run ruff format --check src/ tests/
 
   tests:
     name: Run Tests
@@ -60,33 +46,18 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      run: |
-        pip install poetry==1.7.1
-    
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v3
-      with:
-        path: .venv
-        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+      run: pip install poetry==1.7.1
     
     - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
-    
-    - name: Install project
       run: poetry install --no-interaction
     
     - name: Run pytest
-      run: |
-        poetry run pytest tests/ -v --cov=src --cov-report=xml --cov-report=term
+      run: poetry run pytest tests/ -v --cov=src --cov-report=xml --cov-report=term
     
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
         fail_ci_if_error: false
 
   type-check:
@@ -103,26 +74,13 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      run: |
-        pip install poetry==1.7.1
-    
-    - name: Load cached venv
-      id: cached-poetry-dependencies
-      uses: actions/cache@v3
-      with:
-        path: .venv
-        key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+      run: pip install poetry==1.7.1
     
     - name: Install dependencies
-      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
-    
-    - name: Install project
       run: poetry install --no-interaction
     
     - name: Run mypy
-      run: |
-        poetry run mypy src/ || true  # Don't fail on type errors yet
+      run: poetry run mypy src/
       continue-on-error: true
 
   build:
@@ -140,14 +98,16 @@ jobs:
         python-version: '3.11'
     
     - name: Install Poetry
-      run: |
-        pip install poetry==1.7.1
+      run: pip install poetry==1.7.1
+    
+    - name: Install dependencies
+      run: poetry install --no-interaction
     
     - name: Build package
       run: poetry build
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist/
