@@ -17,7 +17,7 @@
 # # CITY = "New York, NY"
 # # CATEGORIES = "restaurants"
 # # LIMIT = 50
-# # MAX_PAGES = 4 
+# # MAX_PAGES = 4
 
 # # DB_PATH = "restaurants.db"
 # # IMAGE_DIR = "sample_images"
@@ -601,8 +601,8 @@
 # print(f"Images stored in {IMAGE_DIR}/")
 
 
-import os
 import time
+
 import requests
 
 # ==========================
@@ -611,7 +611,7 @@ import requests
 API_KEY = "nFrk1eYpZ5PkuCuzicLfqUSvRGNEojVz6Jpz-aB3sdzqfJJcDz_yURztZ_kjDqescGSojb-PYef13gJHkSbq4qgXNP6KfvF90DLMYIxPB_ajKZiycdkZrzRq_T8RaXYx"
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
 }
 
 SEARCH_URL = "https://api.yelp.com/v3/businesses/search"
@@ -630,6 +630,7 @@ DELAY_BETWEEN_RETRIES = 2
 print(f"Waiting {DELAY_BEFORE_START}s before first request to avoid 429...")
 time.sleep(DELAY_BEFORE_START)
 
+
 # ==========================
 # SEARCH FUNCTION WITH BACKOFF
 # ==========================
@@ -640,13 +641,13 @@ def yelp_search(lat, lon, category, limit=LIMIT, offset=0, max_retries=MAX_RETRI
         "categories": category,
         "limit": limit,
         "offset": offset,
-        "sort_by": "rating"
+        "sort_by": "rating",
     }
     for attempt in range(max_retries):
         try:
             r = requests.get(SEARCH_URL, headers=HEADERS, params=params)
             if r.status_code == 429:
-                wait = 2 ** attempt
+                wait = 2**attempt
                 print(f"429 rate limit, waiting {wait}s...")
                 time.sleep(wait)
                 continue
@@ -656,6 +657,7 @@ def yelp_search(lat, lon, category, limit=LIMIT, offset=0, max_retries=MAX_RETRI
             print(f"Request error: {e}, retrying in {DELAY_BETWEEN_RETRIES}s...")
             time.sleep(DELAY_BETWEEN_RETRIES)
     return []
+
 
 # ==========================
 # RUN TEST
@@ -667,4 +669,3 @@ else:
     print(f"Collected {len(businesses)} businesses:")
     for biz in businesses:
         print(f"- {biz['name']} ({biz.get('rating', 'N/A')}⭐)")
-
