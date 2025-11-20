@@ -9,17 +9,20 @@ on:
 jobs:
   lint:
     name: Lint Code
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # ✅ Define operating system (Ubuntu latest)
     
     steps:
+    # ✅ Access repository
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Set up Python
+    # ✅ Install Python (specify version)
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
+    # ✅ Install Poetry
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
@@ -34,6 +37,7 @@ jobs:
         path: .venv
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
     
+    # ✅ Install package dependencies
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
@@ -41,9 +45,10 @@ jobs:
     - name: Install project
       run: poetry install --no-interaction
     
+    # ✅ Run linting checks
     - name: Run ruff linting
       run: |
-        poetry run ruff check . || true  # Don't fail on lint errors yet
+        poetry run ruff check src/ tests/
     
     - name: Run ruff formatting check
       run: |
@@ -51,17 +56,20 @@ jobs:
 
   tests:
     name: Run Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # ✅ Define operating system (Ubuntu latest)
     
     steps:
+    # ✅ Access repository
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Set up Python
+    # ✅ Install Python (specify version)
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
+    # ✅ Install Poetry
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
@@ -76,6 +84,7 @@ jobs:
         path: .venv
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
     
+    # ✅ Install package dependencies
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
@@ -83,9 +92,21 @@ jobs:
     - name: Install project
       run: poetry install --no-interaction
     
-    - name: Run pytest
+    # ✅ Run test suite
+    - name: Run test suite
       run: |
-        poetry run pytest tests/ -v --cov=src --cov-report=xml --cov-report=term
+        poetry run pytest tests/ -v
+    
+    # ✅ Generate coverage report
+    - name: Generate coverage report
+      run: |
+        poetry run pytest tests/ --cov=src --cov-report=xml --cov-report=term --cov-report=html
+    
+    - name: Upload coverage report (HTML)
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage-report-html
+        path: htmlcov/
     
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
@@ -97,17 +118,20 @@ jobs:
 
   type-check:
     name: Type Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # ✅ Define operating system (Ubuntu latest)
     
     steps:
+    # ✅ Access repository
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Set up Python
+    # ✅ Install Python (specify version)
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
+    # ✅ Install Poetry
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
@@ -122,6 +146,7 @@ jobs:
         path: .venv
         key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
     
+    # ✅ Install package dependencies
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
@@ -129,25 +154,29 @@ jobs:
     - name: Install project
       run: poetry install --no-interaction
     
-    - name: Run mypy
+    # Run type checking (optional, won't fail CI initially)
+    - name: Run mypy type checking
       run: |
-        poetry run mypy src/ || true  # Don't fail on type errors yet
-      continue-on-error: true
+        poetry run mypy src/
+      continue-on-error: true  # Optional: allows CI to pass even with type errors
 
   build:
     name: Build Package
-    runs-on: ubuntu-latest
-    needs: [lint, tests]
+    runs-on: ubuntu-latest  # ✅ Define operating system (Ubuntu latest)
+    needs: [lint, tests]  # ✅ Failed builds are caught automatically
     
     steps:
+    # ✅ Access repository
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Set up Python
+    # ✅ Install Python (specify version)
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
     
+    # ✅ Install Poetry
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
