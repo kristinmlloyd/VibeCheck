@@ -13,10 +13,10 @@ from serpapi import GoogleSearch
 ##############################################################
 
 # REPLACE WITH YOUR KEY
-SERPAPI_KEY = "4af8a5dbf43754b78c324469ab6df3dff9abeaebac9eeb1eacf1f432baa6547f"  # Replace with your SerpAPI key
+SERPAPI_KEY = "api_key"  # Replace with your SerpAPI key
 
-CSV_PATH = "restaurants_manual.csv"  # change this to the actual file listing all of our restaurants
-IMAGE_DIR = "restaurant_images"
+CSV_PATH = "../data/restaurants_info/restaurants_manual.csv"  # change this to the actual file listing all of our restaurants
+IMAGE_DIR = "../data/images/restaurant_images"
 PROGRESS_FILE = "image_collection_progress.json"
 TEST_MODE = False
 
