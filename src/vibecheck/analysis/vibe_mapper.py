@@ -25,9 +25,9 @@ class VibeMapper:
 
     def __init__(
         self,
-        embeddings_path: Path = Path("data/processed/vibe_embeddings.npy"),
-        meta_ids_path: Path = Path("data/processed/meta_ids.npy"),
-        db_path: Path = Path("data/raw/restaurants.db"),
+        embeddings_path: Path = Path("data/embeddings/vibe_embeddings.npy"),  # Updated
+        meta_ids_path: Path = Path("data/restaurants_info/meta_ids.npy"),  # Updated
+        db_path: Path = Path("data/restaurants_info/restaurants.db"),  # Updated
     ):
         """Initialize mapper with embeddings and metadata."""
         self.embeddings = np.load(embeddings_path)

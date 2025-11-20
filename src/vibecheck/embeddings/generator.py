@@ -24,8 +24,10 @@ class EmbeddingGenerator:
 
     def __init__(
         self,
-        db_path: Path = Path("data/raw/restaurants.db"),
-        image_dir: Path = Path("data/images/sample_images"),
+        db_path: Path = Path("data/restaurants_info/restaurants.db"),  # Updated
+        image_dir: Path = Path(
+            "data/images/sample_images"
+        ),  # Updated - but check this exists!
     ):
         """Initialize generator with database and image directory."""
         self.db = RestaurantDatabase(db_path)

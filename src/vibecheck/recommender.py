@@ -20,10 +20,12 @@ class VibeCheckRecommender:
 
     def __init__(
         self,
-        db_path: Path = Path("data/raw/restaurants.db"),
-        image_dir: Path = Path("data/images/sample_images"),
-        faiss_index_path: Path = Path("data/processed/vibecheck_index.faiss"),
-        meta_ids_path: Path = Path("data/processed/meta_ids.npy"),
+        db_path: Path = Path("data/restaurants_info/restaurants.db"),  # Updated
+        image_dir: Path = Path("data/images/sample_images"),  # Updated
+        faiss_index_path: Path = Path(
+            "data/embeddings/vibecheck_index.faiss"
+        ),  # Updated
+        meta_ids_path: Path = Path("data/restaurants_info/meta_ids.npy"),  # Updated
     ):
         """Initialize with new data paths."""
         self.db = RestaurantDatabase(db_path)

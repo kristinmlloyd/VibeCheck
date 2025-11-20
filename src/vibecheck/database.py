@@ -19,7 +19,9 @@ class RestaurantDatabase:
         >>> print(info['name'])
     """
 
-    def __init__(self, db_path: Path = Path("data/raw/restaurants.db")):
+    def __init__(
+        self, db_path: Path = Path("data/restaurants_info/restaurants.db")
+    ):  # Updated:
         """Initialize database connection."""
         self.db_path = Path(db_path)
 
