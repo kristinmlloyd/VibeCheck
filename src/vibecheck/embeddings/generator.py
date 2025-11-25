@@ -10,6 +10,9 @@ from tqdm import tqdm
 
 from vibecheck.database import RestaurantDatabase
 from vibecheck.embeddings.models import ModelCache
+from vibecheck.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class EmbeddingGenerator:
@@ -24,28 +27,39 @@ class EmbeddingGenerator:
 
     def __init__(
         self,
-        db_path: Path = Path("data/restaurants_info/restaurants.db"),  # Updated
-        image_dir: Path = Path(
-            "data/images/sample_images"
-        ),  # Updated - but check this exists!
+        db_path: Path = Path("data/restaurants_info/restaurants.db"),
+        image_dir: Path = Path("data/images/sample_images"),
     ):
         """Initialize generator with database and image directory."""
+        logger.info("Initializing EmbeddingGenerator")
+
         self.db = RestaurantDatabase(db_path)
         self.image_dir = Path(image_dir)
 
+        logger.debug(f"Database path: {db_path}")
+        logger.debug(f"Image directory: {self.image_dir}")
+
+        if not self.image_dir.exists():
+            logger.warning(f"Image directory does not exist: {self.image_dir}")
+
         # Load models
+        logger.info("Loading embedding models...")
         self.text_model = ModelCache.get_text_model()
         self.clip_model, self.clip_preprocess = ModelCache.get_clip_model()
         self.device = ModelCache.get_device()
+        logger.info("Models loaded successfully")
 
     def generate_text_embedding(self, text: str) -> np.ndarray:
         """Generate embedding for text."""
+        logger.debug(f"Generating text embedding for: {text[:50]}...")
         return self.text_model.encode(
             text, convert_to_numpy=True, normalize_embeddings=True
         )
 
     def generate_image_embedding(self, image_path: Path) -> np.ndarray:
         """Generate CLIP embedding for image."""
+        logger.debug(f"Generating image embedding for: {image_path}")
+
         try:
             image = (
                 self.clip_preprocess(Image.open(image_path))
@@ -60,7 +74,7 @@ class EmbeddingGenerator:
             return img_vec.cpu().numpy()[0]
 
         except Exception as e:
-            print(f"Error processing image {image_path}: {e}")
+            logger.warning(f"Error processing image {image_path}: {e}")
             return np.zeros((512,))
 
     def generate_restaurant_embedding(
@@ -76,6 +90,8 @@ class EmbeddingGenerator:
         Returns:
             Combined embedding vector (384 text + 512 image = 896 dims).
         """
+        logger.debug(f"Generating embedding for restaurant: {restaurant_id}")
+
         # Text embedding
         text_vec = self.generate_text_embedding(text or "")
 
@@ -84,6 +100,7 @@ class EmbeddingGenerator:
         if img_path.exists():
             img_vec = self.generate_image_embedding(img_path)
         else:
+            logger.debug(f"No image found for restaurant: {restaurant_id}")
             img_vec = np.zeros((512,))
 
         # Combine
@@ -96,16 +113,33 @@ class EmbeddingGenerator:
         Returns:
             Tuple of (embeddings array, list of restaurant IDs).
         """
+        logger.info("Starting batch embedding generation")
+
         restaurants = self.db.get_all_restaurants()
+        logger.info(f"Processing {len(restaurants)} restaurants")
 
         embeddings = []
         meta_ids = []
+        errors = 0
 
-        for resto in tqdm(restaurants, desc="Generating embeddings"):
-            text = resto["review_snippet"] or resto["name"] or ""
-            embedding = self.generate_restaurant_embedding(resto["id"], text)
+        for i, resto in enumerate(tqdm(restaurants, desc="Generating embeddings")):
+            try:
+                text = resto["review_snippet"] or resto["name"] or ""
+                embedding = self.generate_restaurant_embedding(resto["id"], text)
 
-            embeddings.append(embedding)
-            meta_ids.append(resto["id"])
+                embeddings.append(embedding)
+                meta_ids.append(resto["id"])
+
+                if (i + 1) % 50 == 0:
+                    logger.debug(f"Processed {i + 1}/{len(restaurants)} restaurants")
+
+            except Exception as e:
+                logger.error(f"Error processing restaurant {resto['id']}: {e}")
+                errors += 1
+                continue
+
+        logger.info(
+            f"Embedding generation complete: {len(embeddings)} successful, {errors} errors"
+        )
 
         return np.vstack(embeddings).astype("float32"), meta_ids

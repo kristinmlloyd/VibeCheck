@@ -1,10 +1,12 @@
 # src/vibecheck/recommender.py
 
+# src/vibecheck/recommender.py
+
 """Core recommendation engine for VibeCheck."""
 
-import sqlite3  # Add this import
+import sqlite3
 from pathlib import Path
-from typing import Any  # Add Tuple here
+from typing import Any
 
 import faiss
 import numpy as np
@@ -13,6 +15,9 @@ from PIL import Image
 
 from vibecheck.database import RestaurantDatabase
 from vibecheck.embeddings.models import ModelCache
+from vibecheck.logging_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class VibeCheckRecommender:
@@ -20,25 +25,37 @@ class VibeCheckRecommender:
 
     def __init__(
         self,
-        db_path: Path = Path("data/restaurants_info/restaurants.db"),  # Updated
-        image_dir: Path = Path("data/images/sample_images"),  # Updated
-        faiss_index_path: Path = Path(
-            "data/embeddings/vibecheck_index.faiss"
-        ),  # Updated
-        meta_ids_path: Path = Path("data/restaurants_info/meta_ids.npy"),  # Updated
+        db_path: Path = Path("data/restaurants_info/restaurants.db"),
+        image_dir: Path = Path("data/images/sample_images"),
+        faiss_index_path: Path = Path("data/embeddings/vibecheck_index.faiss"),
+        meta_ids_path: Path = Path("data/restaurants_info/meta_ids.npy"),
     ):
         """Initialize with new data paths."""
+        logger.info("Initializing VibeCheckRecommender")
+        logger.debug(f"Database path: {db_path}")
+        logger.debug(f"Image directory: {image_dir}")
+        logger.debug(f"FAISS index: {faiss_index_path}")
+        logger.debug(f"Meta IDs: {meta_ids_path}")
+
         self.db = RestaurantDatabase(db_path)
+        self.db_path = db_path  # Store for get_restaurant_info
         self.image_dir = Path(image_dir)
 
         # Load models
+        logger.info("Loading models...")
         self.text_model = ModelCache.get_text_model()
         self.clip_model, self.clip_preprocess = ModelCache.get_clip_model()
         self.device = ModelCache.get_device()
 
         # Load search index
-        self.index = faiss.read_index(str(faiss_index_path))
-        self.meta_ids = np.load(str(meta_ids_path))
+        logger.info("Loading FAISS index...")
+        try:
+            self.index = faiss.read_index(str(faiss_index_path))
+            self.meta_ids = np.load(str(meta_ids_path))
+            logger.info(f"Loaded index with {len(self.meta_ids)} entries")
+        except Exception as e:
+            logger.error(f"Failed to load index: {e}")
+            raise
 
     def encode_text(self, text: str) -> np.ndarray:
         """
@@ -56,6 +73,11 @@ class VibeCheckRecommender:
             >>> vector.shape
             (384,)
         """
+        logger.debug(
+            f"Encoding text: {text[:50]}..."
+            if len(text) > 50
+            else f"Encoding text: {text}"
+        )
         return self.text_model.encode(
             text, convert_to_numpy=True, normalize_embeddings=True
         )
@@ -78,6 +100,7 @@ class VibeCheckRecommender:
             >>> vector.shape
             (512,)
         """
+        logger.debug("Encoding image...")
         img_tensor = self.clip_preprocess(image).unsqueeze(0).to(self.device)
 
         with torch.no_grad():
@@ -114,7 +137,10 @@ class VibeCheckRecommender:
             >>> vec = recommender.encode_query(text="cozy cafe", image=img)
         """
         if text is None and image is None:
+            logger.error("encode_query called with no text or image")
             raise ValueError("Must provide either text or image query")
+
+        logger.info(f"Encoding query - text: {bool(text)}, image: {bool(image)}")
 
         # Encode text (or use zeros if not provided)
         text_vec = self.encode_text(text) if text else np.zeros((384,))
@@ -146,6 +172,7 @@ class VibeCheckRecommender:
             >>> for rid, distance in results:
             ...     print(f"Restaurant {rid}: distance={distance:.4f}")
         """
+        logger.debug(f"Searching index for top {top_k} results")
         distances, indices = self.index.search(query_vector, top_k)
 
         results = []
@@ -153,6 +180,7 @@ class VibeCheckRecommender:
             restaurant_id = self.meta_ids[idx]
             results.append((restaurant_id, float(distance)))
 
+        logger.debug(f"Found {len(results)} results")
         return results
 
     def get_restaurant_info(self, restaurant_id: str) -> dict[str, Any] | None:
@@ -172,6 +200,7 @@ class VibeCheckRecommender:
             >>> print(info['name'])
             >>> print(info['rating'])
         """
+        logger.debug(f"Fetching restaurant info: {restaurant_id}")
         try:
             with sqlite3.connect(self.db_path) as conn:
                 row = conn.execute(
@@ -180,11 +209,13 @@ class VibeCheckRecommender:
                 ).fetchone()
 
             if not row:
+                logger.debug(f"Restaurant not found: {restaurant_id}")
                 return None
 
             name, rating, address, image_url = row
             image_path = self.image_dir / f"{restaurant_id}.jpg"
 
+            logger.debug(f"Found restaurant: {name}")
             return {
                 "id": restaurant_id,
                 "name": name,
@@ -195,7 +226,7 @@ class VibeCheckRecommender:
             }
 
         except Exception as e:
-            print(f"Error fetching restaurant {restaurant_id}: {e}")
+            logger.error(f"Error fetching restaurant {restaurant_id}: {e}")
             return None
 
     def search_by_text(self, text: str, top_k: int = 5) -> list[dict[str, Any]]:
@@ -215,6 +246,12 @@ class VibeCheckRecommender:
             >>> for resto in results:
             ...     print(f"{resto['name']}: {resto['rating']} stars")
         """
+        logger.info(
+            f"Text search: '{text[:50]}...' (top_k={top_k})"
+            if len(text) > 50
+            else f"Text search: '{text}' (top_k={top_k})"
+        )
+
         query_vec = self.encode_query(text=text)
         search_results = self.search(query_vec, top_k=top_k)
 
@@ -228,6 +265,7 @@ class VibeCheckRecommender:
                 )  # Convert distance to similarity
                 restaurants.append(info)
 
+        logger.info(f"Returning {len(restaurants)} results")
         return restaurants
 
     def search_by_image(
@@ -251,6 +289,8 @@ class VibeCheckRecommender:
             >>> for resto in results:
             ...     print(resto['name'])
         """
+        logger.info(f"Image search (top_k={top_k})")
+
         query_vec = self.encode_query(image=image)
         search_results = self.search(query_vec, top_k=top_k)
 
@@ -262,6 +302,7 @@ class VibeCheckRecommender:
                 info["similarity"] = 1.0 / (1.0 + distance)
                 restaurants.append(info)
 
+        logger.info(f"Returning {len(restaurants)} results")
         return restaurants
 
     def search_multimodal(
@@ -288,6 +329,10 @@ class VibeCheckRecommender:
             ...     top_k=5
             ... )
         """
+        logger.info(
+            f"Multimodal search (text={bool(text)}, image={bool(image)}, top_k={top_k})"
+        )
+
         query_vec = self.encode_query(text=text, image=image)
         search_results = self.search(query_vec, top_k=top_k)
 
@@ -299,4 +344,5 @@ class VibeCheckRecommender:
                 info["similarity"] = 1.0 / (1.0 + distance)
                 restaurants.append(info)
 
+        logger.info(f"Returning {len(restaurants)} results")
         return restaurants
