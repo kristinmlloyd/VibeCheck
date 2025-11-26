@@ -2,7 +2,7 @@
 name = "vibecheck"
 version = "0.1.0"
 description = "Restaurant recommendation system based on visual aesthetics"
-authors = ["Your Team <team@example.com>"]
+authors = ["Viviana Luccioli vcl16@georgetown.edu, Manav Arora, Ping Hill, Jessica Joy, Kristin Lloyd"]
 readme = "README.md"
 packages = [{include = "vibecheck", from = "src"}]
 
