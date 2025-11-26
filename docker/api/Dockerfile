@@ -2,7 +2,6 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
@@ -10,16 +9,19 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for caching
-COPY requirements-api.txt .
-RUN pip install --no-cache-dir -r requirements-api.txt
+RUN pip install poetry==1.7.1
 
-# Copy application code
+COPY pyproject.toml poetry.lock ./
+
+# Export and install API + ML dependencies
+RUN poetry export --only=main,api,ml -f requirements.txt --output requirements.txt \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install git+https://github.com/openai/CLIP.git
+
 COPY api/ ./api/
 COPY src/ ./src/
 COPY data/ ./data/
 
-# Set environment variables
 ENV PYTHONPATH=/app/src
 ENV OMP_NUM_THREADS=1
 ENV MKL_NUM_THREADS=1
