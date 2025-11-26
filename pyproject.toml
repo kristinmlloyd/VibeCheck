@@ -21,6 +21,10 @@ torch = "^2.9.1"
 sentence-transformers = "^5.1.2"
 transformers = "^4.57.1"
 clip = {git = "https://github.com/openai/CLIP.git"}
+psycopg2-binary = "^2.9.11"
+fastapi = "^0.122.0"
+uvicorn = "^0.38.0"
+python-multipart = "^0.0.20"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.0.0,<9.0.0"
