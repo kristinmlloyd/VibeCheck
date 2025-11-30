@@ -1749,6 +1749,21 @@ files = [
 ]
 
 [[package]]
+name = "outscraper"
+version = "5.10.0"
+description = "Python bindings for the Outscraper API"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "outscraper-5.10.0-py3-none-any.whl", hash = "sha256:370fb0420a5a8004cfd2ff178f4fb4db31bf1b19d442c6af57e741ce350c00bb"},
+    {file = "outscraper-5.10.0.tar.gz", hash = "sha256:42ed3e23bc4438c8c3dadcdb72afd95022807994b5e829b7e05bb81f8c840fc0"},
+]
+
+[package.dependencies]
+requests = "*"
+
+[[package]]
 name = "packaging"
 version = "25.0"
 description = "Core utilities for Python packages"
@@ -2494,6 +2509,21 @@ files = [
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.2.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "python_dotenv-1.2.1-py3-none-any.whl", hash = "sha256:b81ee9561e9ca4004139c6cbba3a238c32b03e4894671e181b671e8cb8425d61"},
+    {file = "python_dotenv-1.2.1.tar.gz", hash = "sha256:42667e897e16ab0d66954af0e60a9caa94f0fd4ecf3aaf6d2d260eec1aa36ad6"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-multipart"
@@ -3895,4 +3925,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "d7f6387399fc32a8074e13b7978cf05a4df58fdbbb32be9163203ed7a1077ea5"
+content-hash = "920cabf4ce837da8cfe9967c56f3a3de9f455fa34c502d5efd5e74d3078a94d6"

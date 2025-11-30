@@ -340,7 +340,12 @@ def get_photos(client: ApiClient, place_id: str, limit: int = 10) -> list[dict]:
 
         if results and len(results) > 0:
             place_data = results[0]
-            return place_data.get("photos", [])
+            # Handle different response formats
+            if isinstance(place_data, dict):
+                return place_data.get("photos", [])
+            elif isinstance(place_data, list):
+                # Sometimes returns list of photo objects directly
+                return place_data
 
     except Exception as e:
         print(f"  ❌ Error fetching photos: {e}")
