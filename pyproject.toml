@@ -25,6 +25,8 @@ psycopg2-binary = "^2.9.11"
 fastapi = "^0.122.0"
 uvicorn = "^0.38.0"
 python-multipart = "^0.0.20"
+outscraper = "^5.10.0"
+python-dotenv = "^1.2.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.0.0,<9.0.0"
