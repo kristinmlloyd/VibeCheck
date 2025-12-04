@@ -25,7 +25,9 @@ The system addresses a fundamental gap in current restaurant recommendation syst
 
 ### System Components
 
-![Architecture](images/architecture.png)
+![Architecture](images/architecture.PNG)
+
+
 
 ### Technology Stack
 
