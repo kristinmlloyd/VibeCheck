@@ -1,0 +1,1181 @@
+[
+  {
+    "query": "La Grande Boucherie DC Washington DC",
+    "name": "La Grande Boucherie DC",
+    "place_id": "ChIJTzlOd6C3t4kR5pkF4ORwiyY",
+    "google_id": "0x89b7b7a0774e394f:0x268b70e4e00599e6",
+    "address": "699 14th St NW, Washington, DC 20005",
+    "rating": 4.7,
+    "reviews_count": 3681
+  },
+  {
+    "query": "Founding Farmers DC Washington DC",
+    "name": "Founding Farmers DC",
+    "place_id": "ChIJk58zcbq3t4kR9VDFZdcB5uE",
+    "google_id": "0x89b7b7ba71339f93:0xe1e601d765c550f5",
+    "address": "1924 Pennsylvania Ave NW #3607, Washington, DC 20006",
+    "rating": 4.4,
+    "reviews_count": 20980
+  },
+  {
+    "query": "OLIO E PI\u00d9 Washington DC",
+    "name": "OLIO E PI\u00d9",
+    "place_id": "ChIJMSwrjea3t4kReK-Q6Xxa1TA",
+    "google_id": "0x89b7b7e68d2b2c31:0x30d55a7ce990af78",
+    "address": "699 14th St NW, Washington, DC 20005",
+    "rating": 4.7,
+    "reviews_count": 1710
+  },
+  {
+    "query": "Le Diplomate Washington DC",
+    "name": "Le Diplomate",
+    "place_id": "ChIJgYIki-m3t4kRZImvuN_pp9Q",
+    "google_id": "0x89b7b7e98b248281:0xd4a7e9dfb8af8964",
+    "address": "1601 14th St NW, Washington, DC 20009",
+    "rating": 4.6,
+    "reviews_count": 7691
+  },
+  {
+    "query": "Amazonia (2nd Floor) Causa (1st Floor) Washington DC",
+    "name": "Amazonia (2nd Floor) Causa (1st Floor)",
+    "place_id": "ChIJsdbOywi3t4kR4h2lslSr_6w",
+    "google_id": "0x89b7b708cbced6b1:0xacffab54b2a51de2",
+    "address": "920 Blagden Alley NW 2nd Floor, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 677
+  },
+  {
+    "query": "Zaytinya Washington DC",
+    "name": "Zaytinya",
+    "place_id": "ChIJ3_mSkpG3t4kRDEWpol01OrI",
+    "google_id": "0x89b7b7919292f9df:0xb23a355da2a9450c",
+    "address": "701 9th St NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 9077
+  },
+  {
+    "query": "Fiola Mare Washington DC",
+    "name": "Fiola Mare",
+    "place_id": "ChIJZUQ8NEy2t4kRX3b-nMqKZ-I",
+    "google_id": "0x89b7b64c343c4465:0xe2678aca9cfe765f",
+    "address": "3100 K St NW, Washington, DC 20007",
+    "rating": 4.5,
+    "reviews_count": 2328
+  },
+  {
+    "query": "Grazie Nonna Washington DC",
+    "name": "Grazie Nonna",
+    "place_id": "ChIJHzGItKK3t4kRw1BDj6rrUME",
+    "google_id": "0x89b7b7a2b488311f:0xc150ebaa8f4350c3",
+    "address": "1100 15th St NW, Washington, DC 20005",
+    "rating": 4.2,
+    "reviews_count": 856
+  },
+  {
+    "query": "The Dabney Washington DC",
+    "name": "The Dabney",
+    "place_id": "ChIJrTuAH-23t4kRUu2vghXPScI",
+    "google_id": "0x89b7b7ed1f803bad:0xc249cf1582afed52",
+    "address": "122 Blagden Alley NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 1268
+  },
+  {
+    "query": "AMBAR Restaurant, Shaw Washington DC",
+    "name": "AMBAR Restaurant, Shaw",
+    "place_id": "ChIJi9WrvKa3t4kR_34V59UlvQs",
+    "google_id": "0x89b7b7a6bcabd58b:0xbbd25d5e7157eff",
+    "address": "1547 7th St NW, Washington, DC 20001",
+    "rating": 4.7,
+    "reviews_count": 1516
+  },
+  {
+    "query": "L'Ardente Washington DC",
+    "name": "L'Ardente",
+    "place_id": "ChIJ-82JrXi3t4kRSAkfWH-6ToU",
+    "google_id": "0x89b7b778ad89cdfb:0x854eba7f581f0948",
+    "address": "200 Massachusetts Ave NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 1919
+  },
+  {
+    "query": "Rooster & Owl Washington DC",
+    "name": "Rooster & Owl",
+    "place_id": "ChIJFRi3Siq3t4kRoH7xEpeT7iI",
+    "google_id": "0x89b7b72a4ab71815:0x22ee939712f17ea0",
+    "address": "2436 14th St NW, Washington, DC 20009",
+    "rating": 4.7,
+    "reviews_count": 879
+  },
+  {
+    "query": "Imperfecto Washington DC",
+    "name": "Imperfecto",
+    "place_id": "ChIJ3cVPOEW3t4kRoDGlzKQqgKI",
+    "google_id": "0x89b7b745384fc5dd:0xa2802aa4cca531a0",
+    "address": "1124 23rd St NW, Washington, DC 20037",
+    "rating": 4.7,
+    "reviews_count": 936
+  },
+  {
+    "query": "Old Ebbitt Grill Washington DC",
+    "name": "Old Ebbitt Grill",
+    "place_id": "ChIJgRwXf723t4kRdfqt36VafUU",
+    "google_id": "0x89b7b7bd7f171c81:0x457d5aa5dfadfa75",
+    "address": "675 15th St NW, Washington, DC 20005",
+    "rating": 4.6,
+    "reviews_count": 19284
+  },
+  {
+    "query": "Jaleo Washington DC",
+    "name": "Jaleo",
+    "place_id": "ChIJLQH_IJC3t4kRZLetUEiw_Lw",
+    "google_id": "0x89b7b79020ff012d:0xbcfcb04850adb764",
+    "address": "480 7th St NW, Washington, DC 20004",
+    "rating": 4.4,
+    "reviews_count": 5037
+  },
+  {
+    "query": "SUCCOTASH Washington DC",
+    "name": "SUCCOTASH",
+    "place_id": "ChIJEfb5qZG3t4kR8jQmH09MKRE",
+    "google_id": "0x89b7b791a9f9f611:0x11294c4f1f2634f2",
+    "address": "915 F St NW, Washington, DC 20004",
+    "rating": 4.4,
+    "reviews_count": 3532
+  },
+  {
+    "query": "Acqua Bistecca Washington DC",
+    "name": "Acqua Bistecca",
+    "place_id": "ChIJO9kwceDJt4kR5BVvNCruUFo",
+    "google_id": "0x89b7c9e07130d93b:0x5a50ee2a346f15e4",
+    "address": "14 Ridge Square NW, Washington, DC 20016",
+    "rating": 4.8,
+    "reviews_count": 500
+  },
+  {
+    "query": "BRESCA Washington DC",
+    "name": "BRESCA",
+    "place_id": "ChIJIfKOC-i3t4kRjYSije_nwy0",
+    "google_id": "0x89b7b7e80b8ef221:0x2dc3e7ef8da2848d",
+    "address": "1906 14th St NW, Washington, DC 20009",
+    "rating": 4.5,
+    "reviews_count": 814
+  },
+  {
+    "query": "Filomena Ristorante Washington DC",
+    "name": "Filomena Ristorante",
+    "place_id": "ChIJPTqF_Uu2t4kR9o9RyZkZPWA",
+    "google_id": "0x89b7b64bfd853a3d:0x603d1999c9518ff6",
+    "address": "1063 Wisconsin Ave NW, Washington, DC 20007",
+    "rating": 4.6,
+    "reviews_count": 5519
+  },
+  {
+    "query": "Fiola Washington DC",
+    "name": "Fiola",
+    "place_id": "ChIJJT16aoW3t4kRuvr4twwPMFY",
+    "google_id": "0x89b7b7856a7a3d25:0x56300f0cb7f8faba",
+    "address": "entrance on Indiana Ave, 601 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.6,
+    "reviews_count": 882
+  },
+  {
+    "query": "Unconventional Diner Washington DC",
+    "name": "Unconventional Diner",
+    "place_id": "ChIJz3M3Se23t4kRk5q7sY9-ZUU",
+    "google_id": "0x89b7b7ed493773cf:0x45657e8fb1bb9a93",
+    "address": "1207 9th St NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 6073
+  },
+  {
+    "query": "Seven Reasons Washington DC",
+    "name": "Seven Reasons",
+    "place_id": "ChIJLZMH6BC3t4kRm1AYuEfWHuw",
+    "google_id": "0x89b7b710e807932d:0xec1ed647b818509b",
+    "address": "931 H St NW, Washington, DC 20001",
+    "rating": 4.7,
+    "reviews_count": 2285
+  },
+  {
+    "query": "D\u014dgon by Kwame Onwuachi Washington DC",
+    "name": "D\u014dgon by Kwame Onwuachi",
+    "place_id": "ChIJtVoQBpi3t4kRTdYswbsDnaA",
+    "google_id": "0x89b7b79806105ab5:0xa09d03bbc12cd64d",
+    "address": "1330 Maryland Ave SW, Washington, DC 20024",
+    "rating": 4.5,
+    "reviews_count": 374
+  },
+  {
+    "query": "1789 Restaurant & Bar Washington DC",
+    "name": "1789 Restaurant & Bar",
+    "place_id": "ChIJcSJVZka2t4kRCZ2MmX6G6tM",
+    "google_id": "0x89b7b64666552271:0xd3ea867e998c9d09",
+    "address": "1226 36th St NW, Washington, DC 20007",
+    "rating": 4.6,
+    "reviews_count": 685
+  },
+  {
+    "query": "Fogo de Ch\u00e3o Brazilian Steakhouse Washington DC",
+    "name": "Fogo de Ch\u00e3o Brazilian Steakhouse",
+    "place_id": "ChIJleeiAJq3t4kRk0aQjdA8cts",
+    "google_id": "0x89b7b79a00a2e795:0xdb723cd08d904693",
+    "address": "1101 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.7,
+    "reviews_count": 10483
+  },
+  {
+    "query": "Oyster Oyster Washington DC",
+    "name": "Oyster Oyster",
+    "place_id": "ChIJQcHOEK-3t4kRbvsIP3ccItA",
+    "google_id": "0x89b7b7af10cec141:0xd0221c773f08fb6e",
+    "address": "1440 8th St NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 264
+  },
+  {
+    "query": "The Smith Washington DC",
+    "name": "The Smith",
+    "place_id": "ChIJI2TrrZG3t4kRhR-5UmDcits",
+    "google_id": "0x89b7b791adeb6423:0xdb8adc6052b91f85",
+    "address": "901 F St NW, Washington, DC 20004",
+    "rating": 4.3,
+    "reviews_count": 3957
+  },
+  {
+    "query": "The Pembroke Washington DC",
+    "name": "The Pembroke",
+    "place_id": "ChIJl-57Rsa3t4kRTPhGv9ZLhH8",
+    "google_id": "0x89b7b7c6467bee97:0x7f844bd6bf46f84c",
+    "address": "1500 New Hampshire Ave NW, Washington, DC 20036",
+    "rating": 4.6,
+    "reviews_count": 1442
+  },
+  {
+    "query": "Barbouzard Washington DC",
+    "name": "Barbouzard",
+    "place_id": "ChIJj70I5ka3t4kROjwBnqlc3Uk",
+    "google_id": "0x89b7b746e608bd8f:0x49dd5ca99e013c3a",
+    "address": "1700 K St NW, Washington, DC 20006",
+    "rating": 4.7,
+    "reviews_count": 111
+  },
+  {
+    "query": "DAIKAYA Washington DC",
+    "name": "DAIKAYA",
+    "place_id": "ChIJF2yEqzq3t4kRbnlXNGcKUmQ",
+    "google_id": "0x89b7b73aab846c17:0x64520a673457796e",
+    "address": "705 6th St NW, Washington, DC 20001",
+    "rating": 4.4,
+    "reviews_count": 5087
+  },
+  {
+    "query": "Obelisk Washington DC",
+    "name": "Obelisk",
+    "place_id": "ChIJq6XQYMi3t4kREUmQNyr72JA",
+    "google_id": "0x89b7b7c860d0a5ab:0x90d8fb2a37904911",
+    "address": "2029 P St NW, Washington, DC 20036",
+    "rating": 4.7,
+    "reviews_count": 184
+  },
+  {
+    "query": "The Red Hen Washington DC",
+    "name": "The Red Hen",
+    "place_id": "ChIJTWEMOfi3t4kRqIeS1vxpQ80",
+    "google_id": "0x89b7b7f8390c614d:0xcd4369fcd69287a8",
+    "address": "1822 1st St NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 944
+  },
+  {
+    "query": "Equinox on 19th Washington DC",
+    "name": "Equinox on 19th",
+    "place_id": "ChIJt6jHBLy3t4kRI2hxAOiO8fw",
+    "google_id": "0x89b7b7bc04c7a8b7:0xfcf18ee800716823",
+    "address": "900 19th St NW, Washington, DC 20006",
+    "rating": 4.5,
+    "reviews_count": 787
+  },
+  {
+    "query": "The Capital Grille Washington DC",
+    "name": "The Capital Grille",
+    "place_id": "ChIJJT16aoW3t4kRqUrkWxGsAR8",
+    "google_id": "0x89b7b7856a7a3d25:0x1f01ac115be44aa9",
+    "address": "601 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.6,
+    "reviews_count": 2604
+  },
+  {
+    "query": "La Bise Washington DC",
+    "name": "La Bise",
+    "place_id": "ChIJK8nUNHG3t4kRTG5x3Web9k0",
+    "google_id": "0x89b7b77134d4c92b:0x4df69b67dd716e4c",
+    "address": "800 Connecticut Ave NW Suite 600, Washington, DC 20006",
+    "rating": 4.6,
+    "reviews_count": 190
+  },
+  {
+    "query": "Tortino Restaurant Washington DC",
+    "name": "Tortino Restaurant",
+    "place_id": "ChIJScgTouy3t4kRxZH3rEzhwSE",
+    "google_id": "0x89b7b7eca213c849:0x21c1e14cacf791c5",
+    "address": "1228 11th St NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 1047
+  },
+  {
+    "query": "Nina May Washington DC",
+    "name": "Nina May",
+    "place_id": "ChIJuSpSwge3t4kReu4xONo-a-4",
+    "google_id": "0x89b7b707c2522ab9:0xee6b3eda3831ee7a",
+    "address": "1337 11th St NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 899
+  },
+  {
+    "query": "Gypsy Kitchen DC Washington DC",
+    "name": "Gypsy Kitchen DC",
+    "place_id": "ChIJ9VCFM7S3t4kRcI5PZzRqoCw",
+    "google_id": "0x89b7b7b4338550f5:0x2ca06a34674f8e70",
+    "address": "1825 14th St NW, Washington, DC 20009",
+    "rating": 4.6,
+    "reviews_count": 1796
+  },
+  {
+    "query": "The Lafayette Washington DC",
+    "name": "The Lafayette",
+    "place_id": "ChIJkSF0MLy3t4kRJmjwCVlDbUI",
+    "google_id": "0x89b7b7bc30742191:0x426d435909f06826",
+    "address": "800 16th St NW, Washington, DC 20006",
+    "rating": 4.5,
+    "reviews_count": 302
+  },
+  {
+    "query": "Bantam King Washington DC",
+    "name": "Bantam King",
+    "place_id": "ChIJFcDpYo63t4kRC8H3XfLixYM",
+    "google_id": "0x89b7b78e62e9c015:0x83c5e2f25df7c10b",
+    "address": "501 G St NW, Washington, DC 20001",
+    "rating": 4.4,
+    "reviews_count": 1765
+  },
+  {
+    "query": "New Heights Restaurant Washington DC",
+    "name": "New Heights Restaurant",
+    "place_id": "ChIJO_4WddS3t4kRJY1U7aZhQLQ",
+    "google_id": "0x89b7b7d47516fe3b:0xb44061a6ed548d25",
+    "address": "2317 Calvert St NW, Washington, DC 20008",
+    "rating": 4.6,
+    "reviews_count": 275
+  },
+  {
+    "query": "The Occidental Washington DC",
+    "name": "The Occidental",
+    "place_id": "ChIJ9yEHAZi3t4kR8O_zel8-og4",
+    "google_id": "0x89b7b798010721f7:0xea23e5f7af3eff0",
+    "address": "1475 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.3,
+    "reviews_count": 745
+  },
+  {
+    "query": "Lincoln Washington DC",
+    "name": "Lincoln",
+    "place_id": "ChIJxUmtY5W3t4kRc6DhUq_pEdc",
+    "google_id": "0x89b7b79563ad49c5:0xd711e9af52e1a073",
+    "address": "1110 Vermont Ave NW, Washington, DC 20005",
+    "rating": 4.2,
+    "reviews_count": 1548
+  },
+  {
+    "query": "Supra Washington DC",
+    "name": "Supra",
+    "place_id": "ChIJhaD7uuy3t4kRbo4VjzjU4M0",
+    "google_id": "0x89b7b7ecbafba085:0xcde0d4388f158e6e",
+    "address": "1205 11th St NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 2268
+  },
+  {
+    "query": "Le DeSales Washington DC",
+    "name": "Le DeSales",
+    "place_id": "ChIJy7Pvzri3t4kRG_ji3K_QvFY",
+    "google_id": "0x89b7b7b8ceefb3cb:0x56bcd0afdce2f81b",
+    "address": "1725 Desales St NW, Washington, DC 20036",
+    "rating": 4.6,
+    "reviews_count": 834
+  },
+  {
+    "query": "Moon Rabbit by Kevin Tien Washington DC",
+    "name": "Moon Rabbit by Kevin Tien",
+    "place_id": "ChIJ4chOq8y3t4kRcTTAVjo_JxI",
+    "google_id": "0x89b7b7ccab4ec8e1:0x12273f3a56c03471",
+    "address": "927 F St NW, Washington, DC 20004",
+    "rating": 4.4,
+    "reviews_count": 929
+  },
+  {
+    "query": "Mazi DC - New American Cuisine Washington DC",
+    "name": "Mazi DC - New American Cuisine",
+    "place_id": "ChIJAQD8aL63t4kRiomtai_7U50",
+    "google_id": "0x89b7b7be68fc0001:0x9d53fb2f6aad898a",
+    "address": "1518 K St NW, Washington, DC 20005",
+    "rating": 4.5,
+    "reviews_count": 737
+  },
+  {
+    "query": "Rasika West End Washington DC",
+    "name": "Rasika West End",
+    "place_id": "ChIJMUs6-ra3t4kRueqJ32bEmDU",
+    "google_id": "0x89b7b7b6fa3a4b31:0x3598c466df89eab9",
+    "address": "1190 New Hampshire Ave NW, Washington, DC 20037",
+    "rating": 4.3,
+    "reviews_count": 2366
+  },
+  {
+    "query": "SURA Restaurant Washington DC",
+    "name": "SURA Restaurant",
+    "place_id": "ChIJ8QB_UGC3t4kRxF_LLgNFg0Y",
+    "google_id": "0x89b7b760507f00f1:0x468345032ecb5fc4",
+    "address": "2016 P St NW, Washington, DC 20036",
+    "rating": 4.5,
+    "reviews_count": 301
+  },
+  {
+    "query": "Abuare Bar and Restaurant Washington DC",
+    "name": "Abuare Bar and Restaurant",
+    "place_id": "ChIJmYyPqPa3t4kRNiaecYmNgOk",
+    "google_id": "0x89b7b7f6a88f8c99:0xe9808d89719e2636",
+    "address": "1524 U St NW, Washington, DC 20009",
+    "rating": 4.9,
+    "reviews_count": 551
+  },
+  {
+    "query": "Pearl Dive Oyster Palace Washington DC",
+    "name": "Pearl Dive Oyster Palace",
+    "place_id": "ChIJk8E57em3t4kRmaKt-70LtHY",
+    "google_id": "0x89b7b7e9ed39c193:0x76b40bbdfbada299",
+    "address": "1612 14th St NW, Washington, DC 20009",
+    "rating": 4.6,
+    "reviews_count": 1342
+  },
+  {
+    "query": "Ambassador Restaurant Washington DC",
+    "name": "Ambassador Restaurant",
+    "place_id": "ChIJjSbkbuW3t4kRHxSjUO9zKBo",
+    "google_id": "0x89b7b7e56ee4268d:0x1a2873ef50a3141f",
+    "address": "1907 9th St NW, Washington, DC 20001",
+    "rating": 4.8,
+    "reviews_count": 218
+  },
+  {
+    "query": "Perry's Restaurant Washington DC",
+    "name": "Perry's Restaurant",
+    "place_id": "ChIJ4TuUGNq3t4kRcOnPr2VjK-k",
+    "google_id": "0x89b7b7da18943be1:0xe92b6365afcfe970",
+    "address": "1811 Columbia Rd NW, Washington, DC 20009",
+    "rating": 4.6,
+    "reviews_count": 1150
+  },
+  {
+    "query": "Cuba Libre Restaurant & Rum Bar Washington DC",
+    "name": "Cuba Libre Restaurant & Rum Bar",
+    "place_id": "ChIJWbms0pK3t4kRD09SSIL-X3k",
+    "google_id": "0x89b7b792d2acb959:0x795ffe8248524f0f",
+    "address": "801 9th St NW suite a, Washington, DC 20001",
+    "rating": 4.2,
+    "reviews_count": 5334
+  },
+  {
+    "query": "VUE Rooftop Washington DC",
+    "name": "VUE Rooftop",
+    "place_id": "ChIJj2LjX723t4kR-wvVBacDcSg",
+    "google_id": "0x89b7b7bd5fe3628f:0x287103a705d50bfb",
+    "address": "515 15th St NW, Washington, DC 20004",
+    "rating": 4.1,
+    "reviews_count": 2170
+  },
+  {
+    "query": "Stan's DC Restaurant Washington DC",
+    "name": "Stan's DC Restaurant",
+    "place_id": "ChIJNygYeZW3t4kRjuhKv0fwis0",
+    "google_id": "0x89b7b79579182837:0xcd8af047bf4ae88e",
+    "address": "1029 Vermont Ave NW, Washington, DC 20005",
+    "rating": 4.6,
+    "reviews_count": 2948
+  },
+  {
+    "query": "Firefly Washington DC",
+    "name": "Firefly",
+    "place_id": "ChIJ-RGIHMi3t4kRIp797BN8r9Y",
+    "google_id": "0x89b7b7c81c8811f9:0xd6af7c13ecfd9e22",
+    "address": "1310 New Hampshire Ave NW, Washington, DC 20036",
+    "rating": 4.2,
+    "reviews_count": 1017
+  },
+  {
+    "query": "El Sol Restaurante & Tequileria Washington DC",
+    "name": "El Sol Restaurante & Tequileria",
+    "place_id": "ChIJaV-wl-y3t4kR1W6OUZDXaB4",
+    "google_id": "0x89b7b7ec97b05f69:0x1e68d790518e6ed5",
+    "address": "1227 11th St NW, Washington, DC 20001",
+    "rating": 4.4,
+    "reviews_count": 2135
+  },
+  {
+    "query": "Central Michel Richard Washington DC",
+    "name": "Central Michel Richard",
+    "place_id": "ChIJPWnyu5C3t4kRIdRDYL2GkUU",
+    "google_id": "0x89b7b790bbf2693d:0x459186bd6043d421",
+    "address": "1001 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.4,
+    "reviews_count": 1119
+  },
+  {
+    "query": "L'Avant-Garde Washington DC",
+    "name": "L'Avant-Garde",
+    "place_id": "ChIJsxKz54G3t4kRWZ4ZN1DE4xM",
+    "google_id": "0x89b7b781e7b312b3:0x13e3c45037199e59",
+    "address": "2915 M St NW, Washington, DC 20007",
+    "rating": 4.3,
+    "reviews_count": 215
+  },
+  {
+    "query": "Floriana Washington DC",
+    "name": "Floriana",
+    "place_id": "ChIJyxpdUcG3t4kRVKxdIwecgoU",
+    "google_id": "0x89b7b7c1515d1acb:0x85829c07235dac54",
+    "address": "1602 17th St NW, Washington, DC 20009",
+    "rating": 4.5,
+    "reviews_count": 1021
+  },
+  {
+    "query": "Osteria Mozza DC Washington DC",
+    "name": "Osteria Mozza DC",
+    "place_id": "ChIJQ61PEpm3t4kRTWJXu3qmIIw",
+    "google_id": "0x89b7b799124fad43:0x8c20a67abb57624d",
+    "address": "3276 M St NW, Washington, DC 20007",
+    "rating": 4.3,
+    "reviews_count": 530
+  },
+  {
+    "query": "SH\u014cT\u014c Washington DC Washington DC",
+    "name": "SH\u014cT\u014c Washington DC",
+    "place_id": "ChIJJX6GeKS3t4kR6pg6rKnZ8LM",
+    "google_id": "0x89b7b7a478867e25:0xb3f0d9a9ac3a98ea",
+    "address": "1100 15th St NW, Washington, DC 20005",
+    "rating": 4.2,
+    "reviews_count": 1008
+  },
+  {
+    "query": "Ethiopic Restaurant Washington DC",
+    "name": "Ethiopic Restaurant",
+    "place_id": "ChIJr6MD5yK4t4kRsUM3q7Lffmk",
+    "google_id": "0x89b7b822e703a3af:0x697edfb2ab3743b1",
+    "address": "401 H St NE, Washington, DC 20002",
+    "rating": 4.6,
+    "reviews_count": 1292
+  },
+  {
+    "query": "Gerrard Street Kitchen Washington DC",
+    "name": "Gerrard Street Kitchen",
+    "place_id": "ChIJpWb9bl-3t4kRKu5F9lZ4Ggo",
+    "google_id": "0x89b7b75f6efd66a5:0xa1a7856f645ee2a",
+    "address": "1515 Rhode Island Ave NW, Washington, DC 20005",
+    "rating": 4.4,
+    "reviews_count": 189
+  },
+  {
+    "query": "Centrolina Washington DC",
+    "name": "Centrolina",
+    "place_id": "ChIJma782pO3t4kR-hKXI7SAq3U",
+    "google_id": "0x89b7b793dafcae99:0x75ab80b4239712fa",
+    "address": "974 Palmer Alley NW, Washington, DC 20001",
+    "rating": 4.4,
+    "reviews_count": 815
+  },
+  {
+    "query": "P.J. Clarke\u2019s DC Washington DC",
+    "name": "P.J. Clarke\u2019s DC",
+    "place_id": "ChIJSyXWjb63t4kR9yLeWUKcYjU",
+    "google_id": "0x89b7b7be8dd6254b:0x35629c4259de22f7",
+    "address": "1600 K St NW, Washington, DC 20006",
+    "rating": 4.3,
+    "reviews_count": 1490
+  },
+  {
+    "query": "The Royal Washington DC",
+    "name": "The Royal",
+    "place_id": "ChIJgdqZe_q3t4kRJCrv7aotdvY",
+    "google_id": "0x89b7b7fa7b99da81:0xf6762daaedef2a24",
+    "address": "501 Florida Ave NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 1124
+  },
+  {
+    "query": "The Greenhouse Washington DC",
+    "name": "The Greenhouse",
+    "place_id": "ChIJOYdIe7-3t4kRMcICtD__vd4",
+    "google_id": "0x89b7b7bf7b488739:0xdebdff3fb402c231",
+    "address": "1200 16th St NW, Washington, DC 20036",
+    "rating": 4.5,
+    "reviews_count": 189
+  },
+  {
+    "query": "801 Restaurant and Bar Washington DC",
+    "name": "801 Restaurant and Bar",
+    "place_id": "ChIJ9xLCPOW3t4kRUyLcYs5IY1Q",
+    "google_id": "0x89b7b7e53cc212f7:0x546348ce62dc2253",
+    "address": "801 Florida Ave NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 887
+  },
+  {
+    "query": "Alta Strada Embassy Row Washington DC",
+    "name": "Alta Strada Embassy Row",
+    "place_id": "ChIJE5EI6Yy3t4kR3w0BlIw-1uM",
+    "google_id": "0x89b7b78ce9089113:0xe3d63e8c94010ddf",
+    "address": "1600 Rhode Island Ave NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 535
+  },
+  {
+    "query": "The Capital Burger Washington DC",
+    "name": "The Capital Burger",
+    "place_id": "ChIJPyDqYI23t4kRqMOjheK1OtQ",
+    "google_id": "0x89b7b78d60ea203f:0xd43ab5e285a3c3a8",
+    "address": "1005 7th St NW, Washington, DC 20001",
+    "rating": 4.6,
+    "reviews_count": 4056
+  },
+  {
+    "query": "Baan Siam Washington DC",
+    "name": "Baan Siam",
+    "place_id": "ChIJ487vGge3t4kRGxvlusYPsrI",
+    "google_id": "0x89b7b7071aefcee3:0xb2b20fc6bae51b1b",
+    "address": "425 I St NW, Washington, DC 20001",
+    "rating": 4.4,
+    "reviews_count": 980
+  },
+  {
+    "query": "Izakaya Seki Washington DC",
+    "name": "Izakaya Seki",
+    "place_id": "ChIJFdhxgOa3t4kRXOvzEq6c_tw",
+    "google_id": "0x89b7b7e68071d815:0xdcfe9cae12f3eb5c",
+    "address": "1117 V St NW, Washington, DC 20009",
+    "rating": 4.4,
+    "reviews_count": 561
+  },
+  {
+    "query": "DC Vegan Washington DC",
+    "name": "DC Vegan",
+    "place_id": "ChIJHY3ob1W3t4kR2_MWpD7zbUM",
+    "google_id": "0x89b7b7556fe88d1d:0x436df33ea416f3db",
+    "address": "1633 P St NW, Washington, DC 20036",
+    "rating": 4.6,
+    "reviews_count": 845
+  },
+  {
+    "query": "Capital Doner Washington DC ( Shawarma - Gyro) Washington DC",
+    "name": "Capital Doner Washington DC ( Shawarma - Gyro)",
+    "place_id": "ChIJywqqLR63t4kR3o1FpQjlq6M",
+    "google_id": "0x89b7b71e2daa0acb:0xa3abe508a5458dde",
+    "address": "2035 P St NW, Washington, DC 20036",
+    "rating": 4.8,
+    "reviews_count": 2807
+  },
+  {
+    "query": "The Palm - Washington, D.C. Washington DC",
+    "name": "The Palm - Washington, D.C.",
+    "place_id": "ChIJO9-Yc7i3t4kRkJ_rj1jWyN4",
+    "google_id": "0x89b7b7b87398df3b:0xdec8d6588feb9f90",
+    "address": "1225 19th St NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 920
+  },
+  {
+    "query": "San Lorenzo Washington DC",
+    "name": "San Lorenzo",
+    "place_id": "ChIJ_8fESVq3t4kR1193jAB_OLA",
+    "google_id": "0x89b7b75a49c4c7ff:0xb0387f008c775fd7",
+    "address": "1316 9th St NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 429
+  },
+  {
+    "query": "Chang Chang Washington DC",
+    "name": "Chang Chang",
+    "place_id": "ChIJs9iFJC23t4kRa5Sf1VH3NGk",
+    "google_id": "0x89b7b72d2485d8b3:0x6934f751d59f946b",
+    "address": "1200 19th St NW ste 110, Washington, DC 20036",
+    "rating": 4.0,
+    "reviews_count": 385
+  },
+  {
+    "query": "North Italia Washington DC",
+    "name": "North Italia",
+    "place_id": "ChIJFRJOJLG3t4kREEO975QY56U",
+    "google_id": "0x89b7b7b1244e1215:0xa5e71894efbd4310",
+    "address": "2112 Pennsylvania Ave NW Ste 102, Washington, DC 20037",
+    "rating": 4.4,
+    "reviews_count": 1576
+  },
+  {
+    "query": "Rice Restaurant Washington DC",
+    "name": "Rice Restaurant",
+    "place_id": "ChIJMTUzjem3t4kRvTmjKsl04Rc",
+    "google_id": "0x89b7b7e98d333531:0x17e174c92aa339bd",
+    "address": "1608 14th St NW, Washington, DC 20009",
+    "rating": 4.4,
+    "reviews_count": 357
+  },
+  {
+    "query": "Claudio's Table Restaurant Washington DC",
+    "name": "Claudio's Table Restaurant",
+    "place_id": "ChIJjYyytdy1t4kRXt4rf-jGAec",
+    "google_id": "0x89b7b5dcb5b28c8d:0xe701c6e87f2bde5e",
+    "address": "5441 MacArthur Blvd NW, Washington, DC 20016",
+    "rating": 4.5,
+    "reviews_count": 120
+  },
+  {
+    "query": "TAPORI Washington DC",
+    "name": "TAPORI",
+    "place_id": "ChIJexU1eQC5t4kRYWKuh1GTcOw",
+    "google_id": "0x89b7b9007935157b:0xec70935187ae6261",
+    "address": "600 H St NE Suite E, Washington, DC 20002",
+    "rating": 4.6,
+    "reviews_count": 139
+  },
+  {
+    "query": "Al Tiramisu Washington DC",
+    "name": "Al Tiramisu",
+    "place_id": "ChIJCdhEe8i3t4kRdFLOg7Wv76k",
+    "google_id": "0x89b7b7c87b44d809:0xa9efafb583ce5274",
+    "address": "2014 P St NW, Washington, DC 20036",
+    "rating": 4.5,
+    "reviews_count": 485
+  },
+  {
+    "query": "Kingbird Washington DC",
+    "name": "Kingbird",
+    "place_id": "ChIJbTuat7K3t4kRFkX1v5V8ZmE",
+    "google_id": "0x89b7b7b2b79a3b6d:0x61667c95bff54516",
+    "address": "2650 Virginia Ave NW, Washington, DC 20037",
+    "rating": 4.1,
+    "reviews_count": 354
+  },
+  {
+    "query": "Elfegne Washington DC",
+    "name": "Elfegne",
+    "place_id": "ChIJmbIFsmy3t4kR80KIvqcp8iw",
+    "google_id": "0x89b7b76cb205b299:0x2cf229a7be8842f3",
+    "address": "2420 18th St NW, Washington, DC 20009",
+    "rating": 4.5,
+    "reviews_count": 190
+  },
+  {
+    "query": "Ristorante i Ricchi Washington DC",
+    "name": "Ristorante i Ricchi",
+    "place_id": "ChIJ93dYbbi3t4kR42iCvL2qKkI",
+    "google_id": "0x89b7b7b86d5877f7:0x422aaabdbc8268e3",
+    "address": "1220 19th St NW, Washington, DC 20036",
+    "rating": 4.3,
+    "reviews_count": 496
+  },
+  {
+    "query": "Teddy & The Bully Bar Washington DC",
+    "name": "Teddy & The Bully Bar",
+    "place_id": "ChIJhRtWZ2-4t4kRG7APJeIMJms",
+    "google_id": "0x89b7b86f67561b85:0x6b260ce2250fb01b",
+    "address": "1200 19th St NW, Washington, DC 20036",
+    "rating": 4.3,
+    "reviews_count": 1165
+  },
+  {
+    "query": "Michele\u2019s Washington DC",
+    "name": "Michele\u2019s",
+    "place_id": "ChIJ_aroh5S3t4kRSpHNK1Eo3ek",
+    "google_id": "0x89b7b79487e8aafd:0xe9dd28512bcd914a",
+    "address": "1201 K St NW, Washington, DC 20005",
+    "rating": 3.9,
+    "reviews_count": 214
+  },
+  {
+    "query": "The Prime Rib Washington DC",
+    "name": "The Prime Rib",
+    "place_id": "ChIJBycxtbC3t4kRu1zlN5MYum8",
+    "google_id": "0x89b7b7b0b5312707:0x6fba189337e55cbb",
+    "address": "2020 K St NW, Washington, DC 20006",
+    "rating": 4.3,
+    "reviews_count": 557
+  },
+  {
+    "query": "Guapo's Restaurant Washington DC",
+    "name": "Guapo's Restaurant",
+    "place_id": "ChIJcVc_woa3t4kRsTADsBFz45Q",
+    "google_id": "0x89b7b786c23f5771:0x94e37311b00330b1",
+    "address": "3050 Water St NW Suite WG60, Washington, DC 20007",
+    "rating": 4.4,
+    "reviews_count": 1520
+  },
+  {
+    "query": "El Rinconcito Caf\u00e9 Washington DC",
+    "name": "El Rinconcito Caf\u00e9",
+    "place_id": "ChIJ-e5isuy3t4kR0yUQB3gAOkI",
+    "google_id": "0x89b7b7ecb262eef9:0x423a0078071025d3",
+    "address": "1129 11th St NW, Washington, DC 20001",
+    "rating": 4.5,
+    "reviews_count": 1758
+  },
+  {
+    "query": "Swahili Village - Washington, D.C. Washington DC",
+    "name": "Swahili Village - Washington, D.C.",
+    "place_id": "ChIJreevCsi3t4kRDBQ5MPc1uUo",
+    "google_id": "0x89b7b7c80aafe7ad:0x4ab935f73039140c",
+    "address": "1990 M St NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 1431
+  },
+  {
+    "query": "Soi 38 Washington DC",
+    "name": "Soi 38",
+    "place_id": "ChIJPdIrEbe3t4kRdW8M2pswDwo",
+    "google_id": "0x89b7b7b7112bd23d:0xa0f309bda0c6f75",
+    "address": "2101 L St NW, Washington, DC 20036",
+    "rating": 4.2,
+    "reviews_count": 1091
+  },
+  {
+    "query": "Karravaan Washington DC",
+    "name": "Karravaan",
+    "place_id": "ChIJ7yXhQwC5t4kRSQAMKHTNc4U",
+    "google_id": "0x89b7b90043e125ef:0x8573cd74280c0049",
+    "address": "325 Morse St NE #1, Washington, DC 20002",
+    "rating": 4.6,
+    "reviews_count": 141
+  },
+  {
+    "query": "Himalayan Heritage Restaurant DC Washington DC",
+    "name": "Himalayan Heritage Restaurant DC",
+    "place_id": "ChIJixuxqdu3t4kRTFDxWNsrVhc",
+    "google_id": "0x89b7b7dba9b11b8b:0x17562bdb58f1504c",
+    "address": "2305 18th St NW, Washington, DC 20009",
+    "rating": 4.4,
+    "reviews_count": 804
+  },
+  {
+    "query": "Family Ethiopian Restaurant Washington DC",
+    "name": "Family Ethiopian Restaurant",
+    "place_id": "ChIJR-rMrAW3t4kR0iSfix2k5wI",
+    "google_id": "0x89b7b705acccea47:0x2e7a41d8b9f24d2",
+    "address": "1414 9th St NW, Washington, DC 20001",
+    "rating": 4.8,
+    "reviews_count": 1042
+  },
+  {
+    "query": "My Little Chamomile Washington DC",
+    "name": "My Little Chamomile",
+    "place_id": "ChIJLzzZPwC3t4kRUDLoBbVzJiI",
+    "google_id": "0x89b7b7003fd93c2f:0x222673b505e83250",
+    "address": "3210 Cherry Hill Ln, Washington, DC 20007",
+    "rating": 4.9,
+    "reviews_count": 68
+  },
+  {
+    "query": "Dovetail Bar & Restaurant Washington DC",
+    "name": "Dovetail Bar & Restaurant",
+    "place_id": "ChIJ9bWXbJG3t4kRA6jfJzXrqeg",
+    "google_id": "0x89b7b7916c97b5f5:0xe8a9eb3527dfa803",
+    "address": "1430 Rhode Island Ave NW, Washington, DC 20005",
+    "rating": 4.4,
+    "reviews_count": 118
+  },
+  {
+    "query": "Elcielo Restaurant Washington D.C. Washington DC",
+    "name": "Elcielo Restaurant Washington D.C.",
+    "place_id": "ChIJw43KgEy5t4kRarwZlIG4yg0",
+    "google_id": "0x89b7b94c80ca8dc3:0xdcab8819419bc6a",
+    "address": "1280 4th St NE, Washington, DC 20002",
+    "rating": 4.4,
+    "reviews_count": 322
+  },
+  {
+    "query": "Jardenea Restaurant & Lounge Washington DC",
+    "name": "Jardenea Restaurant & Lounge",
+    "place_id": "ChIJy05ZdrS3t4kR1CzYb2IxWxU",
+    "google_id": "0x89b7b7b476594ecb:0x155b31626fd82cd4",
+    "address": "2430 Pennsylvania Ave NW, Washington, DC 20037",
+    "rating": 4.1,
+    "reviews_count": 100
+  },
+  {
+    "query": "the DINER Washington DC",
+    "name": "the DINER",
+    "place_id": "ChIJc7pMLdq3t4kReli_EYrgEkQ",
+    "google_id": "0x89b7b7da2d4cba73:0x4412e08a11bf587a",
+    "address": "2453 18th St NW, Washington, DC 20009",
+    "rating": 4.2,
+    "reviews_count": 2352
+  },
+  {
+    "query": "La Tomate Washington DC",
+    "name": "La Tomate",
+    "place_id": "ChIJRcbJWc-3t4kRSKiAcljHzSo",
+    "google_id": "0x89b7b7cf59c9c645:0x2acdc7587280a848",
+    "address": "1701 Connecticut Avenue N.W, Washington, DC 20009",
+    "rating": 4.2,
+    "reviews_count": 1031
+  },
+  {
+    "query": "Etto Washington DC",
+    "name": "Etto",
+    "place_id": "ChIJXdb3iem3t4kRf7BgaO5MEf4",
+    "google_id": "0x89b7b7e989f7d65d:0xfe114cee6860b07f",
+    "address": "1541 14th St NW, Washington, DC 20005",
+    "rating": 4.3,
+    "reviews_count": 439
+  },
+  {
+    "query": "Immigrant Food at The White House Washington DC",
+    "name": "Immigrant Food at The White House",
+    "place_id": "ChIJUaha5aq3t4kRnVg5KTIAGp0",
+    "google_id": "0x89b7b7aae55aa851:0x9d1a00322939589d",
+    "address": "1701 Pennsylvania Ave NW, Washington, DC 20006",
+    "rating": 4.4,
+    "reviews_count": 717
+  },
+  {
+    "query": "Pascual Washington DC",
+    "name": "Pascual",
+    "place_id": "ChIJnwFICei5t4kRrj34dLKdpxs",
+    "google_id": "0x89b7b9e80948019f:0x1ba79db274f83dae",
+    "address": "732 Maryland Ave NE, Washington, DC 20002",
+    "rating": 4.4,
+    "reviews_count": 184
+  },
+  {
+    "query": "Alero Restaurant Dupont Washington DC",
+    "name": "Alero Restaurant Dupont",
+    "place_id": "ChIJbf-BRs-3t4kRh9rQOLYiek0",
+    "google_id": "0x89b7b7cf4681ff6d:0x4d7a22b638d0da87",
+    "address": "1629 Connecticut Ave NW, Washington, DC 20009",
+    "rating": 4.3,
+    "reviews_count": 1242
+  },
+  {
+    "query": "Caf\u00e9 du Parc Washington DC",
+    "name": "Caf\u00e9 du Parc",
+    "place_id": "ChIJadN45Ze3t4kRLP7UUWixHRo",
+    "google_id": "0x89b7b797e578d369:0x1a1db16851d4fe2c",
+    "address": "at Willard InterContinental, 1401 Pennsylvania Ave NW, Washington, DC 20004",
+    "rating": 4.0,
+    "reviews_count": 1031
+  },
+  {
+    "query": "The Jefferson, Washington, DC Washington DC",
+    "name": "The Jefferson, Washington, DC",
+    "place_id": "ChIJOYdIe7-3t4kREprpMMO1BKM",
+    "google_id": "0x89b7b7bf7b488739:0xa304b5c330e99a12",
+    "address": "1200 16th St NW, Washington, DC 20036",
+    "rating": 4.7,
+    "reviews_count": 745
+  },
+  {
+    "query": "Fred & Stilla Washington DC",
+    "name": "Fred & Stilla",
+    "place_id": "ChIJ10jdP_e3t4kRHFnshpNWuPQ",
+    "google_id": "0x89b7b7f73fdd48d7:0xf4b8569386ec591c",
+    "address": "2015 Massachusetts Ave NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 57
+  },
+  {
+    "query": "Elmina Washington DC",
+    "name": "Elmina",
+    "place_id": "ChIJq0uCMQC3t4kRNvqH6Qi-XLw",
+    "google_id": "0x89b7b70031824bab:0xbc5cbe08e987fa36",
+    "address": "2208 14th St NW, Washington, DC 20009",
+    "rating": 4.4,
+    "reviews_count": 203
+  },
+  {
+    "query": "&pizza Washington DC",
+    "name": "&pizza",
+    "place_id": "ChIJWaq-G663t4kRWK_-0qyPE7w",
+    "google_id": "0x89b7b7ae1bbeaa59:0xbc138facd2feaf58",
+    "address": "2224 F St NW, Washington, DC 20037",
+    "rating": 4.6,
+    "reviews_count": 1881
+  },
+  {
+    "query": "Qui Qui DC Washington DC",
+    "name": "Qui Qui DC",
+    "place_id": "ChIJX-S_kRq3t4kRKFyH7Lvhu4Y",
+    "google_id": "0x89b7b71a91bfe45f:0x86bbe1bbec875c28",
+    "address": "3227 Georgia Ave NW, Washington, DC 20010",
+    "rating": 4.2,
+    "reviews_count": 423
+  },
+  {
+    "query": "Absolute Thai Restaurant Washington DC",
+    "name": "Absolute Thai Restaurant",
+    "place_id": "ChIJc7quZY63t4kRgOQl2dysZoU",
+    "google_id": "0x89b7b78e65aeba73:0x8566acdcd925e480",
+    "address": "521 G St NW, Washington, DC 20001",
+    "rating": 4.3,
+    "reviews_count": 979
+  },
+  {
+    "query": "Il Piatto Restaurant Washington DC",
+    "name": "Il Piatto Restaurant",
+    "place_id": "ChIJ0fX0W3G3t4kRkjsg8V7TMzw",
+    "google_id": "0x89b7b7715bf4f5d1:0x3c33d35ef1203b92",
+    "address": "900 16th St NW, Washington, DC 20006",
+    "rating": 4.1,
+    "reviews_count": 637
+  },
+  {
+    "query": "CAVA Washington DC",
+    "name": "CAVA",
+    "place_id": "ChIJLQEDgbi3t4kR5mQ1nW5fN4E",
+    "google_id": "0x89b7b7b88103012d:0x81375f6e9d3564e6",
+    "address": "1222 Connecticut Ave NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 836
+  },
+  {
+    "query": "Sakana Japanese Restaurant Washington DC",
+    "name": "Sakana Japanese Restaurant",
+    "place_id": "ChIJgdiQZsi3t4kRCoDg2MBjqWg",
+    "google_id": "0x89b7b7c86690d881:0x68a963c0d8e0800a",
+    "address": "2026 P St NW, Washington, DC 20036",
+    "rating": 4.3,
+    "reviews_count": 464
+  },
+  {
+    "query": "Truno DC - Now Alta Strada Washington DC",
+    "name": "Truno DC - Now Alta Strada",
+    "place_id": "ChIJq6p6g8C3t4kRh26xTVMtDRc",
+    "google_id": "0x89b7b7c0837aaaab:0x170d2d534db16e87",
+    "address": "1600 Rhode Island Ave NW, Washington, DC 20036",
+    "rating": 4.4,
+    "reviews_count": 31
+  },
+  {
+    "query": "Piccolina da Centrolina Washington DC",
+    "name": "Piccolina da Centrolina",
+    "place_id": "ChIJM4U-QjC3t4kRsSgAeuKiI4Q",
+    "google_id": "0x89b7b730423e8533:0x8423a2e27a0028b1",
+    "address": "963 Palmer Alley NW, Washington, DC 20001",
+    "rating": 4.2,
+    "reviews_count": 264
+  },
+  {
+    "query": "Rania Washington DC",
+    "name": "Rania",
+    "place_id": "ChIJgQnWynC3t4kRoG2k8vB3owU",
+    "google_id": "0x89b7b770cad60981:0x5a377f0f2a46da0",
+    "address": "427 11th St NW, Washington, DC 20004",
+    "rating": 4.4,
+    "reviews_count": 441
+  },
+  {
+    "query": "No 10 Thomas Washington DC",
+    "name": "No 10 Thomas",
+    "place_id": "ChIJqWf-zOq3t4kRQheaS_QAZK0",
+    "google_id": "0x89b7b7eaccfe67a9:0xad6400f44b9a1742",
+    "address": "10 Thomas Cir NW, Washington, DC 20005",
+    "rating": 4.2,
+    "reviews_count": 111
+  },
+  {
+    "query": "Bindaas Washington DC",
+    "name": "Bindaas",
+    "place_id": "ChIJv1nej7C3t4kRNccAYV59KMA",
+    "google_id": "0x89b7b7b08fde59bf:0xc0287d5e6100c735",
+    "address": "2000 Pennsylvania Ave NW, Washington, DC 20006",
+    "rating": 3.9,
+    "reviews_count": 1490
+  },
+  {
+    "query": "GCDC Grilled Cheese Bar Washington DC",
+    "name": "GCDC Grilled Cheese Bar",
+    "place_id": "ChIJRTFadLu3t4kRDt2GBbe56WI",
+    "google_id": "0x89b7b7bb745a3145:0x62e9b9b70586dd0e",
+    "address": "1730 Pennsylvania Ave NW, Washington, DC 20006",
+    "rating": 4.4,
+    "reviews_count": 2020
+  },
+  {
+    "query": "The Patio at Hotel Washington Washington DC",
+    "name": "The Patio at Hotel Washington",
+    "place_id": "ChIJQ_nP55e3t4kRZ6xQIeWh6fI",
+    "google_id": "0x89b7b797e7cff943:0xf2e9a1e52150ac67",
+    "address": "Located in Hotel Washington, 515 15th St NW, Washington, DC 20004",
+    "rating": 3.2,
+    "reviews_count": 45
+  },
+  {
+    "query": "Dog Haus Biergarten Dupont (Washington DC) Washington DC",
+    "name": "Dog Haus Biergarten Dupont (Washington DC)",
+    "place_id": "ChIJnY67MUq3t4kRncRyT8shtvU",
+    "google_id": "0x89b7b74a31bb8e9d:0xf5b621cb4f72c49d",
+    "address": "1837 M St NW Unit 1, Washington, DC 20036",
+    "rating": 4.3,
+    "reviews_count": 302
+  },
+  {
+    "query": "Rajaji Curry House Indian Restaurant | Indian Restaurant In Washington DC | Indian Curry Washington DC",
+    "name": "Rajaji Curry House Indian Restaurant | Indian Restaurant In Washington DC | Indian Curry",
+    "place_id": "ChIJGRgaBdS3t4kRA_pbuc3i-nw",
+    "google_id": "0x89b7b7d4051a1819:0x7cfae2cdb95bfa03",
+    "address": "2603 Connecticut Ave NW, Washington, DC 20008",
+    "rating": 4.1,
+    "reviews_count": 722
+  },
+  {
+    "query": "Keren Cafe & Restaurant Washington DC",
+    "name": "Keren Cafe & Restaurant",
+    "place_id": "ChIJPVvwzcS3t4kRnxGhxVEHN4Y",
+    "google_id": "0x89b7b7c4cdf05b3d:0x86370751c5a1119f",
+    "address": "1780 Florida Ave NW, Washington, DC 20009",
+    "rating": 4.8,
+    "reviews_count": 1200
+  },
+  {
+    "query": "Fish in the Neighborhood Washington DC",
+    "name": "Fish in the Neighborhood",
+    "place_id": "ChIJfTWSkxrIt4kR9kTyFVnvFgs",
+    "google_id": "0x89b7c81a9392357d:0xb16ef5915f244f6",
+    "address": "3601 Georgia Ave NW, Washington, DC 20010",
+    "rating": 4.4,
+    "reviews_count": 413
+  },
+  {
+    "query": "Infamy Bar and Restaurant Washington DC",
+    "name": "Infamy Bar and Restaurant",
+    "place_id": "ChIJHeqe4r-3t4kRlGlKGKp7_Nc",
+    "google_id": "0x89b7b7bfe29eea1d:0xd7fc7baa184a6994",
+    "address": "1400 M St NW, Washington, DC 20005",
+    "rating": 3.8,
+    "reviews_count": 99
+  },
+  {
+    "query": "Roti Mediterranean Bowls. Salads. Pitas. Washington DC",
+    "name": "Roti Mediterranean Bowls. Salads. Pitas.",
+    "place_id": "ChIJUZ2cBpe3t4kR72bANuSUYYE",
+    "google_id": "0x89b7b797069c9d51:0x816194e436c066ef",
+    "address": "1311 F St NW, Washington, DC 20004",
+    "rating": 4.2,
+    "reviews_count": 784
+  },
+  {
+    "query": "Siroc Restaurant Washington DC",
+    "name": "Siroc Restaurant",
+    "place_id": "ChIJx1-IHr63t4kRcquq9ByDA8I",
+    "google_id": "0x89b7b7be1e885fc7:0xc203831cf4aaab72",
+    "address": "915 15th St NW, Washington, DC 20005",
+    "rating": 4.4,
+    "reviews_count": 419
+  }
+]

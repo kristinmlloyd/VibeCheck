@@ -5,7 +5,8 @@ data/
 *.faiss
 *.csv
 restaurant_images/
-sample_images/
+scripts/v
+scripts/vibecheck_full_output/images/
 image_collection_progress.json
 
 # Old scripts (keeping for reference but not tracking)
