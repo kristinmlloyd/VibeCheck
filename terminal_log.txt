@@ -1,0 +1,1000 @@
+  174  cd mnt/c/
+  175  ls
+  176  cd Users
+  177  ls
+  178  cd manav
+  179  ls
+  180  cd OneDrive/
+  181  cd Documents/
+  182  ls
+  183  cd MS\ DSAN/5000/labs/
+  184  ls
+  185  cd lab-1.2-git-quarto-scp/
+  186  git clone https://github.com/manav-ar/5000-lab-1.2.git
+  187  ls
+  188  cd 5000-lab-1.2/
+  189  ls
+  190  cd simple_quarto_website/
+  191  rm styles.css
+  192  mkdir images
+  193  mkdir slides
+  194  quarto convert about.qmd
+  195  ls
+  196  more reference.bib 
+  197  quarto preview
+  198  jupyter-notebook
+  199  conda install -c conda-forge wikipedia
+  200  python -m pip install wikipedia_sections
+  201  conda install -c conda-forge wordcloud
+  202  cd pixify
+  203  ls
+  204  cd submission/
+  205  cd pixify/
+  206  ls
+  207  pip install -e
+  208  ls
+  209  pip install -e setup.py
+  210  pip install -e .
+  211  cd ..
+  212  cd..
+  213  cd scripts
+  214  chmod +x git.sh
+  215  ./git.sh
+  216  cd ..
+  217  git status
+  218  cd scripts
+  219  ls
+  220  cd submission/scripts/
+  221  ./git.sh
+  222  tree
+  223  cd ..
+  224  sudo apt install tree
+  225  tree
+  226  cd submission/
+  227  cd submission/scripts/
+  228  cd scripts/
+  229  ls
+  230  ./git.sh
+  231  conda install pytorch::pytorch
+  232  conda install pytorch::torchvision
+  233  ./git.sh
+  234  cd ../
+  235  cd website/
+  236  quarto preview  index.qmd
+  237  cd ..
+  238  cd scripts/
+  239  python -m process.py
+  240  cd ..
+  241  chmod +x run.sh
+  242  ./run.sh
+  243  cd ..
+  244  cd submission/
+  245  cd website/
+  246  nano tree.qmd
+  247  cd ..
+  248  ./run.sh
+  249  ./run.sh~
+  250  ./run.sh
+  251  cd submission/
+  252  ./run.sh
+  253  cd ..
+  254  git clone https://github.com/dsan-5000/hw-1-manav-ar.git
+  255  cd ..
+  256  https://github.com/dsan-5000/hw-1-manav-ar.git
+  257  git clone https://github.com/dsan-5000/hw-1-manav-ar.git
+  258  cd hw
+  259  cd ls
+  260  ls
+  261  cd hw-1-manav-ar-1/
+  262  ls
+  263  rm -rf .git
+  264  cd ..
+  265  mv ./hw-1-manav-ar/.git ./hw/hw-1-manav-ar-1/
+  266  cs hw
+  267  cd hw
+  268  cd hw-1-manav-ar-1/
+  269  cd submission/
+  270  ./run.sh
+  271  python -m nb
+  272  conda
+  273  conda env list
+  274  conda activate dsan5400
+  275  python -m nb
+  276  conda install anaconda::seaborn
+  277  python -m nb
+  278  jupyter-notebook
+  279  conda activate dsan5400
+  280  python -m nb
+  281  python -m nb --indir './data'
+  282  python -m nb_1 --indir './data'
+  283  python -m nb_1
+  284  python -m nb_1 --indir './data'
+  285  /bin/python3 "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/5400/fall-2024-assignment-02-manav-ar/scripts/nb.py"
+  286  conda activate dsan5400
+  287  python -m nb --indir '/data'
+  288  python -m nb.py --indir '/data'
+  289  cd scripts
+  290  python -m nb.py --indir '/data'
+  291  python -m nb --indir './data'
+  292  ls
+  293  less tesla.csv
+  294  env --list
+  295  conda --env list
+  296  conda --envs list
+  297  conda envs list
+  298  conda list
+  299  conda list envs
+  300  conda list env
+  301  conda activate base
+  302  jupyter-notebook
+  303  quatro convert lab-2.2.1.ipynb.
+  304  quarto convert lab-2.2.1.ipynb.
+  305  quarto convert lab-2.2.1.ipynb
+  306  quarto render lab-2.2.1.qmd
+  307  conda install conda-forge::missingno
+  308  jupyter-notebook
+  309  quarto convert lab-3.1_.ipynb 
+  310  quarto render lab-3.1_.qmd 
+  311  jupyter-notebook
+  312  conda install anaconda::nltk
+  313  conda install anaconda::scikit-learn
+  314  jupyter-notebook
+  315  ls
+  316  cd codes-and-outputs/
+  317  python district.py 
+  318  python loans.py
+  319  python analytical.py 
+  320  python loans.py
+  321  cd codes-and-outputs/
+  322  python loans.py 
+  323  cd ..
+  324  cd hw-2-manav-ar/
+  325  ls
+  326  git rm codes-and-outputs/loans.ipynb 
+  327  git rm codes-and-outputs/.Rhistory 
+  328  git push
+  329  quarto convert lab-3.2.ipynb 
+  330  quarto render lab-3.2.qmd 
+  331  jupyter-notebook
+  332  cd nb
+  333  ls
+  334  pytest tests
+  335  conda activate dsan5400
+  336  pytest tests
+  337  ls
+  338  cd nb
+  339  ls
+  340  cd bin
+  341  ls
+  342  python main
+  343  python main.py
+  344  cd ..
+  345  python main.py
+  346  python nb/bin/main.py
+  347  pip install .
+  348  python nb/bin/main.py
+  349  ls
+  350  python nb/bin/main.py /data
+  351  python nb/bin/main.py --/data
+  352  python nb/bin/main.py -f /data
+  353  python nb/bin/main.py -f ./data
+  354  pip install .
+  355  pytest tests
+  356  python nb/bin/main.py -f ./data
+  357  pytest tests
+  358  python nb/bin/main.py -f ./data
+  359  pytest tests
+  360  cd ..
+  361  cd index
+  362  python index
+  363  python index.py
+  364  python index.py -f /20newsgroups-initial.xml -t whitespace
+  365  python index.py -f ./20newsgroups-initial.xml -t whitespace
+  366  python index.py -f ./20newsgroups-initial.xml -t ngram
+  367  python index.py -f ./20newsgroups-initial.xml -t whitespace
+  368  python index.py -f ./20newsgroups-initial.xml -t whitespace -s
+  369  python index.py -f ./20newsgroups-initial.xml -t offtheshelf -s
+  370  python index.py -f ./20newsgroups-initial.xml -t whitespace -s
+  371  python index.py -f ./20newsgroups-initial.xml -t ngram -s
+  372  python index.py -f ./20newsgroups-initial.xml -t offtheshelf -s
+  373  python index.py -f ./20newsgroups-initial.xml -t offtheshelf 
+  374  python index.py -f ./20newsgroups-initial.xml -t whitespace
+  375  python index.py -f ./20newsgroups-initial.xml -t whitespace -s
+  376  python index.py -f ./20newsgroups-initial.xml -t whitespace 
+  377  python index.py -f ./20newsgroups-initial.xml -t whitespace -s
+  378  python index.py -f ./20newsgroups-initial.xml -t whitespace
+  379  python index.py -f ./20newsgroups-additional.xml -t whitespace
+  380  python index.py -f ./20newsgroups-additional.xml -t whitespace -s
+  381  python index.py -f ./20newsgroups-additional.xml -t offtheshelf 
+  382  python index.py -f ./20newsgroups-initial.xml -t whitespace
+  383  python index.py -f ./20newsgroups-initial.xml -t whitespace -s
+  384  python index.py -f ./20newsgroups-initial.xml -t offtheshelf
+  385  python index.py -f ./20newsgroups-initial.xml -t offtheshelf -s
+  386  python index.py -f ./20newsgroups-initial.xml -t ngram
+  387  python index.py -f ./20newsgroups-initial.xml -t ngram -s
+  388  python index.py -f ./20newsgroups-initial.xml -t base
+  389  python index.py -f ./20newsgroups-initial.xml -t base -s
+  390  python index.py -f ./20newsgroups-initial.xml -t nltk
+  391  python index.py -f ./20newsgroups-initial.xml -t nltk -s
+  392  python index.py -f ./20newsgroups-initial.xml -t ngram 
+  393  python index.py -f ./20newsgroups-initial.xml -t ngram -s
+  394  cd ..
+  395  cd nb
+  396  python nb/bin/main.py -f ./data
+  397  pytest tests
+  398  pwd
+  399  cd ..
+  400  cd ...
+  401  cd ..
+  402  jupyter-notebook
+  403  quarto convert lab.ipynb 
+  404  quarto render lab.qmd 
+  405  jupyter-notebook
+  406  quarto render hw4.ipynb 
+  407  jupyter-notebook
+  408  jupyter-notebook
+  409  quarto render lab.ipynb 
+  410  python
+  411  pip uninstall openai
+  412  pip install openai
+  413  pip install openai --upgrade
+  414  jupyter-notebook 
+  415  python scrape.py
+  416  pip install tldextract
+  417  python scrape.py
+  418  cd mbfc_scrape/
+  419  python scrape.py
+  420  python clean.py
+  421  jupyter-notebook
+  422  conda --envs
+  423  conda activate dsan5400
+  424  pip install poetry
+  425  conda install conda-forge::poetry
+  426  jupyter-notebook
+  427  k
+  428  pwd
+  429  cd ..
+  430  pwd
+  431  ls
+  432  cd mnt/c/Users/manav/OneDrive/
+  433  ls
+  434  cd ..
+  435  Downloads/
+  436  ls
+  437  cd Downloads/
+  438  ls
+  439  cd ..
+  440  cd manav/
+  441  cd OneDrive/Documents/MS\ DSAN/5400/project/
+  442  ls
+  443  split -l 25000 english_mbfc.csv 
+  444  split -l 25000 english_mbfc.csv batch -d --additional-suffix=.csv
+  445  jupyter-notebook
+  446  git config pull.rebase true
+  447  jupyter-notebook
+  448  quarto preview "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/5000/labs/lab-5.3-DT-fundamentals/assignment.ipynb" --no-browser --no-watch-inputs
+  449  jupyter-notebook
+  450  cd bin
+  451  cd matcher/
+  452  cd bin
+  453  python main.py
+  454  ls
+  455  cd matcher/
+  456  cd bin
+  457  python main.py
+  458  conda activate dsan5400
+  459  python main.py
+  460  conda install conda-forge::levenshtein
+  461  python main.py
+  462  python main.py -f matcher/data/annotated-index.tsv -s exact 
+  463  python main.py -f.matcher/data/annotated-index.tsv -s exact 
+  464  python main.py -f ./matcher/data/annotated-index.tsv -s exact 
+  465  python main.py -f ././data/annotated-index.tsv -s exact 
+  466  python main.py -f ./.data/annotated-index.tsv -s exact 
+  467  pwd
+  468  cd ././
+  469  cd ./
+  470  cd ../
+  471  cd bin
+  472  python main.py -f ../../data/annotated-index.tsv -s exact 
+  473  cd ..
+  474  python matcher/bin/ main.py -f /data/annotated-index.tsv -s exact 
+  475  python -m  matcher/bin/ main.py -f /data/annotated-index.tsv -s exact 
+  476  python -m  matcher/bin/main.py -f /data/annotated-index.tsv -s exact 
+  477  python -m  matcher/bin/main -f /data/annotated-index.tsv -s exact 
+  478  python  matcher/bin/main.py -f /data/annotated-index.tsv -s exact 
+  479  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact 
+  480  pwd
+  481  ls
+  482  cd data
+  483  ls
+  484  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact 
+  485  cd ..
+  486  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact 
+  487  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact -e 1 --plot_curves 1
+  488  python  matcher/bin/main.py -f data/annotated-index.tsv -s levenshtein -e 1 --plot_curves 1
+  489  python  matcher/bin/main.py -f data/annotated-index.tsv -s cosine -e 1 --plot_curves 1
+  490  python  matcher/bin/main.py -f data/annotated-index.tsv -s jaccard -e 1 --plot_curves 1
+  491  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact -e 1 --plot_curves 1
+  492  python  matcher/bin/main.py -f data/annotated-index.tsv -s levenshtein -e 1 --plot_curves 1
+  493  python  matcher/bin/main.py -f data/annotated-index.tsv -s jaccard -e 1 --plot_curves 1
+  494  python  matcher/bin/main.py -f data/annotated-index.tsv -s cosine -e 1 --plot_curves 1
+  495  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact -e 1 --plot_curves 1
+  496  python  matcher/bin/main.py -f data/annotated-index.tsv -s jaccard -e 1 --plot_curves 1
+  497  python  matcher/bin/main.py -f data/annotated-index.tsv -s levenshtein -e 1 --plot_curves 1
+  498  python  matcher/bin/main.py -f data/annotated-index.tsv -s jaccard -e 1 --plot_curves 1
+  499  python  matcher/bin/main.py -f data/annotated-index.tsv -s cosine -e 1 --plot_curves 1
+  500  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact -e 1 --plot_curves 1
+  501  python  matcher/bin/main.py -f data/annotated-index.tsv -s jaccard -e 1 --plot_curves 1
+  502  python  matcher/bin/main.py -f data/annotated-index.tsv -s cosine -e 1 --plot_curves 1
+  503  python  matcher/bin/main.py -f data/annotated-index.tsv -s exact -e 1 --plot_curves 1
+  504  cd bm25\ streamlit/
+  505  streamlit run colbert_app.oy
+  506  streamlit run colbert_app.py
+  507  cd bm25\ streamlit/
+  508  run streamlit final.py
+  509  streamlit run final.py
+  510  streamlit run colbert_app.py
+  511  streamlit run final.py
+  512  jupyter-notebook
+  513  build.sh
+  514  chmod +x build.sh
+  515  build.sh
+  516  chmod +x build.sh
+  517  build.sh
+  518  chmod +x build.sh
+  519  build.sh
+  520  chmod +x build.sh
+  521  build.sh
+  522  cd _site
+  523  chmod +x build.sh
+  524  chmod +x ./build.sh
+  525  chmod +x ../build.sh
+  526  ../build.sh
+  527  chmod +x build.sh
+  528  build.sh
+  529  ./build.sh
+  530  chmod +x build.sh
+  531  ./build.sh
+  532  cd app
+  533  streamlit run final.py
+  534  jupyter-notebook
+  535  quarto convert lab-python.qmd 
+  536  jupyter-notebook
+  537  conda create -n dsan6600 python=3.10
+  538  conda activate dsan6600
+  539  python -m pip install --upgrade pip
+  540  conda install pytorch torchvision torchaudio cpuonly -c pytorch
+  541  python -m pip install tensorflow 
+  542  jupyter-notebook
+  543  conda install anaconda::jupyter
+  544  jupyter-notebook
+  545  conda install anaconda::statsmodels
+  546  conda install -c conda-forge mscorefonts
+  547  cd ..
+  548  pwd
+  549  ls
+  550  cd home
+  551  ls
+  552  cd manav
+  553  ls
+  554  cd ..
+  555  ls
+  556  cd home/manav/
+  557  ls
+  558  cd ..
+  559  ls
+  560  cd mnt/c/Users/manav/OneDrive/Documents/MS\ DSAN/5200/labs/
+  561  ls
+  562  cd dsan5200-spring2025-lab01-manav-ar/
+  563  quarto convert lab-python.ipynb 
+  564  quarto render lab-python.qmd 
+  565  quarto render lab-r.qmd 
+  566  quarto render conceptual.qmd 
+  567  jupyter-notebook
+  568  quarto convert lab.qmd
+  569  jupyter-notebook 
+  570  quarto render HW-1.ipynb 
+  571  cd ..
+  572  ls
+  573  cd labs
+  574  ls
+  575  lab-2-logistic-regression/
+  576  cd lab-2-logistic-regression/
+  577  quarto render lab.ipynb
+  578  jupyter-notebook 
+  579  quarto convert distillation.ipynb 
+  580  quarto render distillation.qmd 
+  581  quarto convert distillation.ipynb 
+  582  quarto render distillation.qmd 
+  583  jupyter-notebook 
+  584  quarto convert test.ipynb 
+  585  python -m data-munging
+  586  quarto convert test.ipynb 
+  587  quarto render submission.qmd
+  588  pip install reticulate
+  589  conda install -c conda-forge r-reticulate
+  590  quarto render submission.qmd
+  591  quarto convert backprop.ipynb 
+  592  quarto render backprop.qmd 
+  593  quarto convert backprop.ipynb 
+  594  quarto render backprop.qmd 
+  595  quarto convert backprop.ipynb 
+  596  quarto render backprop.qmd 
+  597  jupyter-notebook
+  598  quarto convert lab.ipynb 
+  599  quarto preview "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/5200/assignments/dsan5200-spring2025-a04-manav-ar/eda-py.qmd" --no-browser --no-watch-inputs
+  600  quarto render eda-py.qmd
+  601  jupyter-notebook
+  602  quarto preview my_submission.qmd
+  603  quarto render my_submission.qmd
+  604  quarto preview my_submission.qmd
+  605  quarto render my_submission.qmd
+  606  python -m http.server
+  607  quarto render my_submission.qmd
+  608  python -m http.server
+  609  quarto render index.qmd
+  610  quarto render my_submission.qmd
+  611  python -m http.server
+  612  quarto render
+  613  python -m http.server
+  614  conda activate dsan6600
+  615  jupyter-notebook
+  616  conda activate dsan6600
+  617  jupyter-notebook
+  618  R
+  619  jupyter-notebook
+  620  conda activate dsan6600
+  621  jupyter-notebook 
+  622  conda activate dsan6600
+  623  jupyter-notebook
+  624  quarto convert code.ipynb 
+  625  quarto render code.qmd
+  626  quarto render map.qmd
+  627  quarto render maps.qmd
+  628  jupyter-notebook
+  629  quarto preview "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/5300/labs/lab-7-SVM/svm-lab.qmd" --no-browser --no-watch-inputs
+  630  conda activate dsan6600
+  631  jupyter-notebook
+  632  conda activate dsan6600
+  633  jupyter-notebook
+  634  quarto preview svm-lab.qmd
+  635  quarto render svm-lab.qmd
+  636  quarto preview "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/5200/assignments/dsan5200-spring2025-a05-manav-ar/interactive.qmd" --no-browser --no-watch-inputs
+  637  quarto preview interactive.qmd
+  638  quarto render interactive.qmd
+  639  jupyter-notebook
+  640  cd
+  641  cd ..
+  642  cd mnt/c/Users/manav/OneDrive/Documents/MS\ DSAN/project/
+  643  npm install -g npm 
+  644  sudo apt install npm
+  645  wsl -u root
+  646  sudo apt install npm
+  647  curl -o- https://fnm.vercel.app/install | bash
+  648  fnm install 22
+  649  python sample.py
+  650  pip install dash 
+  651  python sample.py
+  652  pip install dash-globe 
+  653  import pandas as pd
+  654  import dash
+  655  from dash import dcc, html
+  656  import dash_globe
+  657  # Load dataset
+  658  df = pd.read_csv("security_incidents.csv")
+  659  # Normalize severity
+  660  df["severity_norm"] = (df["Total affected"] - df["Total affected"].min()) / (df["Total affected"].max() - df["Total affected"].min())
+  661  # Prepare data for the globe visualization
+  662  locations = df[['Latitude', 'Longitude', 'severity_norm', 'Total affected', 'Location', 'Year']]
+  663  # Initialize the Dash app
+  664  app = dash.Dash(__name__)
+  665  app.layout = html.Div([
+  666  ])
+  667  if __name__ == "__main__":;     app.run(debug=True)
+  668  pip install dash globe 
+  669  python sample.py
+  670  jupyter-notebook
+  671  npm run dev
+  672  python sample.py
+  673  pip install dash-bootstrap-components
+  674  python app.py
+  675  jupyter-notebook
+  676  quarto preview "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/project/test.qmd" --no-browser --no-watch-inputs
+  677  conda activate dsan6600
+  678  jupyter-notebook
+  679  cd torch-mini-gpt-code/
+  680  jupyter-notebook
+  681  conda activate dsan6600
+  682  jupyter-notebook
+  683  quarto convert lab.ipynb 
+  684  jupyter-notebook
+  685  quarto render Homework-4_S3.qmd 
+  686  source /home/manav.bashrc
+  687  fnm install 22
+  688  node -v
+  689  npm -v
+  690  npx "@observablehq/framework@latest" create 
+  691  npm run deploy 
+  692  ls 
+  693  cd hello-framework/
+  694  npm run deploy
+  695  cwd
+  696  ls
+  697  python testing.py
+  698  quarto preview test.qmd 
+  699  python app.py
+  700  build.sh
+  701  quarto preview
+  702  quarto preview report.qmd
+  703  quarto preview report/report.qmd
+  704  quarto preview
+  705  jupyter-notebook
+  706  pip install vega
+  707  quarto install extension quarto-ext/vega
+  708  pip install panel 
+  709  quarto preview
+  710  quarto render
+  711  quarto render report/report.qmd
+  712  quarto preview
+  713  build.sh
+  714  quarto preview
+  715  cd data
+  716  ls
+  717  cd ..
+  718  quarto preview .
+  719  jupyter-notebook
+  720  build.sh
+  721  python testing.py
+  722  python app.py
+  723  pip freeze > requirements.txt
+  724  python --version
+  725  heroku login
+  726  curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  727  pip list --format=freeze > requirements.txt
+  728  git config pull.rebase false
+  729  python app.py
+  730  git checkout manav
+  731  git pull
+  732  git add .
+  733  quarto preview .
+  734  jupyter-notebook
+  735  git checkout manav
+  736  git add . 
+  737  git commit 
+  738  conda activate dsan6600
+  739  pip freeze > requirements.txt
+  740  streamlit run app.py
+  741  python
+  742  git git status
+  743  git remote get-url
+  744  git remote get-url origin
+  745  git remote set url origin 
+  746  git remote set url origin <https://github.com/gu-dsan5200/dsan5200-spring2025-project-group-29.git>
+  747  git remote set-url origin <https://github.com/gu-dsan5200/dsan5200-spring2025-project-group-29.git>
+  748  git remote set-url origin https://github.com/gu-dsan5200/dsan5200-spring2025-project-group-29/tree/main
+  749  git remote get-url
+  750  git remote -v
+  751  get checkout manav
+  752  git add .
+  753  git remote -v
+  754  git checkout -b <manav>
+  755  git checkout -b manav
+  756  git checkout -b manav1
+  757  git remote -v
+  758  git checkout manav1
+  759  git remote -v
+  760  git add .
+  761  git push 
+  762  git commit
+  763  git remote set-url origin https://github.com/gu-dsan5200/dsan5200-spring2025-project-group-29.git
+  764  git add.
+  765  git add .
+  766  git push -u origin manav1
+  767  python app.py
+  768  ls
+  769  quarto convert HW_5.ipynb 
+  770  quarto render HW_5.qmd 
+  771  conda activate dsan6600
+  772  jupyter-notebook
+  773  quarto preview .
+  774  cd report/
+  775  quarto preview report.qmd 
+  776  quarto preview .
+  777  cd ..
+  778  quarto preview .
+  779  build.sh
+  780  quarto preview .
+  781  cd report/
+  782  quarto preview .
+  783  cd ..
+  784  build.sh
+  785  cd ..
+  786  cd dsan5200-spring2025-project-group-29/
+  787  quarto preview .
+  788  sudo quarto preview .
+  789  quarto preview .
+  790  cd report/
+  791  quarto preview report.qmd
+  792  quarto preview .
+  793  jupyter-notebook
+  794  pip install pycountry
+  795  build.sh
+  796  quarto preview .
+  797  quarto render
+  798  quarto preview .
+  799  quarto preview report.qmd
+  800  build.sh
+  801  pip freeze > requirements.txt
+  802  jupyter-notebook
+  803  ls C:/Users/manav/Downloads/dsan6000-acc1.pem
+  804  pwd
+  805  cd ..
+  806  pwd
+  807  cd mnt
+  808  cd c
+  809  cd user
+  810  cd
+  811  ls
+  812  cd ..
+  813  ls
+  814  cd ..
+  815  ls
+  816  cd mnt
+  817  ls
+  818  cd c
+  819  ls
+  820  cd Users
+  821  ls
+  822  cd manav
+  823  ls
+  824  ls Downloads
+  825  cd Downloads
+  826  ls dsan6000-acc1.pem
+  827  chmod 400
+  828  chmod - 400
+  829  chmod 400 /mnt/c/Users/manav/Downloads/dsan6000-acc1.pem
+  830  chmod 400 /mnt/c/Users/manav/Downloads/dsan6000-acc1.pem
+  831  ls /mnt/c/Users/manav/Downloads/dsan6000-acc1.pem
+  832  chmod 400 The following issues were detected in your most recent Remote - SSH session 
+  833  Ctrl+click on an issue to continue in Copilot Chat. 
+  834  ╔══════════════════╤══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+  835  ║      Status      │ Message                                                                                                                                  ║
+  836  ╟──────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╢
+  837  ║ PermissionDenied │ Error: PermissionDenied (Permission denied (publickey).)                                                                                 ║
+  838  ╚══════════════════╧════════════════════
+  839  chmod 400 /mnt/c/Users/manav/Downloads/dsan6000-acc1.pem
+  840  tree test-environment
+  841  cd test-environment
+  842  mkdir -p docs models data/input data/output src/notebooks src/scripts temp
+  843  ls *old* *DELETE*
+  844  rm *old* *DELETE*
+  845  ls *old* *DELETE*
+  846  ls | wc -l > temp-numfiles.txt
+  847  mv *temp* temp/
+  848  mv *.csv data/input/
+  849  cd data
+  850  cd input
+  851  mv *out* ../output
+  852  cd ..
+  853  mv *.pkl *.h5 models/
+  854  mv *.md docs/
+  855  mv *.ipynb src/notebooks/
+  856  mv *.py src/scripts/
+  857  tree test-environment
+  858  cd ..
+  859  tree test-environment
+  860  cd test-environment/
+  861  cd ..
+  862  git add .
+  863  git commit -m "task-2"
+  864  git push
+  865  history > bash-history.txt
+  866  git add .
+  867  git commit -m "task-3, lines 840 onward relevant to this assignment"
+  868  git push
+  869  cd test-environment/
+  870  nano bash-history.txt
+  871  vim bash-history.txt
+  872  cd test-environment/
+  873  cd ..
+  874  nano bash-history.txt
+  875  git add .
+  876  git commit -m "bash history cleaned up"
+  877  git push
+  878  chmod +x setup_commands.bash
+  879  git add .
+  880  git commit -m "task4: pushing bash file"
+  881  git push
+  882  cd ..
+  883  ls
+  884  cd 5000
+  885  git clone https://github.com/gu-dsan6000/fall-2025-lab-01-manav-ar.git
+  886  cd fall-2025-lab-01-manav-ar/
+  887  ls
+  888  bash setup_commands.bash 
+  889  cd ..
+  890  cd fall-2025-lab-01-manav-ar/
+  891  git add .
+  892  git commit -m "Task4: Tested setup_commands.bash on fresh clone, confirmed works"
+  893  git push
+  894  cat > hotels.json << 'EOF'
+  895  {
+  896    "hotels": [
+  897      {"name": "Grand Plaza", "city": "New York", "rating": 4.5, "rooms": 250, "price": 350},
+  898      {"name": "Budget Inn", "city": "Boston", "rating": 3.2, "rooms": 45, "price": 89},
+  899      {"name": "Luxury Suites", "city": "Miami", "rating": 4.8, "rooms": 180, "price": 450},
+  900      {"name": "City Lodge", "city": "Chicago", "rating": 3.8, "rooms": 120, "price": 120},
+  901      {"name": "Economy Stay", "city": "Austin", "rating": 2.9, "rooms": 60, "price": 65},
+  902      {"name": "Comfort Zone", "city": "Seattle", "rating": 4.1, "rooms": 90, "price": 180},
+  903      {"name": "Quick Rest", "city": "Denver", "rating": 3.5, "rooms": 55, "price": 95},
+  904      {"name": "Elite Resort", "city": "Las Vegas", "rating": 4.9, "rooms": 500, "price": 600},
+  905      {"name": "Simple Sleep", "city": "Portland", "rating": 3.1, "rooms": 40, "price": 75},
+  906      {"name": "Business Hotel", "city": "San Francisco", "rating": 4.2, "rooms": 200, "price": 280}
+  907    ]
+  908  }
+  909  EOF
+  910  jq '.hotels | length' hotels.json
+  911  sudo apt install jq
+  912  jq '.hotels | length' hotels.json
+  913  echo "=== Command 1: Count total hotels ===" >> jq-analysis.txt
+  914  echo '$ jq ".hotels | length" hotels.json' >> jq-analysis.txt
+  915  jq '.hotels | length' hotels.json >> jq-analysis.txt
+  916  echo "" >> jq-analysis.txt
+  917  echo "=== Command 2: Find hotels with rating less than 4 stars ===" >> jq-analysis.txt
+  918  echo '$ jq ".hotels[] | select(.rating < 4)" hotels.json' >> jq-analysis.txt
+  919  jq '.hotels[] | select(.rating < 4)' hotels.json >> jq-analysis.txt
+  920  echo "" >> jq-analysis.txt
+  921  echo "=== Command 3: Count hotels with less than 4 star rating ===" >> jq-analysis.txt
+  922  echo '$ jq "[.hotels[] | select(.rating < 4)] | length" hotels.json' >> jq-analysis.txt
+  923  jq '[.hotels[] | select(.rating < 4)] | length' hotels.json >> jq-analysis.txt
+  924  echo "" >> jq-analysis.txt
+  925  echo "=== Command 4: Get names of low-rated hotels ===" >> jq-analysis.txt
+  926  echo '$ jq ".hotels[] | select(.rating < 4) | .name" hotels.json' >> jq-analysis.txt
+  927  jq '.hotels[] | select(.rating < 4) | .name' hotels.json >> jq-analysis.txt
+  928  echo "" >> jq-analysis.txt
+  929  echo "=== Command 5: Create a CSV of hotel names and ratings ===" >> jq-analysis.txt
+  930  echo '$ jq -r ".hotels[] | [.name, .rating] | @csv" hotels.json > hotel_ratings.csv' >> jq-analysis.txt
+  931  jq -r '.hotels[] | [.name, .rating] | @csv' hotels.json > hotel_ratings.csv
+  932  cat hotel_ratings.csv >> jq-analysis.txt
+  933  echo "" >> jq-analysis.txt
+  934  echo "=== Command 6: Use sed and cut on the CSV we created ===" >> jq-analysis.txt
+  935  echo '$ cut -d"," -f1 hotel_ratings.csv | sed "s/\"//g"' >> jq-analysis.txt
+  936  cut -d',' -f1 hotel_ratings.csv | sed 's/"//g' >> jq-analysis.txt
+  937  echo "" >> jq-analysis.txt
+  938  echo "=== Command 7: Count hotels with Inn or Lodge in the name ===" >> jq-analysis.txt
+  939  echo '$ jq -r ".hotels[].name" hotels.json | grep -E "(Inn|Lodge)" | wc -l' >> jq-analysis.txt
+  940  jq -r '.hotels[].name' hotels.json | grep -E '(Inn|Lodge)' | wc -l >> jq-analysis.txt
+  941  echo "" >> jq-analysis.txt
+  942  echo "1. How many hotels have more than 100 rooms?" > hotel-analysis-answers.txt
+  943  echo '$ jq "[.hotels[] | select(.rooms > 100)] | length" hotels.json' >> hotel-analysis-answers.txt
+  944  jq '[.hotels[] | select(.rooms > 100)] | length' hotels.json >> hotel-analysis-answers.txt
+  945  echo "" >> hotel-analysis-answers.txt
+  946  echo "2. What's the average rating of all hotels?" >> hotel-analysis-answers.txt
+  947  echo '$ jq "[.hotels[].rating] | add / length" hotels.json' >> hotel-analysis-answers.txt
+  948  jq '[.hotels[].rating] | add / length' hotels.json >> hotel-analysis-answers.txt
+  949  echo "" >> hotel-analysis-answers.txt
+  950  echo "3. Which city has the highest-priced hotel?" >> hotel-analysis-answers.txt
+  951  echo '$ jq ".hotels | max_by(.price) | .city" hotels.json' >> hotel-analysis-answers.txt
+  952  jq '.hotels | max_by(.price) | .city' hotels.json >> hotel-analysis-answers.txt
+  953  echo "" >> hotel-analysis-answers.txt
+  954  echo "4. Create a file with just budget hotels (price < \$100)" >> hotel-analysis-answers.txt
+  955  echo '$ jq "{hotels: [.hotels[] | select(.price < 100)]}" hotels.json > budget_hotels.json' >> hotel-analysis-answers.txt
+  956  jq '{hotels: [.hotels[] | select(.price < 100)]}' hotels.json > budget_hotels.json
+  957  echo "Answer: File created -> budget_hotels.json" >> hotel-analysis-answers.txt
+  958  git add .
+  959  git commit -m "Task5: jq tasks done"
+  960  git push
+  961  mv test-environment/temp/temp-numfiles.txt .
+  962  git add .
+  963  git commit -m "moved tempnumfiles to match given repo  structure"
+  964  git push
+  965  git add .
+  966  git commit -m "final submission"
+  967  git push
+  968  git add .
+  969  git commit -m "final submission"
+  970  git push
+  971  source "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/fall-2025-a01-manav-ar/.venv/bin/activate"
+  972  curl -LsSf https://astral.sh/uv/install.sh | sh
+  973  source $HOME/.local/bin/env
+  974  uv run python missing.py --n 5 --num-list "1 2 3 5"
+  975  uv run python cars.py
+  976  export UV_LINK_MODE=copy
+  977  uv run python missing.py --n 5 --num-list "1 2 3 5"
+  978  uv run python missing.py --n 5
+  979  uv run python words.py sample.txt
+  980  uv run python words.py sample.txt | head -n 50 > gutenberg-top50.txt
+  981  uv run python cars.py
+  982  source "/mnt/c/Users/manav/OneDrive/Documents/MS DSAN/fall-2025-a01-manav-ar/.venv/bin/activate"
+  983  cd group2env/
+  984  uv init
+  985  uv sync
+  986  source .venv/bin/activate
+  987  head -1 NCBirths2004.csv
+  988  head -1 NCBirths2004.csv > headers.txt
+  989  chmod +x data-script.bash 
+  990  bash data-script.bash 
+  991  git add .
+  992  git commit -m "add headers"
+  993  git push
+  994  wcol=$(head -1 NCBirths2004.csv | tr ',' '\n' | nl | grep -w "Weight" | awk '{print $1}')
+  995  scol=$(head -1 NCBirths2004.csv | tr ',' '\n' | nl | grep -w "Smoker" | awk '{print $1}')
+  996  acol=$(head -1 NCBirths2004.csv | tr ',' '\n' | nl | grep -w "Alcohol" | awk '{print $1}')
+  997  tail -n +2 NCBirths2004.csv | awk -F',' -v scol=$scol -v wcol=$wcol -v f="Yes" '$scol==f {print $wcol}' | sort -n > tmp.txt
+  998  count=$(wc -l < tmp.txt)
+  999  if [ $((count % 2)) -eq 1 ]; then     mid=$(( (count + 1) / 2 ));     sed -n "${mid}p" tmp.txt > smoker-yes-med.txt; else     mid=$(( count / 2 ));     v1=$(sed -n "${mid}p" tmp.txt);     v2=$(sed -n "$((mid + 1))p" tmp.txt);     echo "scale=2; ($v1 + $v2) / 2" | bc > smoker-yes-med.txt; fi
+ 1000  rm tmp.txt
+ 1001  tail -n +2 NCBirths2004.csv | awk -F',' -v scol=$scol -v wcol=$wcol -v f="No" '$scol==f {print $wcol}' | sort -n > tmp.txt
+ 1002  count=$(wc -l < tmp.txt)
+ 1003  if [ $((count % 2)) -eq 1 ]; then     mid=$(( (count + 1) / 2 ));     sed -n "${mid}p" tmp.txt > smoker-no-med.txt; else     mid=$(( count / 2 ));     v1=$(sed -n "${mid}p" tmp.txt);     v2=$(sed -n "$((mid + 1))p" tmp.txt);     echo "scale=2; ($v1 + $v2) / 2" | bc > smoker-no-med.txt; fi
+ 1004  rm tmp.txt
+ 1005  bash data-script.bash 
+ 1006  sudo apt-get update
+ 1007  sudo apt-get install -y bc
+ 1008  bash data-script.bash 
+ 1009  git add .
+ 1010  git commit -m "added median calculation"
+ 1011  git push
+ 1012  average_calc() {     tail -n +2 NCBirths2004.csv |     awk -F',' -v acol=$acol -v wcol=$wcol -v f="$1"     '$acol==f {sum += $wcol; n++} END {if (n>0) printf "%.2f\n", sum/n}'; }
+ 1013  average_calc "Yes"
+ 1014  average_calc "No"
+ 1015  bash data-script.bash 
+ 1016  git add .
+ 1017  git commit -m "added average calculation"
+ 1018  git push
+ 1019  mean=$(cat alcohol-yes-avg.txt)
+ 1020  tail -n +2 NCBirths2004.csv | awk -F',' -v acol=$acol -v wcol=$wcol -v m=$mean     '$acol=="Yes" {n++; diff=$wcol-m; sumsq+=diff*diff} END {if (n>0) printf "%.2f\n", sqrt(sumsq/n)}'
+ 1021  bash data-script.bash 
+ 1022  git add .
+ 1023  git commit "added std dev calculation"
+ 1024  git commit -m "added std dev calculation"
+ 1025  git push
+ 1026  bash data-script.bash > bash-stdout.txt
+ 1027  git add .
+ 1028  git commit -m "added docs"
+ 1029  git push
+ 1030  history > bash-history.txt
+ 1031  git add .
+ 1032  git commit -m"final submission"
+ 1033  git push
+ 1034  uv sync
+ 1035  source .venv/bin/activate
+ 1036  uv pip install ipykernel
+ 1037  conda --envs
+ 1038  conda
+ 1039  cond env list
+ 1040  conda info --envs
+ 1041  conda activate dsan6600
+ 1042  conda-libmamba-solver
+ 1043  CONDA_SOLVER=classic conda activate dsan6600
+ 1044  sudo apt get install
+ 1045  conda config --set solver classic
+ 1046  sudo apt-get update
+ 1047  sudo apt-get install libarchive13
+ 1048  conda activate dsan6600
+ 1049  jupyter-notebook
+ 1050  cd ..
+ 1051  sudo apt install gnome-terminal
+ 1052  conda activate dsan6600
+ 1053  pip install streamlit requests pillow tqdm pandas sqlalchemy faiss-cpu torch torchvision sentence-transformers openai-clip
+ 1054  python vibecheck_data.py
+ 1055  python vibecheck_embeddings.py
+ 1056  pip install tf-keras
+ 1057  python vibecheck_embeddings.py
+ 1058  streamlit run vibecheck_app.py
+ 1059  python vibecheck_embeddings.py
+ 1060  python vibecheck_map.py
+ 1061  pip install umap
+ 1062  python vibecheck_map.py
+ 1063  pip install hdbscan
+ 1064  python vibecheck_map.py
+ 1065  pip uninstall umap -y
+ 1066  pip install umap-learn
+ 1067  python vibecheck_map.py
+ 1068  streamlit run vibecheck_app.py
+ 1069  conda activate dsan6600
+ 1070  python vibecheck_map.py
+ 1071  tree -a -I '__pycache__|.git|.venv|*.egg-info|.pytest_cache|.mypy_cache' > repo_structure.txt
+ 1072  ch dedup_detector/
+ 1073  cd dedup_detector/
+ 1074  poetry install
+ 1075  poetry shell
+ 1076  env activate
+ 1077  poetry env activate
+ 1078  poetry run python -m dedup_detector.cli --mode lsh --improved --single-file threehundred.tsv
+ 1079  run_all_experiments.sh
+ 1080  bash run_all_experiments.sh
+ 1081  poetry run python src/dedup_detector/run_experiments.py     --input data/threehundred.tsv     --output results/threehundred-lsh.txt
+ 1082  poetry run python src/dedup_detector/run_experiments.py   --input data/threehundred.tsv   --output results/threehundred-lsh-improved.txt   --hash-function xxhash 
+ 1083  poetry run python src/dedup_detector/run_experiments.py   --input data/hundred.tsv   --output results/threehundred-lsh-improved.txt   --hash-function xxhash 
+ 1084  poetry run python src/dedup_detector/run_experiments.py   --input data/onek.tsv   --output results/threehundred-lsh-improved.txt   --hash-function xxhash 
+ 1085  cd docs
+ 1086  make html
+ 1087  activate dsan6600
+ 1088  conda activate dsan6600
+ 1089  jupyter-notebook
+ 1090  conda activate dsan6600
+ 1091  jupyter-notebook
+ 1092  conda install ipykernel
+ 1093  jupyter-notebook
+ 1094  conda activate dsan6600
+ 1095  pip install -r requirements.txt
+ 1096  python run_pipeline.py
+ 1097  pip install ntscraper
+ 1098  python run_pipeline.py
+ 1099  pip install twscrape
+ 1100  python run_pipeline.py
+ 1101  twscrape add_accounts twitter_accounts.txt
+ 1102  twscrape add_accounts twitter_accounts.txt username:password:email:email_password
+ 1103  twscrape login_accounts
+ 1104  python run_pipeline.py
+ 1105  pip install praw
+ 1106  python run_pipeline.py4
+ 1107  python run_pipeline.py
+ 1108  conda activate dsan6600
+ 1109  jupyter-notebook
+ 1110  connda activate dsan6600
+ 1111  conda activate dsan6600
+ 1112  streamlit run vibecheck_app.py
+ 1113  conda activate dsan6600
+ 1114  jupyter-notebook
+ 1115  conda create -n ray python=3.10
+ 1116  conda activate ray
+ 1117  python -m pip install "gymnasium[box2d]"
+ 1118  python -m pip install -U "ray[tune]"
+ 1119  python -m pip install dm-tree
+ 1120  python -m pip install -U scikit-image
+ 1121  python -m pip install torch torchvision torchaudio
+ 1122  python -m pip install lz4
+ 1123  conda install tqdm 
+ 1124  conda install ipykernel
+ 1125  jupyter-notebook
+ 1126  sudo apt install jupyter-notebook 
+ 1127  jupyter-notebook
+ 1128  conda activate ray
+ 1129  python
+ 1130  cd project
+ 1131  jupyter-notebook
+ 1132  tensorboard --logdir=logs/
+ 1133  cd proj
+ 1134  cd ..
+ 1135  mkdir -p project/data/{gtfs,lodes,census,dc_open,wmata,prepared}
+ 1136  mkdir -p project/data/{gtfs,wmata,lodes,census,dc_open,prepared}
+ 1137  mkdir -p project/scripts
+ 1138  cd project
+ 1139  # scripts/download_wmata_api.py
+ 1140  import requests, json, os
+ 1141  from dotenv import load_dotenv
+ 1142  from tqdm import tqdm
+ 1143  lconda activate dsan6600
+ 1144  python vibecheck_data.py 
+ 1145  git checkout -b "yelp api DC pull draft 1"
+ 1146  git checkout -b "yelp-api-DC-pull-draft-1"
+ 1147  git add .
+ 1148  git commit -m "Add Yelp pipeline"
+ 1149  git push -u origin yelp-api-DC-pull-draft-1
+ 1150  git remote set-url origin https://github.com/manav-ar/VibeCheck.git
+ 1151  git remote -v
+ 1152  git push -u origin yelp-api-DC-pull-draft-1
+ 1153  git add .
+ 1154  git commit -m "updated project files"
+ 1155  git pull
+ 1156  git config pull.rebase false
+ 1157  git add .
+ 1158  git commit -m "updated project files"
+ 1159  git rm -r --cached logs/
+ 1160  git add .
+ 1161  git commit -m "updated proj files"
+ 1162  git push
+ 1163  git filter-repo --path logs/ --invert-paths
+ 1164  pip install git-filter-repo
+ 1165  git filter-repo --path logs/ --invert-paths
+ 1166  git filter-repo --path logs/ --invert-paths --force
+ 1167  git push origin --force
+ 1168  git push 
+ 1169  git push origin
+ 1170  git remote add origin https://github.com/manav-ar/RL-WMATA.git
+ 1171  git push --set-upstream origin main --force
+ 1172  . "\home\manav\.cursor-server\bin\60d42bed27e5775c43ec0428d8c653c49e58e260/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh"
+ 1173  history > terminal_log.txt
