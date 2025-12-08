@@ -4,8 +4,8 @@ data/
 *.npy
 *.faiss
 *.csv
-restaurant_images/
-scripts/v
+images/
+data/images/
 scripts/vibecheck_full_output/images/
 image_collection_progress.json
 
