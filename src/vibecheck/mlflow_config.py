@@ -41,7 +41,7 @@ class MLFlowConfig:
 
     @classmethod
     def create_experiment(
-        cls, experiment_name: str, tags: dict[str, Any | None] = None
+        cls, experiment_name: str, tags: dict[str, Any | None] | None = None
     ) -> str:
         """
         Create an MLFlow experiment if it doesn't exist.
@@ -58,14 +58,14 @@ class MLFlowConfig:
         try:
             experiment = client.get_experiment_by_name(experiment_name)
             if experiment:
-                return experiment.experiment_id
+                return str(experiment.experiment_id)
         except Exception:
             pass
 
         # Create new experiment
         experiment_id = mlflow.create_experiment(experiment_name, tags=tags or {})
         print(f"Created experiment '{experiment_name}' with ID: {experiment_id}")
-        return experiment_id
+        return str(experiment_id)
 
     @classmethod
     def get_or_create_experiment(cls, experiment_name: str) -> str:
@@ -80,7 +80,7 @@ class MLFlowConfig:
         """
         experiment = mlflow.get_experiment_by_name(experiment_name)
         if experiment:
-            return experiment.experiment_id
+            return str(experiment.experiment_id)
         return cls.create_experiment(experiment_name)
 
 

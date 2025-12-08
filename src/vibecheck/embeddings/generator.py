@@ -56,9 +56,10 @@ class EmbeddingGenerator:
     def generate_text_embedding(self, text: str) -> np.ndarray:
         """Generate embedding for text."""
         logger.debug(f"Generating text embedding for: {text[:50]}...")
-        return self.text_model.encode(
+        embedding: np.ndarray = self.text_model.encode(
             text, convert_to_numpy=True, normalize_embeddings=True
         )
+        return embedding
 
     def generate_image_embedding(self, image_path: Path) -> np.ndarray:
         """Generate CLIP embedding for image."""
@@ -75,7 +76,8 @@ class EmbeddingGenerator:
                 img_vec = self.clip_model.encode_image(image)
 
             img_vec /= img_vec.norm(dim=-1, keepdim=True)
-            return img_vec.cpu().numpy()[0]
+            result: np.ndarray = img_vec.cpu().numpy()[0]
+            return result
 
         except Exception as e:
             logger.warning(f"Error processing image {image_path}: {e}")
@@ -108,7 +110,8 @@ class EmbeddingGenerator:
             img_vec = np.zeros((512,))
 
         # Combine
-        return np.concatenate([text_vec, img_vec]).astype("float32")
+        combined: np.ndarray = np.concatenate([text_vec, img_vec]).astype("float32")
+        return combined
 
     def generate_all(self, run_name: str | None = None) -> tuple[np.ndarray, list[str]]:
         """

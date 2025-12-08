@@ -178,7 +178,7 @@ class EvidentlyMonitor:
         logger.info(f"Test results saved to: {test_path}")
 
         # Get test results as dict
-        results = test_suite.as_dict()
+        results: dict[str, Any] = test_suite.as_dict()
 
         # Save JSON
         json_path = self.tests_dir / f"{test_name}.json"
@@ -223,7 +223,7 @@ class EvidentlyMonitor:
         logger.info(f"Test results saved to: {test_path}")
 
         # Get test results as dict
-        results = test_suite.as_dict()
+        results: dict[str, Any] = test_suite.as_dict()
 
         # Save JSON
         json_path = self.tests_dir / f"{test_name}.json"
