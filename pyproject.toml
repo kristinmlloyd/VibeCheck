@@ -27,6 +27,9 @@ uvicorn = "^0.38.0"
 python-multipart = "^0.0.20"
 outscraper = "^5.10.0"
 python-dotenv = "^1.2.1"
+mlflow = ">=2.9.0"
+dvc = ">=3.0.0"
+evidently = ">=0.4.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.0.0,<9.0.0"

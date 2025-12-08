@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  mlflow-db:
+    image: postgres:15-alpine
+    container_name: vibecheck-mlflow-db
+    environment:
+      POSTGRES_USER: mlflow
+      POSTGRES_PASSWORD: mlflow
+      POSTGRES_DB: mlflow
+    volumes:
+      - mlflow-db-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - vibecheck-mlflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mlflow-server:
+    image: python:3.11-slim
+    container_name: vibecheck-mlflow-server
+    depends_on:
+      mlflow-db:
+        condition: service_healthy
+    environment:
+      MLFLOW_BACKEND_STORE_URI: postgresql://mlflow:mlflow@mlflow-db:5432/mlflow
+      MLFLOW_ARTIFACT_ROOT: /mlflow/artifacts
+      MLFLOW_HOST: 0.0.0.0
+      MLFLOW_PORT: 5000
+    volumes:
+      - mlflow-artifacts:/mlflow/artifacts
+      - ./mlruns:/mlflow/mlruns
+    ports:
+      - "5000:5000"
+    networks:
+      - vibecheck-mlflow
+    command: >
+      bash -c "
+        pip install mlflow psycopg2-binary &&
+        mlflow server
+          --backend-store-uri postgresql://mlflow:mlflow@mlflow-db:5432/mlflow
+          --default-artifact-root /mlflow/artifacts
+          --host 0.0.0.0
+          --port 5000
+      "
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  mlflow-db-data:
+    driver: local
+  mlflow-artifacts:
+    driver: local
+
+networks:
+  vibecheck-mlflow:
+    driver: bridge
