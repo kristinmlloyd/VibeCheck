@@ -1,0 +1,33 @@
+# DVC Parameters for VibeCheck Pipeline
+
+# Embedding generation parameters
+embeddings:
+  text_model: "all-MiniLM-L6-v2"
+  image_model: "ViT-B/32"
+  text_dim: 384
+  image_dim: 512
+  combined_dim: 896
+
+# Vibe mapping parameters
+vibe_map:
+  n_neighbors: 10
+  min_dist: 0.05
+  min_cluster_size: 5
+  umap_metric: "cosine"
+  hdbscan_metric: "euclidean"
+
+# Recommendation parameters
+recommender:
+  top_k: 10
+  similarity_threshold: 0.7
+
+# MLFlow configuration
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "vibecheck"
+
+# Monitoring parameters
+monitoring:
+  enable_evidently: true
+  report_frequency: "daily"
+  alert_threshold: 0.8
