@@ -75,10 +75,12 @@ class EvidentlyMonitor:
         curr_df = self._embeddings_to_dataframe(current_embeddings, current_ids)
 
         # Create report
-        report = Report(metrics=[
-            DataDriftPreset(),
-            DataQualityPreset(),
-        ])
+        report = Report(
+            metrics=[
+                DataDriftPreset(),
+                DataQualityPreset(),
+            ]
+        )
 
         report.run(reference_data=ref_df, current_data=curr_df)
 
@@ -123,13 +125,13 @@ class EvidentlyMonitor:
                     DataQualityPreset(),
                 ]
             )
-            report.run(
-                reference_data=reference_data, current_data=recommendations_data
-            )
+            report.run(reference_data=reference_data, current_data=recommendations_data)
         else:
-            report = Report(metrics=[
-                DataQualityPreset(),
-            ])
+            report = Report(
+                metrics=[
+                    DataQualityPreset(),
+                ]
+            )
             report.run(reference_data=None, current_data=recommendations_data)
 
         # Save report
@@ -159,9 +161,11 @@ class EvidentlyMonitor:
         """
         logger.info("Running data quality tests")
 
-        test_suite = TestSuite(tests=[
-            DataQualityTestPreset(),
-        ])
+        test_suite = TestSuite(
+            tests=[
+                DataQualityTestPreset(),
+            ]
+        )
 
         test_suite.run(reference_data=None, current_data=data)
 
@@ -202,9 +206,11 @@ class EvidentlyMonitor:
         """
         logger.info("Running data drift tests")
 
-        test_suite = TestSuite(tests=[
-            DataDriftTestPreset(),
-        ])
+        test_suite = TestSuite(
+            tests=[
+                DataDriftTestPreset(),
+            ]
+        )
 
         test_suite.run(reference_data=reference_data, current_data=current_data)
 
@@ -247,7 +253,7 @@ class EvidentlyMonitor:
 
         # Create DataFrame
         df = pd.DataFrame(embeddings, columns=columns)
-        df.insert(0, 'id', ids)
+        df.insert(0, "id", ids)
 
         return df
 

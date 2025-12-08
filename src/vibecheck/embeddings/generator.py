@@ -110,9 +110,7 @@ class EmbeddingGenerator:
         # Combine
         return np.concatenate([text_vec, img_vec]).astype("float32")
 
-    def generate_all(
-        self, run_name: str | None = None
-    ) -> tuple[np.ndarray, list[str]]:
+    def generate_all(self, run_name: str | None = None) -> tuple[np.ndarray, list[str]]:
         """
         Generate embeddings for all restaurants in database.
 
@@ -165,7 +163,9 @@ class EmbeddingGenerator:
                         images_found += 1
 
                     if (i + 1) % 50 == 0:
-                        logger.debug(f"Processed {i + 1}/{len(restaurants)} restaurants")
+                        logger.debug(
+                            f"Processed {i + 1}/{len(restaurants)} restaurants"
+                        )
 
                 except Exception as e:
                     logger.error(f"Error processing restaurant {resto['id']}: {e}")

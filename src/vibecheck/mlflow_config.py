@@ -14,9 +14,7 @@ class MLFlowConfig:
     """Configuration class for MLFlow tracking."""
 
     # Default tracking URI (can be overridden by environment variable)
-    DEFAULT_TRACKING_URI = os.getenv(
-        "MLFLOW_TRACKING_URI", "http://localhost:5000"
-    )
+    DEFAULT_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5000")
 
     # Experiment names
     EMBEDDING_EXPERIMENT = "vibecheck-embeddings"
