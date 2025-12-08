@@ -13,14 +13,14 @@ services:
       - FLASK_ENV=production
       - OUTPUT_DIR=/app/data
       - DB_PATH=/app/data/vibecheck.db
-      - IMAGE_DIR=/app/data/images/restaurant_images
+      - IMAGE_DIR=/app/data/images
       - FAISS_PATH=/app/data/vibecheck_index.faiss
       - META_PATH=/app/data/meta_ids.npy
       - VIBE_MAP_CSV=/app/data/vibe_map.csv
       - OMP_NUM_THREADS=1
       - MKL_NUM_THREADS=1
     volumes:
-      - ./data:/app/data:ro
+      - ./data:/app/data
       - model-cache:/root/.cache
     networks:
       - vibecheck-network

@@ -3,82 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>VibeCheck - Restaurant Vibe Discovery</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0e0e0e; /* dark background */
+            background-color: #0d0d0d;
+            font-family: "Roboto", sans-serif;
             color: white;
         }
 
-        /* Header ombre: yellow → pink */
+        /* Hero gradient */
         .hero-gradient {
             background: linear-gradient(135deg, #ffdd55 0%, #ff66aa 100%);
-            color: black; /* readable on yellow/pink */
+            color: black;
         }
 
-        /* Light-gray text boxes on black background */
+        /* Dark card sections */
+        .dark-card {
+            background: linear-gradient(180deg, #1a1a1a, #111111);
+            border: 1px solid #262626;
+        }
+
+        /* Pink section title */
+        .pink-title {
+            color: #ff66aa;
+            font-weight: 900;
+            font-size: 2.3rem;
+        }
+
+        /* Gradient border ring (yellow → pink) */
+        .gradient-border {
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background:
+                linear-gradient(#1c1c1c, #1c1c1c) padding-box,
+                linear-gradient(135deg, #ffdd55, #ff66aa) border-box;
+        }
+
+        .gradient-border:hover {
+            box-shadow: 0 0 10px rgba(255, 153, 102, 0.4);
+        }
+
+        /* Text + upload inside background */
         .input-dark {
             background-color: #1c1c1c;
-            border-color: #333;
             color: white;
         }
 
-        .input-dark:focus {
-            border-color: #ff66aa;
-            box-shadow: 0 0 0 2px rgba(255, 102, 170, 0.4);
+        /* Search button gradient (matching hero) */
+        .search-gradient {
+            background: linear-gradient(135deg, #ffdd55 0%, #ff66aa 100%);
+            color: black;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-radius: 10px;
+            transition: 0.2s ease;
         }
 
-        /* Upload area */
-        .upload-box {
-            background-color: #1c1c1c;
-            border-color: #444;
+        .search-gradient:hover {
+            filter: brightness(1.07);
+            box-shadow: 0 0 15px rgba(255, 102, 170, 0.45);
         }
 
-        .card-dark {
-            background-color: #171717;
-        }
-
-        /* Dark gradient "card" sections */
-        .dark-card {
-            background: linear-gradient(180deg, #1a1a1a 0%, #111111 100%);
-            border: 1px solid #262626;
-            color: white;
-        }
-
-        /* Override Tailwind defaults for white bg sections */
-        section.bg-white,
-        div.bg-white {
-            background: linear-gradient(180deg, #1a1a1a 0%, #111111 100%) !important;
-            border-color: #262626 !important;
-            color: white !important;
-        }
-
-        /* Fix padding boxes too */
-        .rounded-2xl.bg-white,
-        .rounded-xl.bg-white {
-            background: linear-gradient(180deg, #1a1a1a 0%, #111111 100%) !important;
+        .label-glow {
+            text-shadow: 0 0 6px rgba(255, 102, 170, 0.25);
         }
 
     </style>
 </head>
 
-<body class="bg-[#0e0e0e]">
-
+<body>
 
     <!-- Header -->
-    <header class="hero-gradient text-white shadow-lg">
+    <header class="hero-gradient text-black shadow-lg">
         <div class="container mx-auto px-6 py-8">
             <h1 class="text-5xl font-bold mb-2">VibeCheck</h1>
-            <p class="text-xl opacity-90">Discover restaurants by their atmosphere and vibe! :)</p>
+            <p class="text-xl opacity-90">Discover restaurants by their atmosphere and vibe!</p>
         </div>
     </header>
 
@@ -87,44 +95,43 @@
 
         <!-- Search Section -->
         <section class="dark-card rounded-2xl shadow-lg p-8 mb-8">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Find Your Perfect Vibe</h2>
+
+            <h2 class="pink-title mb-6">What's the vibe?</h2>
 
             <div class="grid md:grid-cols-2 gap-6">
+
                 <!-- Text Search -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <label class="block text-md font-medium text-gray-200 mb-2 label-glow" style="font-size: 1.05rem;">
                         Describe your desired vibe
                     </label>
+
                     <textarea
                         id="queryText"
                         rows="4"
-                        class="input-dark w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                        placeholder="e.g., cozy cafe with dim lighting and plants, romantic date night spot, lively outdoor patio..."
+                        class="w-full px-4 py-3 rounded-lg input-dark"
+                        style="border: 2px solid #ffdd55;"
+                        placeholder="e.g., cozy cafe with dim lighting and plants, romantic date night spot ..."
                     ></textarea>
+
                 </div>
 
                 <!-- Image Upload -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                    <label class="block text-md font-medium text-gray-200 mb-2 label-glow" style="font-size: 1.05rem;">
                         Or upload an inspiration image
                     </label>
-                    <div class="upload-box border-2 border-dashed rounded-lg p-6 text-center hover:border-pink-500 transition cursor-pointer">
-                        <input
-                            type="file"
-                            id="queryImage"
-                            accept="image/*"
-                            class="hidden"
-                            onchange="previewImage(event)"
-                        />
-                        <label for="queryImage" class="cursor-pointer">
+
+                    <div class="p-6 text-center cursor-pointer"
+                        style="border: 2px solid #ff66aa; border-radius: 12px; background-color:#1c1c1c;">
+
+                        <input type="file" id="queryImage" accept="image/*" class="hidden" onchange="previewImage(event)" />
+
+                        <label for="queryImage" class="cursor-pointer block">
                             <div id="imagePreview" class="mb-4"></div>
-                            <div class="text-gray-600">
-                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <p class="mt-2">Click to upload or drag and drop</p>
-                                <p class="text-sm text-gray-500">PNG, JPG up to 16MB</p>
-                            </div>
+
+                            <p class="text-gray-300">Click to upload or drag and drop</p>
+                            <p class="text-sm text-gray-500">PNG, JPG up to 16MB</p>
                         </label>
                     </div>
                 </div>
@@ -132,252 +139,157 @@
 
             <!-- Search Button -->
             <div class="mt-6 flex gap-4">
-                <button
-                    onclick="searchRestaurants()"
-                    class="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-indigo-700 transition shadow-lg hover:shadow-xl"
-                >
-                    <span id="searchButtonText">🔍 Search Restaurants</span>
-                    <span id="searchButtonLoading" class="hidden">
-                        <span class="loading"></span> Searching...
-                    </span>
+
+                <button onclick="searchRestaurants()" class="flex-1 search-gradient">
+                    Search Restaurants
                 </button>
-                <button
-                    onclick="clearSearch()"
-                    class="px-6 py-4 border-2 border-gray-300 rounded-lg font-semibold hover:bg-gray-50 transition"
-                >
+
+                <button onclick="clearSearch()" class="px-6 py-3 border-2 border-gray-400 rounded-lg font-semibold hover:bg-gray-800 transition">
                     Clear
                 </button>
+
             </div>
         </section>
 
         <!-- Results Section -->
         <section id="resultsSection" class="hidden">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Top Matches</h2>
+            <h2 class="text-3xl font-bold mb-6">Top Matches</h2>
             <div id="results" class="grid md:grid-cols-3 gap-6 mb-8"></div>
         </section>
 
+        <!-- Restaurant Details Modal -->
+        <div id="restaurantModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+            <div class="dark-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="sticky top-0 bg-gradient-to-r from-gray-900 to-gray-800 p-4 flex justify-between items-center border-b border-gray-700">
+                    <h2 id="modalTitle" class="text-2xl font-bold"></h2>
+                    <button onclick="closeModal()" class="text-3xl hover:text-pink-400 transition">&times;</button>
+                </div>
+                <div id="modalContent" class="p-6"></div>
+            </div>
+        </div>
+
         <!-- Visualizations -->
         <section class="grid md:grid-cols-2 gap-8 mb-8">
-            <!-- Geographic Map -->
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-2xl font-bold mb-4 text-gray-800">~ DC Restaurant Map ~</h3>
-                <div id="map"></div>
+
+            <div class="dark-card rounded-2xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">DC Restaurant Map</h3>
+                <div id="map" style="height: 500px;"></div>
             </div>
 
-            <!-- UMAP Visualization -->
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-2xl font-bold mb-4 text-gray-800">~ Vibe Space ~</h3>
-                <div id="umap-plot"></div>
+            <div class="dark-card rounded-2xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold mb-4">Vibe Space</h3>
+                <div id="umap-plot" style="height: 500px;"></div>
             </div>
+
         </section>
 
-        <!-- Vibe Stats -->
-        <section class="bg-white rounded-2xl shadow-lg p-8">
-            <h3 class="text-2xl font-bold mb-6 text-gray-800">✨ Top Vibes in DC</h3>
+        <section class="dark-card rounded-2xl shadow-lg p-8">
+            <h3 class="text-2xl font-bold mb-6">Top Vibes in DC</h3>
             <div id="vibeStats" class="grid md:grid-cols-5 gap-4"></div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>Made with ❤️ using Flask, CLIP, and Sentence Transformers</p>
-        </div>
-    </footer>
+    <!-- Leaflet CSS and JS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Plotly for UMAP visualization -->
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
 
     <script>
+        // Global variables
         let map;
-        let restaurantMarkers = [];
-        let allRestaurantData = [];
-        let umapPlotDiv = null;
+        let markers = [];
+        let allRestaurants = [];
 
-        // Initialize map
+        // Initialize map and load data on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            initMap();
+            loadMapData();
+            loadVibeStats();
+        });
+
+        // Initialize Leaflet map
         function initMap() {
-            // DC coordinates
-            map = L.map('map').setView([38.9072, -77.0369], 12);
+            map = L.map('map').setView([38.9072, -77.0369], 12); // DC coordinates
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 18
             }).addTo(map);
-
-            // Load restaurant data
-            loadMapData();
         }
 
-        // Load map data
+        // Load all restaurants for map
         async function loadMapData() {
             try {
                 const response = await fetch('/api/map-data');
                 const data = await response.json();
-                allRestaurantData = data.restaurants;
+                allRestaurants = data.restaurants;
 
-                // For now, place markers at DC locations (you'll need to geocode addresses)
-                // This is a placeholder - you'd need actual lat/lng coordinates
-                data.restaurants.forEach((restaurant, idx) => {
-                    // Random positions around DC for demo
-                    const lat = 38.9072 + (Math.random() - 0.5) * 0.1;
-                    const lng = -77.0369 + (Math.random() - 0.5) * 0.1;
-
-                    const marker = L.marker([lat, lng]).addTo(map);
-                    marker.bindPopup(`
-                        <div class="p-2">
-                            <h4 class="font-bold">${restaurant.name}</h4>
-                            <p>⭐ ${restaurant.rating || 'N/A'}</p>
-                            <p class="text-sm text-gray-600">${restaurant.address || ''}</p>
-                        </div>
-                    `);
-
-                    // Store restaurant data with marker
-                    marker.restaurantId = restaurant.id;
-                    marker.defaultIcon = marker._icon;
-
-                    restaurantMarkers.push(marker);
-                });
+                displayRestaurantsOnMap(allRestaurants);
+                displayUMAPPlot(allRestaurants);
             } catch (error) {
                 console.error('Error loading map data:', error);
             }
         }
 
-        // Update maps with search results
-        function updateMapsWithResults(results) {
-            const resultIds = new Set(results.map(r => r.id));
+        // Display restaurants on map
+        function displayRestaurantsOnMap(restaurants) {
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
 
-            // Update geographic map markers
-            restaurantMarkers.forEach(marker => {
-                const isResult = resultIds.has(marker.restaurantId);
-
-                if (isResult) {
-                    // Highlight matched restaurants
-                    marker.setIcon(L.icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    }));
-                    marker.setOpacity(1);
-                    marker.setZIndexOffset(1000);
-                } else {
-                    // Fade non-matched restaurants
-                    marker.setIcon(L.icon({
-                        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png',
-                        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    }));
-                    marker.setOpacity(0.3);
-                    marker.setZIndexOffset(0);
+            restaurants.forEach(restaurant => {
+                if (restaurant.x && restaurant.y) {
+                    const marker = L.marker([restaurant.y, restaurant.x])
+                        .bindPopup(`
+                            <strong>${restaurant.name}</strong><br>
+                            Rating: ${restaurant.rating || 'N/A'} ⭐<br>
+                            ${restaurant.address || ''}
+                        `)
+                        .addTo(map);
+                    markers.push(marker);
                 }
             });
-
-            // Update UMAP plot
-            updateUMAPWithResults(results);
         }
 
-        // Update UMAP plot to highlight results
-        function updateUMAPWithResults(results) {
-            const resultIds = new Set(results.map(r => r.id));
-            const restaurants = allRestaurantData.filter(r => r.x && r.y);
+        // Display UMAP plot
+        function displayUMAPPlot(restaurants) {
+            const validRestaurants = restaurants.filter(r => r.x && r.y);
 
-            // Separate matched and non-matched restaurants
-            const matched = restaurants.filter(r => resultIds.has(r.id));
-            const nonMatched = restaurants.filter(r => !resultIds.has(r.id));
-
-            // Non-matched trace (faded)
-            const trace1 = {
-                x: nonMatched.map(r => r.x),
-                y: nonMatched.map(r => r.y),
+            const trace = {
+                x: validRestaurants.map(r => r.x),
+                y: validRestaurants.map(r => r.y),
                 mode: 'markers',
                 type: 'scatter',
-                name: 'Other Restaurants',
-                text: nonMatched.map(r => r.name),
+                text: validRestaurants.map(r => r.name),
                 marker: {
-                    size: 6,
-                    color: 'lightgray',
-                    opacity: 0.3
-                },
-                hovertemplate: '<b>%{text}</b><extra></extra>'
-            };
-
-            // Matched trace (highlighted)
-            const trace2 = {
-                x: matched.map(r => r.x),
-                y: matched.map(r => r.y),
-                mode: 'markers',
-                type: 'scatter',
-                name: 'Search Results',
-                text: matched.map(r => r.name),
-                marker: {
-                    size: matched.map((r, i) => 20 - i * 1.5), // Size by rank
-                    color: '#ef4444',
-                    symbol: 'star',
+                    size: 8,
+                    color: validRestaurants.map(r => r.cluster || 0),
+                    colorscale: 'Viridis',
+                    showscale: true,
                     line: {
                         color: 'white',
-                        width: 2
+                        width: 0.5
                     }
                 },
-                hovertemplate: '<b>%{text}</b><br>Match!<extra></extra>'
+                hovertemplate: '<b>%{text}</b><br>Rating: ' +
+                    validRestaurants.map(r => r.rating || 'N/A').join('<br>Rating: ') +
+                    '<extra></extra>'
             };
 
             const layout = {
-                xaxis: { title: 'UMAP 1', showgrid: false },
-                yaxis: { title: 'UMAP 2', showgrid: false },
-                hovermode: 'closest',
-                plot_bgcolor: '#f9fafb',
-                paper_bgcolor: 'white',
-                showlegend: true,
-                legend: {
-                    x: 1.02,
-                    y: 1
-                }
+                title: '',
+                paper_bgcolor: '#1a1a1a',
+                plot_bgcolor: '#1a1a1a',
+                font: { color: 'white' },
+                xaxis: { title: 'UMAP Dimension 1', gridcolor: '#333' },
+                yaxis: { title: 'UMAP Dimension 2', gridcolor: '#333' },
+                hovermode: 'closest'
             };
 
-            Plotly.newPlot('umap-plot', [trace1, trace2], layout, {responsive: true});
-        }
-
-        // Load UMAP visualization
-        async function loadUMAPPlot() {
-            try {
-                const response = await fetch('/api/map-data');
-                const data = await response.json();
-                allRestaurantData = data.restaurants;
-
-                const restaurants = data.restaurants.filter(r => r.x && r.y);
-
-                const trace = {
-                    x: restaurants.map(r => r.x),
-                    y: restaurants.map(r => r.y),
-                    mode: 'markers',
-                    type: 'scatter',
-                    text: restaurants.map(r => r.name),
-                    marker: {
-                        size: restaurants.map(r => (r.rating || 3) * 2),
-                        color: restaurants.map(r => r.cluster || 0),
-                        colorscale: 'Viridis',
-                        showscale: true,
-                        colorbar: {
-                            title: 'Cluster'
-                        }
-                    },
-                    hovertemplate: '<b>%{text}</b><br>Rating: %{marker.size}<extra></extra>'
-                };
-
-                const layout = {
-                    xaxis: { title: 'UMAP 1', showgrid: false },
-                    yaxis: { title: 'UMAP 2', showgrid: false },
-                    hovermode: 'closest',
-                    plot_bgcolor: '#f9fafb',
-                    paper_bgcolor: 'white'
-                };
-
-                Plotly.newPlot('umap-plot', [trace], layout, {responsive: true});
-            } catch (error) {
-                console.error('Error loading UMAP plot:', error);
-            }
+            Plotly.newPlot('umap-plot', [trace], layout, {responsive: true});
         }
 
         // Load vibe statistics
@@ -388,9 +300,9 @@
 
                 const container = document.getElementById('vibeStats');
                 container.innerHTML = data.vibes.map(vibe => `
-                    <div class="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-lg text-center">
-                        <p class="text-2xl font-bold text-purple-600">${vibe.count}</p>
-                        <p class="text-sm text-gray-700">${vibe.name}</p>
+                    <div class="gradient-border p-4 text-center">
+                        <div class="text-2xl font-bold" style="color: #ffdd55;">${vibe.count}</div>
+                        <div class="text-sm text-gray-300 mt-1">${vibe.name}</div>
                     </div>
                 `).join('');
             } catch (error) {
@@ -401,12 +313,12 @@
         // Preview uploaded image
         function previewImage(event) {
             const file = event.target.files[0];
+            const preview = document.getElementById('imagePreview');
+
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById('imagePreview').innerHTML = `
-                        <img src="${e.target.result}" class="image-preview mx-auto" />
-                    `;
+                    preview.innerHTML = `<img src="${e.target.result}" class="max-w-full h-32 object-cover rounded-lg mx-auto" />`;
                 };
                 reader.readAsDataURL(file);
             }
@@ -414,26 +326,20 @@
 
         // Search restaurants
         async function searchRestaurants() {
-            const text = document.getElementById('queryText').value;
-            const imageFile = document.getElementById('queryImage').files[0];
+            const queryText = document.getElementById('queryText').value.trim();
+            const queryImage = document.getElementById('queryImage').files[0];
 
-            if (!text && !imageFile) {
-                alert('Please enter text or upload an image!');
+            if (!queryText && !queryImage) {
+                alert('Please enter a text query or upload an image!');
                 return;
             }
 
-            // Show loading
-            document.getElementById('searchButtonText').classList.add('hidden');
-            document.getElementById('searchButtonLoading').classList.remove('hidden');
+            const formData = new FormData();
+            if (queryText) formData.append('text', queryText);
+            if (queryImage) formData.append('image', queryImage);
+            formData.append('top_k', 9);
 
             try {
-                const formData = new FormData();
-                formData.append('text', text);
-                if (imageFile) {
-                    formData.append('image', imageFile);
-                }
-                formData.append('top_k', 9);
-
                 const response = await fetch('/api/search', {
                     method: 'POST',
                     body: formData
@@ -442,65 +348,163 @@
                 const data = await response.json();
 
                 if (data.error) {
-                    alert(data.error);
+                    alert('Error: ' + data.error);
                     return;
                 }
 
                 displayResults(data.results);
             } catch (error) {
                 console.error('Search error:', error);
-                alert('Search failed. Please try again.');
-            } finally {
-                // Hide loading
-                document.getElementById('searchButtonText').classList.remove('hidden');
-                document.getElementById('searchButtonLoading').classList.add('hidden');
+                alert('An error occurred while searching. Please try again.');
             }
         }
 
         // Display search results
         function displayResults(results) {
-            const container = document.getElementById('results');
-            const section = document.getElementById('resultsSection');
+            const resultsSection = document.getElementById('resultsSection');
+            const resultsContainer = document.getElementById('results');
 
-            section.classList.remove('hidden');
+            if (!results || results.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-gray-400">No results found.</p>';
+                resultsSection.classList.remove('hidden');
+                return;
+            }
 
-            container.innerHTML = results.map(restaurant => `
-                <div class="card-dark rounded-xl shadow-md overflow-hidden card-hover">
+            resultsContainer.innerHTML = results.map(restaurant => `
+                <div class="gradient-border p-6 hover:scale-105 transition-transform cursor-pointer" onclick="showRestaurantDetails(${restaurant.id})">
                     ${restaurant.photo_filename ?
-                        `<img src="/images/${restaurant.photo_filename}" class="w-full h-48 object-cover" />` :
-                        `<div class="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                            <span class="text-4xl">🍽️</span>
-                        </div>`
-                    }
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">${restaurant.name}</h3>
-                        <div class="flex items-center mb-3">
-                            <span class="text-yellow-500">⭐ ${restaurant.rating || 'N/A'}</span>
-                            <span class="text-gray-500 text-sm ml-2">(${restaurant.reviews_count || 0} reviews)</span>
+                        `<img src="/images/${restaurant.photo_filename}"
+                             class="w-full h-48 object-cover rounded-lg mb-4"
+                             onerror="this.style.display='none'" />` :
+                        `<div class="w-full h-48 bg-gray-800 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-gray-500">No image</span>
+                        </div>`}
+
+                    <h3 class="text-xl font-bold mb-2">${restaurant.name}</h3>
+
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="text-yellow-400">⭐ ${restaurant.rating || 'N/A'}</span>
+                        <span class="text-gray-400 text-sm">(${restaurant.reviews_count || 0} reviews)</span>
+                    </div>
+
+                    <p class="text-sm text-gray-400 mb-3">${restaurant.address || ''}</p>
+
+                    ${restaurant.vibes && restaurant.vibes.length > 0 ? `
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            ${restaurant.vibes.map(vibe =>
+                                `<span class="px-2 py-1 text-xs rounded"
+                                      style="background-color: #ff66aa; color: black;">
+                                    ${vibe.name} (${vibe.count})
+                                </span>`
+                            ).join('')}
                         </div>
-                        <p class="text-sm text-gray-600 mb-3">${restaurant.address || 'Address not available'}</p>
-                        ${restaurant.vibes.length > 0 ? `
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                ${restaurant.vibes.map(vibe => `
-                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">
-                                        ${vibe.name}
-                                    </span>
-                                `).join('')}
-                            </div>
-                        ` : ''}
-                        ${restaurant.reviews.length > 0 ? `
-                            <p class="text-sm text-gray-700 italic">"${restaurant.reviews[0].text}"</p>
-                        ` : ''}
+                    ` : ''}
+
+                    ${restaurant.reviews && restaurant.reviews.length > 0 ? `
+                        <div class="mt-3 text-sm text-gray-300 italic">
+                            "${restaurant.reviews[0].text}"
+                        </div>
+                    ` : ''}
+
+                    <div class="mt-2 text-xs text-gray-500">
+                        Similarity: ${(restaurant.similarity_score || 0).toFixed(3)}
+                    </div>
+
+                    <div class="mt-4 text-center text-sm" style="color: #ff66aa;">
+                        Click to view all photos & reviews →
                     </div>
                 </div>
             `).join('');
 
-            // Update maps with search results
-            updateMapsWithResults(results);
-
-            // Scroll to results
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Show restaurant details modal
+        async function showRestaurantDetails(restaurantId) {
+            try {
+                const response = await fetch(`/api/restaurant/${restaurantId}`);
+                const restaurant = await response.json();
+
+                if (restaurant.error) {
+                    alert('Error loading restaurant details');
+                    return;
+                }
+
+                document.getElementById('modalTitle').textContent = restaurant.name;
+
+                const modalContent = document.getElementById('modalContent');
+                modalContent.innerHTML = `
+                    <div class="mb-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl text-yellow-400">⭐ ${restaurant.rating || 'N/A'}</span>
+                            <span class="text-gray-400">(${restaurant.reviews_count || 0} reviews)</span>
+                        </div>
+                        <p class="text-gray-300">${restaurant.address || ''}</p>
+                    </div>
+
+                    ${restaurant.vibes && restaurant.vibes.length > 0 ? `
+                        <div class="mb-6">
+                            <h3 class="text-xl font-bold mb-3" style="color: #ff66aa;">Top Vibes</h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${restaurant.vibes.map(vibe =>
+                                    `<span class="px-3 py-2 text-sm rounded"
+                                          style="background-color: #ff66aa; color: black;">
+                                        ${vibe.name} (${vibe.count} mentions)
+                                    </span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${restaurant.photos && restaurant.photos.length > 0 ? `
+                        <div class="mb-6">
+                            <h3 class="text-xl font-bold mb-3" style="color: #ffdd55;">Photos</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                ${restaurant.photos.map(photo =>
+                                    `<img src="/images/${photo.filename}"
+                                         class="w-full h-40 object-cover rounded-lg"
+                                         onerror="this.style.display='none'" />`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${restaurant.reviews && restaurant.reviews.length > 0 ? `
+                        <div>
+                            <h3 class="text-xl font-bold mb-3" style="color: #ffdd55;">Top Reviews</h3>
+                            <div class="space-y-4">
+                                ${restaurant.reviews.map(review =>
+                                    `<div class="bg-gray-800 p-4 rounded-lg">
+                                        <p class="text-gray-300 mb-2">"${review.text}"</p>
+                                        <div class="text-sm text-gray-500">
+                                            👍 ${review.likes} likes
+                                        </div>
+                                    </div>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                `;
+
+                document.getElementById('restaurantModal').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading restaurant details:', error);
+                alert('Failed to load restaurant details');
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('restaurantModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('restaurantModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
 
         // Clear search
         function clearSearch() {
@@ -508,37 +512,7 @@
             document.getElementById('queryImage').value = '';
             document.getElementById('imagePreview').innerHTML = '';
             document.getElementById('resultsSection').classList.add('hidden');
-
-            // Reset maps to original state
-            resetMaps();
         }
-
-        // Reset maps to show all restaurants
-        function resetMaps() {
-            // Reset geographic markers
-            restaurantMarkers.forEach(marker => {
-                marker.setIcon(L.icon({
-                    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-                    iconSize: [25, 41],
-                    iconAnchor: [12, 41],
-                    popupAnchor: [1, -34],
-                    shadowSize: [41, 41]
-                }));
-                marker.setOpacity(1);
-                marker.setZIndexOffset(0);
-            });
-
-            // Reset UMAP plot
-            loadUMAPPlot();
-        }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initMap();
-            loadUMAPPlot();
-            loadVibeStats();
-        });
     </script>
 </body>
 </html>
