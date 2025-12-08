@@ -26,6 +26,8 @@ RUN poetry config virtualenvs.create false
 # Install main dependencies + CLIP from git
 RUN poetry install --only main --no-interaction --no-ansi && \
     pip install --no-cache-dir git+https://github.com/openai/CLIP.git
+# Install a production WSGI server
+RUN pip install --no-cache-dir gunicorn
 
 # Copy application code
 COPY app/app.py ./app.py
@@ -55,5 +57,5 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
     CMD curl -f http://localhost:8080/ || exit 1
 
-# Run Flask application
-CMD ["python", "app.py"]
+# Run with Gunicorn for production
+CMD ["gunicorn", "-w", "4", "-k", "gthread", "-b", "0.0.0.0:8080", "app:app"]

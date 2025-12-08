@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: VibeCheck-Web
+    env: docker
+    branch: deploy_app
+    plan: starter
+    dockerfilePath: docker/app/Dockerfile
+    autoDeploy: true
+    healthCheckPath: "/"
+    instanceCount: 1
+    envVars:
+      - key: FLASK_PORT
+        value: "8080"
+      - key: OUTPUT_DIR
+        value: "/data"
+      - key: DB_PATH
+        value: "/data/vibecheck.db"
+      - key: IMAGE_DIR
+        value: "/data/images/restaurant_images"
+      - key: FAISS_PATH
+        value: "/data/vibecheck_index.faiss"
+      - key: META_PATH
+        value: "/data/meta_ids.npy"
+      - key: VIBE_MAP_CSV
+        value: "/data/vibe_map.csv"
