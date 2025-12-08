@@ -29,3 +29,6 @@ site/
 # IDE
 .vscode/
 .idea/
+
+
+.poetry.lock
