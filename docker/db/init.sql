@@ -1,4 +1,4 @@
--- Initialize VibeCheck PostgreSQL Database
+-- docker/db/init.sql : Initialize VibeCheck PostgreSQL Database
 
 -- Create restaurants table
 CREATE TABLE IF NOT EXISTS restaurants (

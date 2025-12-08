@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Data files (to be mounted as volumes)
+vibecheck_full_output/
+*.db
+*.faiss
+*.npy
+data/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Documentation
+docs/
+site/
+*.md
+!README.md
+
+# CI/CD
+.github/
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+
+# Jupyter notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Legacy/backup files
+vibecheck_original/
+serpapi/
+scripts/outscraper_clip.ipynb
+scripts/*test*.py
+scripts/scraping*.py

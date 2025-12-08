@@ -473,36 +473,83 @@ poetry run pytest --cov=. --cov-report=html
 - **Performance Tests**: Latency and throughput benchmarks
 - **Embedding Quality Tests**: Semantic similarity validation
 
-## Deployment (to be updated upon deployment)
+## Deployment
+
+### Docker Deployment (Recommended)
+
+**Quick Start:**
+```bash
+# 1. Setup data directory
+./setup_data.sh  # or manually copy files to data/
+
+# 2. Build and run
+docker-compose build
+docker-compose up
+
+# 3. Access at http://localhost:5000
+```
+
+**Documentation:**
+- [DOCKER_QUICKSTART.md](DOCKER_QUICKSTART.md) - Get started in 5 minutes
+- [DOCKER_SETUP.md](DOCKER_SETUP.md) - Complete Docker guide
+- [DATA_SETUP.md](DATA_SETUP.md) - Data files setup
+
+**Architecture:**
+- Single Flask container with all ML models
+- Volume-mounted data directory
+- Built-in CLIP + Sentence-BERT + FAISS
+- Health checks and auto-restart
 
 ### Local Deployment
 
-Standard Streamlit deployment:
+**Using Poetry:**
 ```bash
-poetry run vibecheck-app
+# Install dependencies
+poetry install
+
+# Setup data (if using existing output)
+./setup_data.sh
+
+# Run Flask app
+python scripts/app.py
+
+# Access at http://localhost:5000
 ```
 
-### Docker Deployment
-
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-COPY . /app
-
-RUN pip install poetry
-RUN poetry install --no-dev
-
-EXPOSE 8501
-
-CMD ["poetry", "run", "vibecheck-app"]
-```
-
-Build and run:
+**Using pip:**
 ```bash
-docker build -t vibecheck:latest .
-docker run -p 8501:8501 vibecheck:latest
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+pip install git+https://github.com/openai/CLIP.git
+
+# Run application
+python scripts/app.py
 ```
+
+### Production Deployment
+
+For production environments:
+
+1. **Use Docker with Nginx reverse proxy**
+   - See [DOCKER_SETUP.md](DOCKER_SETUP.md#production-deployment)
+   - Configure SSL/TLS certificates
+   - Set up domain and DNS
+
+2. **Cloud Platforms**
+   - AWS: ECS/Fargate or EC2 with Docker
+   - Google Cloud: Cloud Run or GKE
+   - Azure: Container Instances or AKS
+   - See platform-specific guides in docs/
+
+3. **Performance Optimization**
+   - Use GPU-accelerated instances for faster search
+   - Implement Redis caching for frequent queries
+   - Use CDN for serving restaurant images
+   - Scale horizontally with load balancer
 
 
 ## Limitations & Future Work

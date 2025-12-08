@@ -1,134 +1,58 @@
 version: '3.8'
 
 services:
-  # PostgreSQL Database
-  db:
-    image: postgres:15-alpine
-    container_name: vibecheck-db
-    environment:
-      - POSTGRES_USER=vibecheck
-      - POSTGRES_PASSWORD=vibecheck_secret
-      - POSTGRES_DB=vibecheck
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    ports:
-      - "5432:5432"
-    networks:
-      - vibecheck-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U vibecheck -d vibecheck"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-
-  # Frontend Service (Streamlit)
-  frontend:
+  # Flask Frontend & Backend (All-in-One)
+  app:
     build:
       context: .
-      dockerfile: docker/frontend/Dockerfile
-    container_name: vibecheck-frontend
+      dockerfile: docker/app/Dockerfile
+    container_name: vibecheck-app
     ports:
-      - "8501:8501"
+      - "8080:8080"
     environment:
-      - API_URL=http://api:8000
+      - FLASK_ENV=production
+      - OUTPUT_DIR=/app/data
+      - DB_PATH=/app/data/vibecheck.db
+      - IMAGE_DIR=/app/data/images/restaurant_images
+      - FAISS_PATH=/app/data/vibecheck_index.faiss
+      - META_PATH=/app/data/meta_ids.npy
+      - VIBE_MAP_CSV=/app/data/vibe_map.csv
       - OMP_NUM_THREADS=1
       - MKL_NUM_THREADS=1
     volumes:
       - ./data:/app/data:ro
-    depends_on:
-      api:
-        condition: service_healthy
+      - model-cache:/root/.cache
     networks:
       - vibecheck-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 60s
+      start_period: 90s
 
-  # API Service (FastAPI)
-  api:
-    build:
-      context: .
-      dockerfile: docker/api/Dockerfile
-    container_name: vibecheck-api
-    ports:
-      - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://vibecheck:vibecheck_secret@db:5432/vibecheck
-      - IMAGE_DIR=/app/data/images/sample_images
-      - FAISS_INDEX_PATH=/app/data/embeddings/vibecheck_index.faiss
-      - META_IDS_PATH=/app/data/restaurants_info/meta_ids.npy
-      - OMP_NUM_THREADS=1
-      - MKL_NUM_THREADS=1
-    volumes:
-      - ./data:/app/data:ro
-    depends_on:
-      db:
-        condition: service_healthy
-      ml-service:
-        condition: service_healthy
-    networks:
-      - vibecheck-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
-
-  # ML Service (Model inference)
-  ml-service:
-    build:
-      context: .
-      dockerfile: docker/ml-service/Dockerfile
-    container_name: vibecheck-ml
-    ports:
-      - "8002:8002"
-    environment:
-      - MODEL_CACHE_DIR=/app/models
-      - OMP_NUM_THREADS=1
-      - MKL_NUM_THREADS=1
-    volumes:
-      - ./data:/app/data:ro
-      - model-cache:/app/models
-    networks:
-      - vibecheck-network
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 60s
-
-  # Nginx Reverse Proxy
-  nginx:
-    image: nginx:alpine
-    container_name: vibecheck-nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - frontend
-      - api
-    networks:
-      - vibecheck-network
-    restart: unless-stopped
+  # Optional: Nginx Reverse Proxy (for production with SSL/load balancing)
+  # Uncomment if you need nginx
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: vibecheck-nginx
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+  #     - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+  #   depends_on:
+  #     - app
+  #   networks:
+  #     - vibecheck-network
+  #   restart: unless-stopped
 
 networks:
   vibecheck-network:
     driver: bridge
 
 volumes:
-  postgres-data:
-    driver: local
   model-cache:
     driver: local

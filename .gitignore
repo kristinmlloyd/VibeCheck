@@ -44,4 +44,3 @@ mlflow.db-wal
 # Evidently monitoring
 monitoring/reports/
 monitoring/tests/
-poetry.lock
