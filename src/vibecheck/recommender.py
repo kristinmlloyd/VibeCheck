@@ -78,9 +78,10 @@ class VibeCheckRecommender:
             if len(text) > 50
             else f"Encoding text: {text}"
         )
-        return self.text_model.encode(
+        embedding: np.ndarray = self.text_model.encode(
             text, convert_to_numpy=True, normalize_embeddings=True
         )
+        return embedding
 
     def encode_image(self, image: Image.Image) -> np.ndarray:
         """
@@ -107,7 +108,8 @@ class VibeCheckRecommender:
             img_vec = self.clip_model.encode_image(img_tensor)
 
         img_vec /= img_vec.norm(dim=-1, keepdim=True)
-        return img_vec.cpu().numpy()[0]
+        result: np.ndarray = img_vec.cpu().numpy()[0]
+        return result
 
     def encode_query(
         self, text: str | None = None, image: Image.Image | None = None
@@ -150,7 +152,8 @@ class VibeCheckRecommender:
 
         # Concatenate into single vector
         combined = np.concatenate([text_vec, image_vec]).astype("float32")
-        return combined[None, :]  # Add batch dimension
+        result: np.ndarray = combined[None, :]  # Add batch dimension
+        return result
 
     def search(
         self, query_vector: np.ndarray, top_k: int = 5
