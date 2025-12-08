@@ -30,5 +30,18 @@ site/
 .vscode/
 .idea/
 
+# MLFlow
+mlruns/
+mlflow.db
+mlflow.db-shm
+mlflow.db-wal
 
-.poetry.lock
+# DVC
+/dvc.lock
+.dvc/tmp
+.dvc/cache
+
+# Evidently monitoring
+monitoring/reports/
+monitoring/tests/
+poetry.lock

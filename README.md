@@ -45,6 +45,11 @@ The system addresses a fundamental gap in current restaurant recommendation syst
 - **Poetry**: Modern Python dependency management and packaging system
 - **Python 3.8+**: Core programming language and runtime environment
 
+#### ML Operations & Monitoring
+- **MLFlow**: Experiment tracking and model registry for reproducible ML workflows
+- **DVC (Data Version Control)**: Version control system for data and ML pipelines
+- **Evidently**: ML monitoring and data quality validation framework
+
 ## Methodology
 
 ### 1. Multimodal Embedding Generation
@@ -160,6 +165,9 @@ This will create a virtual environment and install all required packages includi
 - pillow (image processing)
 - numpy, pandas (data manipulation)
 - plotly (interactive visualizations)
+- mlflow (experiment tracking)
+- dvc (data version control)
+- evidently (ML monitoring)
 
 3. **Verify Installation**
 ```bash
@@ -315,6 +323,132 @@ VibeCheck/
 └── .gitignore                    # Git ignore patterns
 ```
 
+
+## ML Operations & Experiment Tracking
+
+VibeCheck includes MLFlow for experiment tracking, DVC for data versioning, and Evidently for model monitoring.
+
+### MLFlow: Experiment Tracking
+
+#### Quick Start
+
+```bash
+# Initialize and start MLFlow server
+poetry run python scripts/init_mlflow.py
+mlflow ui --port 5000
+
+# Or use Docker (production)
+docker-compose -f docker-compose.mlflow.yml up -d
+
+# Access at http://localhost:5000
+```
+
+#### Tracked Experiments
+
+**Embedding Generation** (`vibecheck-embeddings`)
+- Parameters: Model names, dimensions, device
+- Metrics: Success rate, image coverage, embedding statistics
+
+**Vibe Mapping** (`vibecheck-vibe-mapping`)
+- Parameters: UMAP (n_neighbors, min_dist), HDBSCAN (min_cluster_size)
+- Metrics: Cluster count, noise points, cluster statistics
+
+#### Usage Example
+
+```python
+from vibecheck.embeddings import EmbeddingGenerator
+from vibecheck.mlflow_config import init_mlflow
+
+init_mlflow()
+generator = EmbeddingGenerator(use_mlflow=True)
+embeddings, ids = generator.generate_all(run_name="experiment_v1")
+```
+
+### DVC: Data Version Control
+
+#### Setup and Track Data
+
+```bash
+# Track large files
+dvc add data/images/sample_images
+dvc add data/embeddings/vibe_embeddings.npy
+
+# Commit to git
+git add data/**/*.dvc .dvc/
+git commit -m "Track data with DVC"
+
+# Push to remote storage (optional)
+dvc remote add -d myremote s3://my-bucket/dvc-storage
+dvc push
+```
+
+#### Run Pipeline
+
+```bash
+# Execute full pipeline
+dvc repro
+
+# View pipeline
+dvc dag
+
+# Check metrics
+dvc metrics show
+
+# Experiment with parameters
+vim params.yaml  # Modify parameters
+dvc repro        # Rerun pipeline
+dvc metrics diff # Compare results
+```
+
+The pipeline ([dvc.yaml](dvc.yaml)) automatically:
+1. Generates embeddings from restaurant data
+2. Creates vibe map with UMAP + HDBSCAN
+
+### Evidently: Model Monitoring
+
+#### Generate Reports
+
+```bash
+# Create monitoring dashboard
+poetry run python scripts/generate_monitoring_report.py
+
+# Reports saved to monitoring/reports/ (HTML)
+```
+
+#### Usage in Code
+
+```python
+from vibecheck.monitoring import EvidentlyMonitor
+
+monitor = EvidentlyMonitor()
+
+# Detect embedding drift
+report_path = monitor.create_embedding_drift_report(
+    reference_embeddings=baseline_embeddings,
+    current_embeddings=new_embeddings,
+    reference_ids=baseline_ids,
+    current_ids=new_ids
+)
+```
+
+Evidently monitors:
+- Embedding distribution drift
+- Data quality issues
+- Recommendation quality metrics
+
+### ML Ops Workflow
+
+**Development:**
+1. Initialize MLFlow: `poetry run python scripts/init_mlflow.py`
+2. Run experiments with tracking enabled
+3. Compare results in MLFlow UI
+4. Track data with DVC: `dvc add data/`
+
+**Production:**
+1. Use Docker Compose for MLFlow server
+2. Configure remote storage for DVC
+3. Run pipeline: `dvc repro`
+4. Generate monitoring reports regularly
 
 ## Testing (to be updated when tests are implemented)
 

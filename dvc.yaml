@@ -1,0 +1,37 @@
+# DVC pipeline configuration for VibeCheck
+# This file defines the data pipeline stages
+
+stages:
+  generate_embeddings:
+    cmd: python scripts/generate_embeddings.py
+    deps:
+      - scripts/generate_embeddings.py
+      - src/vibecheck/embeddings/
+      - data/restaurants_info/restaurants.db
+      - data/images/sample_images/
+    params:
+      - embeddings.text_model
+      - embeddings.image_model
+    outs:
+      - data/embeddings/vibe_embeddings.npy
+      - data/restaurants_info/meta_ids.npy
+    metrics:
+      - data/embeddings/embedding_metrics.json:
+          cache: false
+
+  create_vibe_map:
+    cmd: python scripts/create_vibe_map.py
+    deps:
+      - scripts/create_vibe_map.py
+      - src/vibecheck/analysis/
+      - data/embeddings/vibe_embeddings.npy
+      - data/restaurants_info/meta_ids.npy
+    params:
+      - vibe_map.n_neighbors
+      - vibe_map.min_dist
+      - vibe_map.min_cluster_size
+    outs:
+      - data/processed/vibe_map.csv
+    metrics:
+      - data/processed/vibe_map_metrics.json:
+          cache: false
