@@ -4,7 +4,7 @@ MLFlow configuration and utilities for VibeCheck experiment tracking.
 
 import os
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 import mlflow
 from mlflow.tracking import MlflowClient
@@ -25,7 +25,7 @@ class MLFlowConfig:
     ARTIFACTS_DIR = Path("mlruns/artifacts")
 
     @classmethod
-    def setup_mlflow(cls, tracking_uri: Optional[str] = None) -> None:
+    def setup_mlflow(cls, tracking_uri: str | None = None) -> None:
         """
         Initialize MLFlow tracking configuration.
 
@@ -40,7 +40,7 @@ class MLFlowConfig:
         cls.ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
     @classmethod
-    def create_experiment(cls, experiment_name: str, tags: Optional[Dict[str, Any]] = None) -> str:
+    def create_experiment(cls, experiment_name: str, tags: dict[str, Any | None] = None) -> str:
         """
         Create an MLFlow experiment if it doesn't exist.
 
@@ -85,7 +85,7 @@ class MLFlowConfig:
         return cls.create_experiment(experiment_name)
 
 
-def init_mlflow(tracking_uri: Optional[str] = None) -> None:
+def init_mlflow(tracking_uri: str | None = None) -> None:
     """
     Initialize MLFlow tracking with default experiments.
 

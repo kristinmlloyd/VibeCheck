@@ -50,7 +50,7 @@ class VibeMapper:
         n_neighbors: int = 10,
         min_dist: float = 0.05,
         min_cluster_size: int = 5,
-        run_name: Optional[str] = None,
+        run_name: str | None = None,
     ) -> pd.DataFrame:
         """
         Create 2D vibe map with clusters.

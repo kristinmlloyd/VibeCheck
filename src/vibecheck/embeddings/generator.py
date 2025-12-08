@@ -111,7 +111,7 @@ class EmbeddingGenerator:
         # Combine
         return np.concatenate([text_vec, img_vec]).astype("float32")
 
-    def generate_all(self, run_name: Optional[str] = None) -> tuple[np.ndarray, list[str]]:
+    def generate_all(self, run_name: str | None = None) -> tuple[np.ndarray, list[str]]:
         """
         Generate embeddings for all restaurants in database.
 

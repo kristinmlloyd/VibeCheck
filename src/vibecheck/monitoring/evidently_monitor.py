@@ -5,11 +5,10 @@ Evidently monitoring for VibeCheck recommendation system.
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import numpy as np
 import pandas as pd
-from evidently import ColumnMapping
 from evidently.metric_preset import DataDriftPreset, DataQualityPreset
 from evidently.report import Report
 from evidently.test_preset import DataDriftTestPreset, DataQualityTestPreset
@@ -44,7 +43,7 @@ class EvidentlyMonitor:
         self.reports_dir.mkdir(parents=True, exist_ok=True)
         self.tests_dir.mkdir(parents=True, exist_ok=True)
 
-        logger.info(f"Evidently monitor initialized")
+        logger.info("Evidently monitor initialized")
         logger.info(f"Reports directory: {self.reports_dir}")
         logger.info(f"Tests directory: {self.tests_dir}")
 
@@ -52,9 +51,9 @@ class EvidentlyMonitor:
         self,
         reference_embeddings: np.ndarray,
         current_embeddings: np.ndarray,
-        reference_ids: List[str],
-        current_ids: List[str],
-        report_name: Optional[str] = None,
+        reference_ids: list[str],
+        current_ids: list[str],
+        report_name: str | None = None,
     ) -> str:
         """
         Create a data drift report for embeddings.
@@ -100,8 +99,8 @@ class EvidentlyMonitor:
     def create_recommendation_quality_report(
         self,
         recommendations_data: pd.DataFrame,
-        reference_data: Optional[pd.DataFrame] = None,
-        report_name: Optional[str] = None,
+        reference_data: pd.DataFrame | None = None,
+        report_name: str | None = None,
     ) -> str:
         """
         Create a report for recommendation quality metrics.
@@ -142,8 +141,8 @@ class EvidentlyMonitor:
     def run_data_quality_tests(
         self,
         data: pd.DataFrame,
-        test_name: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        test_name: str | None = None,
+    ) -> dict[str, Any]:
         """
         Run data quality tests on the provided data.
 
@@ -184,8 +183,8 @@ class EvidentlyMonitor:
         self,
         reference_data: pd.DataFrame,
         current_data: pd.DataFrame,
-        test_name: Optional[str] = None,
-    ) -> Dict[str, Any]:
+        test_name: str | None = None,
+    ) -> dict[str, Any]:
         """
         Run data drift tests comparing reference and current data.
 
@@ -226,7 +225,7 @@ class EvidentlyMonitor:
     def _embeddings_to_dataframe(
         self,
         embeddings: np.ndarray,
-        ids: List[str],
+        ids: list[str],
     ) -> pd.DataFrame:
         """
         Convert embeddings array to DataFrame.
@@ -251,10 +250,10 @@ class EvidentlyMonitor:
     def generate_monitoring_dashboard(
         self,
         embeddings: np.ndarray,
-        ids: List[str],
+        ids: list[str],
         recommendations: pd.DataFrame,
-        dashboard_name: Optional[str] = None,
-    ) -> Dict[str, str]:
+        dashboard_name: str | None = None,
+    ) -> dict[str, str]:
         """
         Generate a comprehensive monitoring dashboard.
 
@@ -276,7 +275,7 @@ class EvidentlyMonitor:
         embeddings_df = self._embeddings_to_dataframe(embeddings, ids)
 
         # Run data quality tests
-        quality_results = self.run_data_quality_tests(
+        self.run_data_quality_tests(
             embeddings_df,
             test_name=f"{dashboard_name}_embeddings_quality"
         )
@@ -297,9 +296,9 @@ class EvidentlyMonitor:
 
 
 def create_sample_recommendations_data(
-    query_ids: List[str],
-    restaurant_ids: List[str],
-    similarity_scores: List[float],
+    query_ids: list[str],
+    restaurant_ids: list[str],
+    similarity_scores: list[float],
 ) -> pd.DataFrame:
     """
     Helper function to create sample recommendations DataFrame.
