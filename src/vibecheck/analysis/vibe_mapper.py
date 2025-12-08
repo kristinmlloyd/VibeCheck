@@ -3,7 +3,6 @@
 """UMAP + HDBSCAN clustering for vibe map visualization."""
 
 from pathlib import Path
-from typing import Optional
 
 import hdbscan
 import mlflow
