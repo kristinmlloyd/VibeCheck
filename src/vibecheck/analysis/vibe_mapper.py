@@ -88,7 +88,10 @@ class VibeMapper:
             # UMAP projection
             logger.info("Running UMAP projection...")
             reducer = umap.UMAP(
-                n_neighbors=n_neighbors, min_dist=min_dist, metric="cosine", random_state=42
+                n_neighbors=n_neighbors,
+                min_dist=min_dist,
+                metric="cosine",
+                random_state=42,
             )
             embedding_2d = reducer.fit_transform(self.embeddings)
             logger.info("UMAP projection complete")
@@ -137,10 +140,13 @@ class VibeMapper:
                 mlflow.log_metric("num_clusters", n_clusters)
                 mlflow.log_metric("noise_points", n_noise)
                 mlflow.log_metric("clustered_points", len(df) - n_noise)
-                mlflow.log_metric("cluster_ratio", (len(df) - n_noise) / len(df) if len(df) > 0 else 0)
+                mlflow.log_metric(
+                    "cluster_ratio",
+                    (len(df) - n_noise) / len(df) if len(df) > 0 else 0,
+                )
 
                 # Cluster size statistics
-                cluster_sizes = df[df['cluster'] != -1].groupby('cluster').size()
+                cluster_sizes = df[df["cluster"] != -1].groupby("cluster").size()
                 if len(cluster_sizes) > 0:
                     mlflow.log_metric("avg_cluster_size", float(cluster_sizes.mean()))
                     mlflow.log_metric("max_cluster_size", int(cluster_sizes.max()))
@@ -148,9 +154,15 @@ class VibeMapper:
                     mlflow.log_metric("cluster_size_std", float(cluster_sizes.std()))
 
                 # Log cluster probabilities if available
-                if hasattr(clusterer, 'probabilities_'):
-                    mlflow.log_metric("avg_cluster_probability", float(np.mean(clusterer.probabilities_)))
-                    mlflow.log_metric("min_cluster_probability", float(np.min(clusterer.probabilities_)))
+                if hasattr(clusterer, "probabilities_"):
+                    mlflow.log_metric(
+                        "avg_cluster_probability",
+                        float(np.mean(clusterer.probabilities_)),
+                    )
+                    mlflow.log_metric(
+                        "min_cluster_probability",
+                        float(np.min(clusterer.probabilities_)),
+                    )
 
                 logger.info("Metrics logged to MLFlow")
 

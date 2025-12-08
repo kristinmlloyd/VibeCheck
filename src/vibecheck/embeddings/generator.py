@@ -110,7 +110,9 @@ class EmbeddingGenerator:
         # Combine
         return np.concatenate([text_vec, img_vec]).astype("float32")
 
-    def generate_all(self, run_name: str | None = None) -> tuple[np.ndarray, list[str]]:
+    def generate_all(
+        self, run_name: str | None = None
+    ) -> tuple[np.ndarray, list[str]]:
         """
         Generate embeddings for all restaurants in database.
 
@@ -180,8 +182,14 @@ class EmbeddingGenerator:
                 mlflow.log_metric("failed_embeddings", errors)
                 mlflow.log_metric("images_found", images_found)
                 mlflow.log_metric("images_missing", len(restaurants) - images_found)
-                mlflow.log_metric("success_rate", len(embeddings) / len(restaurants) if restaurants else 0)
-                mlflow.log_metric("image_coverage", images_found / len(restaurants) if restaurants else 0)
+                mlflow.log_metric(
+                    "success_rate",
+                    len(embeddings) / len(restaurants) if restaurants else 0,
+                )
+                mlflow.log_metric(
+                    "image_coverage",
+                    images_found / len(restaurants) if restaurants else 0,
+                )
 
                 # Log embedding statistics
                 embeddings_array = np.vstack(embeddings).astype("float32")

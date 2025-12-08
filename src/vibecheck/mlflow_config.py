@@ -14,7 +14,9 @@ class MLFlowConfig:
     """Configuration class for MLFlow tracking."""
 
     # Default tracking URI (can be overridden by environment variable)
-    DEFAULT_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5000")
+    DEFAULT_TRACKING_URI = os.getenv(
+        "MLFLOW_TRACKING_URI", "http://localhost:5000"
+    )
 
     # Experiment names
     EMBEDDING_EXPERIMENT = "vibecheck-embeddings"
@@ -40,7 +42,9 @@ class MLFlowConfig:
         cls.ARTIFACTS_DIR.mkdir(parents=True, exist_ok=True)
 
     @classmethod
-    def create_experiment(cls, experiment_name: str, tags: dict[str, Any | None] = None) -> str:
+    def create_experiment(
+        cls, experiment_name: str, tags: dict[str, Any | None] = None
+    ) -> str:
         """
         Create an MLFlow experiment if it doesn't exist.
 
@@ -61,10 +65,7 @@ class MLFlowConfig:
             pass
 
         # Create new experiment
-        experiment_id = mlflow.create_experiment(
-            experiment_name,
-            tags=tags or {}
-        )
+        experiment_id = mlflow.create_experiment(experiment_name, tags=tags or {})
         print(f"Created experiment '{experiment_name}' with ID: {experiment_id}")
         return experiment_id
 

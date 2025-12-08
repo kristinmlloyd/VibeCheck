@@ -117,11 +117,15 @@ class EvidentlyMonitor:
         logger.info("Creating recommendation quality report")
 
         if reference_data is not None:
-            report = Report(metrics=[
-                DataDriftPreset(),
-                DataQualityPreset(),
-            ])
-            report.run(reference_data=reference_data, current_data=recommendations_data)
+            report = Report(
+                metrics=[
+                    DataDriftPreset(),
+                    DataQualityPreset(),
+                ]
+            )
+            report.run(
+                reference_data=reference_data, current_data=recommendations_data
+            )
         else:
             report = Report(metrics=[
                 DataQualityPreset(),
@@ -174,7 +178,7 @@ class EvidentlyMonitor:
 
         # Save JSON
         json_path = self.tests_dir / f"{test_name}.json"
-        with open(json_path, 'w') as f:
+        with open(json_path, "w") as f:
             json.dump(results, f, indent=2)
 
         return results
@@ -217,7 +221,7 @@ class EvidentlyMonitor:
 
         # Save JSON
         json_path = self.tests_dir / f"{test_name}.json"
-        with open(json_path, 'w') as f:
+        with open(json_path, "w") as f:
             json.dump(results, f, indent=2)
 
         return results
@@ -276,19 +280,19 @@ class EvidentlyMonitor:
 
         # Run data quality tests
         self.run_data_quality_tests(
-            embeddings_df,
-            test_name=f"{dashboard_name}_embeddings_quality"
+            embeddings_df, test_name=f"{dashboard_name}_embeddings_quality"
         )
 
         # Create recommendation quality report
         rec_report = self.create_recommendation_quality_report(
-            recommendations,
-            report_name=f"{dashboard_name}_recommendations"
+            recommendations, report_name=f"{dashboard_name}_recommendations"
         )
 
         paths = {
-            'embeddings_quality_test': str(self.tests_dir / f"{dashboard_name}_embeddings_quality.html"),
-            'recommendations_report': rec_report,
+            "embeddings_quality_test": str(
+                self.tests_dir / f"{dashboard_name}_embeddings_quality.html"
+            ),
+            "recommendations_report": rec_report,
         }
 
         logger.info(f"Dashboard generated with {len(paths)} reports")
@@ -311,9 +315,11 @@ def create_sample_recommendations_data(
     Returns:
         DataFrame with recommendations data
     """
-    return pd.DataFrame({
-        'query_id': query_ids,
-        'restaurant_id': restaurant_ids,
-        'similarity_score': similarity_scores,
-        'timestamp': datetime.now(),
-    })
+    return pd.DataFrame(
+        {
+            "query_id": query_ids,
+            "restaurant_id": restaurant_ids,
+            "similarity_score": similarity_scores,
+            "timestamp": datetime.now(),
+        }
+    )
