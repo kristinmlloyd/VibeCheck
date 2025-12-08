@@ -1,0 +1,85 @@
+{
+  "basic": {
+    "total_restaurants": 556,
+    "avg_rating": 4.39,
+    "min_rating": 3.4,
+    "max_rating": 4.9,
+    "median_rating": 4.4,
+    "avg_reviews": 1114.0,
+    "min_reviews": 25,
+    "max_reviews": 20989,
+    "total_reviews": 2780,
+    "avg_review_length": 275.0,
+    "total_photos": 2780,
+    "restaurants_with_photos": 556,
+    "avg_photos_per_restaurant": 5.0
+  },
+  "vibes": [
+    {
+      "name": "Chill/Relaxed",
+      "count": 307,
+      "percentage": 27.8
+    },
+    {
+      "name": "Outdoor/Patio",
+      "count": 158,
+      "percentage": 14.3
+    },
+    {
+      "name": "Casual/Divey",
+      "count": 145,
+      "percentage": 13.1
+    },
+    {
+      "name": "Romantic/Date Night",
+      "count": 120,
+      "percentage": 10.9
+    },
+    {
+      "name": "Lively/Energetic",
+      "count": 96,
+      "percentage": 8.7
+    },
+    {
+      "name": "Quiet/Intimate",
+      "count": 94,
+      "percentage": 8.5
+    },
+    {
+      "name": "Upscale/Fancy",
+      "count": 87,
+      "percentage": 7.9
+    },
+    {
+      "name": "Loud/Noisy",
+      "count": 72,
+      "percentage": 6.5
+    },
+    {
+      "name": "Dim/Romantic Lighting",
+      "count": 26,
+      "percentage": 2.4
+    }
+  ],
+  "clusters": {
+    "n_clusters": 28,
+    "n_noise": 96,
+    "noise_percentage": 17.3,
+    "avg_cluster_size": 16.4,
+    "min_cluster_size": 5,
+    "max_cluster_size": 54,
+    "cluster_rating_range": "4.16 - 4.59"
+  },
+  "embeddings": {
+    "n_embeddings": 556,
+    "embedding_dim": 896,
+    "text_dim": 384,
+    "image_dim": 512,
+    "mean_similarity": 0.694,
+    "std_similarity": 0.054,
+    "min_similarity": 0.451,
+    "max_similarity": 0.915
+  },
+  "precision_at_5": 0.15,
+  "precision_at_10": 0.16
+}
