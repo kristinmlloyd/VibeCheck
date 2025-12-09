@@ -99,10 +99,10 @@ def get_restaurant_details(restaurant_id, full_details=False):
     conn = get_db()
     cursor = conn.cursor()
 
-    # Basic info
+    # Basic info - include latitude/longitude for map display
     cursor.execute(
         """
-        SELECT id, name, rating, address, reviews_count, place_id
+        SELECT id, name, rating, address, reviews_count, place_id, latitude, longitude
         FROM restaurants
         WHERE id = ?
         """,
@@ -189,7 +189,7 @@ def get_all_restaurants_for_map():
 
     cursor.execute("""
         SELECT r.id, r.name, r.rating, r.address, r.reviews_count,
-               vm.x, vm.y, vm.cluster
+               vm.x, vm.y, vm.cluster, r.latitude, r.longitude
         FROM restaurants r
         LEFT JOIN (
             SELECT id, name, x, y, cluster
@@ -198,7 +198,32 @@ def get_all_restaurants_for_map():
         WHERE r.rating IS NOT NULL
     """)
 
-    restaurants = [dict(row) for row in cursor.fetchall()]
+    restaurants = []
+    for row in cursor.fetchall():
+        restaurant = dict(row)
+
+        # Get top vibe for this restaurant
+        cursor.execute(
+            """
+            SELECT vibe_name, mention_count
+            FROM vibe_analysis
+            WHERE restaurant_id = ?
+            ORDER BY mention_count DESC
+            LIMIT 1
+        """,
+            (restaurant["id"],),
+        )
+
+        vibe_row = cursor.fetchone()
+        if vibe_row:
+            restaurant["top_vibe"] = vibe_row["vibe_name"]
+            restaurant["vibe_count"] = vibe_row["mention_count"]
+        else:
+            restaurant["top_vibe"] = None
+            restaurant["vibe_count"] = 0
+
+        restaurants.append(restaurant)
+
     conn.close()
     return restaurants
 
@@ -295,6 +320,78 @@ def vibe_stats():
     conn.close()
 
     return jsonify({"vibes": vibes})
+
+
+@app.route("/api/restaurants-by-vibe")
+def restaurants_by_vibe():
+    """Get restaurants matching a specific vibe, sorted by mention count."""
+    vibe_name = request.args.get("vibe")
+    if not vibe_name:
+        return jsonify({"error": "Vibe parameter is required"}), 400
+
+    conn = get_db()
+    cursor = conn.cursor()
+
+    # Get restaurants with this vibe, ranked by mention count
+    cursor.execute(
+        """
+        SELECT r.id, r.name, r.rating, r.address, r.reviews_count,
+               va.mention_count
+        FROM restaurants r
+        JOIN vibe_analysis va ON r.id = va.restaurant_id
+        WHERE va.vibe_name = ?
+        ORDER BY va.mention_count DESC, r.rating DESC
+        LIMIT 50
+        """,
+        (vibe_name,),
+    )
+
+    restaurants = []
+    for row in cursor.fetchall():
+        restaurant_id = row["id"]
+
+        # Get first photo
+        cursor.execute(
+            """
+            SELECT local_filename
+            FROM vibe_photos
+            WHERE restaurant_id = ?
+            LIMIT 1
+            """,
+            (restaurant_id,),
+        )
+        photo_row = cursor.fetchone()
+
+        # Get top review
+        cursor.execute(
+            """
+            SELECT review_text, likes
+            FROM reviews
+            WHERE restaurant_id = ?
+            ORDER BY likes DESC
+            LIMIT 1
+            """,
+            (restaurant_id,),
+        )
+        review_row = cursor.fetchone()
+
+        restaurants.append(
+            {
+                "id": row["id"],
+                "name": row["name"],
+                "rating": row["rating"],
+                "address": row["address"],
+                "reviews_count": row["reviews_count"],
+                "mention_count": row["mention_count"],
+                "photo_filename": photo_row["local_filename"] if photo_row else None,
+                "top_review": review_row["review_text"][:200] + "..."
+                if review_row and review_row["review_text"]
+                else None,
+            }
+        )
+
+    conn.close()
+    return jsonify({"vibe": vibe_name, "restaurants": restaurants})
 
 
 @app.route("/images/<path:filename>")
