@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: VibeCheck-Web
-    env: docker
+    name: vibecheck-web
+    runtime: docker
     branch: deploy_app
     plan: starter
     dockerfilePath: docker/app/Dockerfile
-    autoDeploy: true
+    autoDeploy: true        # still supported, newer field is autoDeployTrigger
     healthCheckPath: "/"
-    instanceCount: 1
+    numInstances: 1         # was instanceCount
     envVars:
       - key: FLASK_PORT
         value: "8080"
