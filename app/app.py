@@ -44,15 +44,30 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
 
 # ==============================================================================
-# LOAD MODELS (once at startup)
+# LAZY LOAD MODELS (load on first request to avoid startup timeout)
 # ==============================================================================
 
-print("Loading models...")
-text_model = SentenceTransformer("all-MiniLM-L6-v2", device=DEVICE)
-clip_model, clip_preprocess = clip.load("ViT-B/32", device=DEVICE)
-faiss_index = faiss.read_index(str(FAISS_PATH))
-meta_ids = np.load(META_PATH)
-print(f"Models loaded. FAISS index contains {len(meta_ids)} restaurants.")
+# Global model variables (will be loaded on first use)
+text_model = None
+clip_model = None
+clip_preprocess = None
+faiss_index = None
+meta_ids = None
+
+
+def ensure_models_loaded():
+    """Lazy-load models on first request to avoid blocking startup."""
+    global text_model, clip_model, clip_preprocess, faiss_index, meta_ids
+
+    if text_model is not None:
+        return  # Already loaded
+
+    print("Loading models (first request)...")
+    text_model = SentenceTransformer("all-MiniLM-L6-v2", device=DEVICE)
+    clip_model, clip_preprocess = clip.load("ViT-B/32", device=DEVICE)
+    faiss_index = faiss.read_index(str(FAISS_PATH))
+    meta_ids = np.load(META_PATH)
+    print(f"Models loaded. FAISS index contains {len(meta_ids)} restaurants.")
 
 # ==============================================================================
 # HELPER FUNCTIONS
@@ -225,6 +240,7 @@ def import_vibe_map_to_db():
 @app.route("/")
 def index():
     """Main page."""
+    # Health check - don't load models yet
     return render_template("index.html")
 
 
@@ -232,6 +248,8 @@ def index():
 def search():
     """Search restaurants via FAISS index."""
     try:
+        ensure_models_loaded()  # Lazy load on first search
+
         query_text = request.form.get("text", "")
         query_image = request.files.get("image")
         top_k = int(request.form.get("top_k", 9))
@@ -316,7 +334,7 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     print("VibeCheck Flask App Starting")
     print("=" * 60)
-    print(f"Restaurants loaded: {len(meta_ids)}")
+    print("Models will load on first search request")
     print(f"Server available at http://localhost:{port}")
     print("=" * 60 + "\n")
 
