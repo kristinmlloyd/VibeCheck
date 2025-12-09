@@ -2,7 +2,7 @@
 builder = "NIXPACKS"
 
 [deploy]
-startCommand = "cd app && gunicorn --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 120 app:app"
+startCommand = "cd app && gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 1 --timeout 120 --preload app:app"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
@@ -14,3 +14,4 @@ interval = 30
 [env]
 PYTHONUNBUFFERED = "1"
 FLASK_ENV = "production"
+PIP_NO_CACHE_DIR = "1"
