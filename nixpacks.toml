@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["python311"]
+
+[phases.install]
+cmds = [
+    "pip install --upgrade pip",
+    "pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cpu",
+    "pip install --no-cache-dir -r requirements.txt"
+]
+
+[start]
+cmd = "cd app && gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 1 --timeout 120 --preload app:app"
