@@ -1,0 +1,38 @@
+# Fly.io configuration for VibeCheck
+app = "vibecheck"
+primary_region = "iad"
+
+[build]
+  dockerfile = "docker/app/Dockerfile"
+
+[env]
+  FLASK_ENV = "production"
+  OUTPUT_DIR = "/app/data"
+  DB_PATH = "/app/data/vibecheck.db"
+  IMAGE_DIR = "/app/data/images"
+  FAISS_PATH = "/app/data/vibecheck_index.faiss"
+  META_PATH = "/app/data/meta_ids.npy"
+  VIBE_MAP_CSV = "/app/data/vibe_map.csv"
+  OMP_NUM_THREADS = "1"
+  MKL_NUM_THREADS = "1"
+  PYTORCH_CUDA_ALLOC_CONF = "max_split_size_mb:128"
+  TOKENIZERS_PARALLELISM = "false"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[http_service.checks]]
+  grace_period = "90s"
+  interval = "30s"
+  method = "GET"
+  timeout = "10s"
+  path = "/"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
