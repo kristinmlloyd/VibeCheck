@@ -1,7 +1,6 @@
 # VibeCheck: Multimodal Restaurant Discovery Through Ambience Intelligence
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/streamlit-1.28.0-FF4B4B)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Code style: poetry](https://img.shields.io/badge/dependency%20management-poetry-blue)](https://python-poetry.org/)
 
