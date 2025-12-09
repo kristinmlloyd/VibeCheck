@@ -1,29 +1,27 @@
 services:
   - type: web
-    name: vibecheck-web
-    runtime: python
-    plan: free
-    branch: deploy_app
-    autoDeploy: true
-    healthCheckPath: "/"
-    numInstances: 1
-    buildCommand: |
-      pip install poetry
-      poetry install --no-dev
-    startCommand: |
-      poetry run gunicorn "scripts.app:app"
+    name: vibecheck
+    runtime: docker
+    dockerfilePath: ./docker/app/Dockerfile
+    dockerContext: .
     envVars:
-      - key: FLASK_PORT
-        value: "8080"
+      - key: FLASK_ENV
+        value: production
       - key: OUTPUT_DIR
-        value: "/data"
+        value: /app/data
       - key: DB_PATH
-        value: "/data/vibecheck.db"
+        value: /app/data/vibecheck.db
       - key: IMAGE_DIR
-        value: "/data/images/restaurant_images"
+        value: /app/data/images
       - key: FAISS_PATH
-        value: "/data/vibecheck_index.faiss"
+        value: /app/data/vibecheck_index.faiss
       - key: META_PATH
-        value: "/data/meta_ids.npy"
+        value: /app/data/meta_ids.npy
       - key: VIBE_MAP_CSV
-        value: "/data/vibe_map.csv"
+        value: /app/data/vibe_map.csv
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+    plan: free
+    healthCheckPath: /
