@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: vibecheck-app
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: standard  # 2GB RAM - minimum for ML models
+    region: oregon  # Change to your preferred region
+    branch: main
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: FLASK_PORT
+        value: 8080
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: OMP_NUM_THREADS
+        value: 1
+      - key: MKL_NUM_THREADS
+        value: 1
+      - key: OUTPUT_DIR
+        value: /app/data
+      - key: DB_PATH
+        value: /app/data/vibecheck.db
+      - key: IMAGE_DIR
+        value: /app/data/images
+      - key: FAISS_PATH
+        value: /app/data/vibecheck_index.faiss
+      - key: META_PATH
+        value: /app/data/meta_ids.npy
+      - key: VIBE_MAP_CSV
+        value: /app/data/vibe_map.csv
+    disk:
+      name: vibecheck-data
+      mountPath: /app/data
+      sizeGB: 10  # Adjust based on your data size
+    healthCheckPath: /
+    autoDeploy: true  # Auto-deploy on git push
