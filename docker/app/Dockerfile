@@ -30,6 +30,7 @@ RUN poetry install --only main --no-interaction --no-ansi && \
 # Copy application code
 COPY app/app.py ./app.py
 COPY app/templates/ ./templates/
+COPY app/static/ ./static/
 COPY src/ ./src/
 
 # Set Python path

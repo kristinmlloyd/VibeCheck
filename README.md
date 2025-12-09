@@ -479,14 +479,95 @@ poetry run pytest --cov=. --cov-report=html
 
 **Quick Start:**
 ```bash
-# 1. Setup data directory
-./setup_data.sh  # or manually copy files to data/
+# 1. Clone the repository
+git clone <repository-url>
+cd VibeCheck-git
 
-# 2. Build and run
-docker-compose build
-docker-compose up
+# 2. Verify data files exist
+ls -lh data/
+# Should see: vibecheck.db, vibecheck_index.faiss, meta_ids.npy, vibe_map.csv, images/
 
-# 3. Access at http://localhost:5000
+# 3. Build and run
+docker compose build app
+docker compose up -d
+
+# 4. Access the app
+# Open browser to: http://localhost:8080
+```
+
+**Updating the App After Code Changes:**
+
+When you modify `app/app.py`, `app/templates/index.html`, or `app/static/*`:
+
+```bash
+# Rebuild and restart (recommended)
+docker compose build app && docker compose up -d
+
+# View logs to verify changes
+docker compose logs -f app
+
+# Stop the app
+docker compose down
+```
+
+**For Team Members:**
+
+**Option A: Access a Running Instance**
+
+If someone is already running VibeCheck on their machine:
+
+```bash
+# Find your local IP address
+# On Mac/Linux:
+ipconfig getifaddr en0
+
+# Share this URL with teammates:
+# http://<YOUR_IP_ADDRESS>:8080
+```
+
+Note: This only works on the same WiFi/LAN network.
+
+**Option B: Run Your Own Local Instance**
+
+```bash
+# 1. Clone the repository
+git clone <repository-url>
+cd VibeCheck-git
+
+# 2. Verify data files exist
+ls -lh data/
+
+# 3. Build and start
+docker compose build app
+docker compose up -d
+
+# 4. Access at http://localhost:8080
+
+# To update after pulling new changes:
+git pull
+docker compose build app
+docker compose up -d
+
+# To stop:
+docker compose down
+```
+
+**Troubleshooting:**
+
+```bash
+# Changes not showing up? Hard reset:
+docker compose down
+docker compose build --no-cache app
+docker compose up -d
+
+# Check container status:
+docker compose ps
+
+# View error logs:
+docker compose logs app | tail -50
+
+# Verify data is mounted correctly:
+docker compose exec app ls -lh /app/data/
 ```
 
 **Documentation:**
@@ -495,10 +576,11 @@ docker-compose up
 - [DATA_SETUP.md](DATA_SETUP.md) - Data files setup
 
 **Architecture:**
-- Single Flask container with all ML models
-- Volume-mounted data directory
-- Built-in CLIP + Sentence-BERT + FAISS
+- Flask container with CLIP + Sentence-BERT + FAISS
+- Volume-mounted data directory (`./data` → `/app/data`)
+- Static files served from container
 - Health checks and auto-restart
+- Runs on port 8080
 
 ### Local Deployment
 
