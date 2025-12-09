@@ -33,6 +33,7 @@ RUN pip install --no-cache-dir gunicorn
 COPY app/app.py ./app.py
 COPY app/templates/ ./templates/
 COPY src/ ./src/
+COPY scripts/download_data.sh ./download_data.sh
 
 # Set Python path
 ENV PYTHONPATH=/app/src
@@ -59,4 +60,5 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
 
 # Run with Gunicorn for production (single worker for low memory environments)
 # Use threads instead of multiple workers to save memory
-CMD ["gunicorn", "-w", "1", "--threads", "2", "--timeout", "120", "-b", "0.0.0.0:8080", "app:app"]
+# Download data from Google Drive first, then start app
+CMD bash -c "./download_data.sh && gunicorn -w 1 --threads 2 --timeout 120 -b 0.0.0.0:8080 app:app"
