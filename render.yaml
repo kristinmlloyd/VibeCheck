@@ -29,3 +29,4 @@ services:
         value: "false"
     plan: free
     healthCheckPath: /
+    startCommand: bash -c "./download_data.sh && gunicorn -w 1 --threads 2 --timeout 300 --graceful-timeout 300 -b 0.0.0.0:8080 app:app"
