@@ -1,13 +1,17 @@
 services:
   - type: web
     name: vibecheck-web
-    runtime: docker
+    runtime: python
+    plan: free
     branch: deploy_app
-    plan: starter
-    dockerfilePath: docker/app/Dockerfile
-    autoDeploy: true        # still supported, newer field is autoDeployTrigger
+    autoDeploy: true
     healthCheckPath: "/"
-    numInstances: 1         # was instanceCount
+    numInstances: 1
+    buildCommand: |
+      pip install poetry
+      poetry install --no-dev
+    startCommand: |
+      poetry run gunicorn "scripts.app:app"
     envVars:
       - key: FLASK_PORT
         value: "8080"
