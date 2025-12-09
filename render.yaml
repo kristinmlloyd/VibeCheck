@@ -23,5 +23,9 @@ services:
         value: "1"
       - key: MKL_NUM_THREADS
         value: "1"
+      - key: PYTORCH_CUDA_ALLOC_CONF
+        value: "max_split_size_mb:128"
+      - key: TOKENIZERS_PARALLELISM
+        value: "false"
     plan: free
     healthCheckPath: /

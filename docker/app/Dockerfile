@@ -57,5 +57,6 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=10s --start-period=90s --retries=3 \
     CMD curl -f http://localhost:8080/ || exit 1
 
-# Run with Gunicorn for production
-CMD ["gunicorn", "-w", "4", "-k", "gthread", "-b", "0.0.0.0:8080", "app:app"]
+# Run with Gunicorn for production (single worker for low memory environments)
+# Use threads instead of multiple workers to save memory
+CMD ["gunicorn", "-w", "1", "--threads", "2", "--timeout", "120", "-b", "0.0.0.0:8080", "app:app"]
