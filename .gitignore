@@ -44,3 +44,8 @@ mlflow.db-wal
 # Evidently monitoring
 monitoring/reports/
 monitoring/tests/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
