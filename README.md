@@ -271,6 +271,8 @@ poetry run vibecheck-app
 4. Click on clusters to view constituent restaurants
 5. Identify emerging aesthetic trends
 
+
+
 ### Best Practices for Search Queries
 
 **Effective Text Queries:**
