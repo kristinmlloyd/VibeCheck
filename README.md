@@ -19,7 +19,11 @@ Manav Arora, Kristin Lloyd, Jessica Joy, Vivi Luccioli, Ping Hill
 
 Link to db image files: https://drive.google.com/drive/folders/1EXlgII9BrqfkYYuDljkOHK8dXKCDldb6?usp=sharing
 
-(add images of the final thing here)
+![Home Screen](imageswebsite/1.png){width=40%}
+![Maps](imageswebsite/2.png){width=40%}
+![Restaurant](imageswebsite/4.png){width=40%}
+![Top Vibes](imageswebsite/3.png){width=40%}
+
 
 VibeCheck is an advanced multimodal machine learning application that revolutionizes restaurant discovery by prioritizing **ambience and aesthetic experience** over traditional search parameters like cuisine type, price range, or star ratings. By leveraging state-of-the-art deep learning models for cross-modal understanding, VibeCheck enables users to find dining establishments that match their desired atmosphere, whether expressed through natural language descriptions or reference photographs.
 
@@ -232,8 +236,7 @@ poetry run vibecheck-app
 ```
 
 2. **Access the Interface**
-- Application opens automatically at `http://localhost:8501`
-- Streamlit interface loads with search options
+
 
 ### Search Workflows (needs to be updated after frontend is finalised)
 
@@ -460,32 +463,40 @@ Evidently monitors:
 3. Run pipeline: `dvc repro`
 4. Generate monitoring reports regularly
 
-## Testing (to be updated when tests are implemented)
+## Testing 
 
 ### Running Tests
 
 ```bash
+# Setup (one time)
+python3 -m venv test_env
+source test_env/bin/activate
+pip install pytest pytest-cov numpy Pillow flask faiss-cpu
+
 # Run all tests
-poetry run pytest
+pytest tests/ -v
 
 # Run specific test modules
-poetry run pytest tests/test_encoders.py
-poetry run pytest tests/test_search.py
+pytest tests/test_api_endpoints.py -v
+pytest tests/test_embeddings.py -v
+pytest tests/test_recommender.py -v
 
 # Run with coverage report
-poetry run pytest --cov=. --cov-report=html
+pytest tests/ --cov=src --cov=vibecheck --cov-report=html
+
 ```
 
 ### Test Coverage
-
-- **Unit Tests**: Individual component functionality (encoders, search, clustering)
-- **Integration Tests**: End-to-end search workflows
-- **Performance Tests**: Latency and throughput benchmarks
-- **Embedding Quality Tests**: Semantic similarity validation
+- API Endpoint Tests (10 tests): Flask routes, search endpoints, image serving
+- Embedding Tests (13 tests): CLIP/BERT dimensions, FAISS indexing, vector operations
+- Recommendation Tests (18 tests): Search logic, ranking, multimodal queries, vibe matching
+- Performance Tests (2 tests): Batch processing, index search efficiency
+- Error Handling Tests (2 tests): Invalid inputs, missing data scenarios
+- Test Results: 45 passed, 1 skipped, execution time ~0.6 seconds
 
 ## Deployment
 
-### Docker Deployment (Recommended)
+### Docker Deployment 
 
 **Quick Start:**
 ```bash
@@ -561,6 +572,65 @@ For production environments:
    - Use CDN for serving restaurant images
    - Scale horizontally with load balancer
 
+## Fly.io Deployment
+
+### Current Production Instance
+
+Live Application: https://vibecheck-app-1765337464.fly.dev/
+
+The application is deployed on Fly.io with the following configuration:
+
+### Infrastructure
+- App Name: vibecheck-app-1765337464
+- Region: iad (US East - Ashburn, Virginia)
+- Machine Type: Shared CPU with 2 vCPUs
+- Memory: 4GB RAM (required for ML models)
+- Auto-scaling: Auto-start/auto-stop enabled with minimum 1 machine running
+
+### Application Stack
+- Runtime: Python 3.11-slim
+- Framework: Flask (port 8080)
+- Models Loaded: CLIP (ViT-B/32), Sentence-BERT (all-MiniLM-L6-v2), FAISS index
+- Database: SQLite (vibecheck.db)
+- Data Size: ~175MB (including 2,682 restaurant images)
+
+## Deployment Architecture
+
+```
+Docker Container (Python 3.11-slim)
+├── Flask App (app.py) - Port 8080
+├── ML Models (loaded at startup)
+│   ├── CLIP (ViT-B/32) - Image encoding
+│   ├── Sentence-BERT (all-MiniLM-L6-v2) - Text encoding
+│   └── FAISS Index - Vector similarity search
+├── Data Directory (~175MB)
+│   ├── vibecheck.db (1.7MB) - Restaurant metadata
+│   ├── vibecheck_index.faiss (1.9MB) - Vector index
+│   ├── vibe_embeddings.npy (1.9MB) - Precomputed embeddings
+│   ├── meta_ids.npy (4.5KB) - Restaurant ID mapping
+│   ├── vibe_map.csv (77KB) - Vibe clustering data
+│   └── images/ (84K total) - Restaurant photos
+├── Templates (HTML/CSS/JS) - Frontend
+└── Health Check (30s interval)
+```
+
+## Deploy Commands 
+
+```
+# First time setup
+flyctl auth login
+cd vibecheck
+flyctl launch
+
+# Updates
+flyctl deploy
+
+# Check status
+flyctl status
+flyctl logs
+```
+
+Always deploy from /vibecheck/ not root (should be ~175MB not GBs)
 
 ## Limitations & Future Work
 
@@ -601,6 +671,7 @@ For production environments:
 - **Facebook AI Research**: For the FAISS library enabling efficient similarity search
 - **UMAP Development Team**: For robust dimensionality reduction
 - **HDBSCAN Authors**: For advanced density-based clustering
+- - **Fly.io**: For deployment and hosting support
 
 
 ---

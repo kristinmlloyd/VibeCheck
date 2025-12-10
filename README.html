@@ -97,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Link to db image files: https://drive.google.com/drive/folders/1EXlgII9BrqfkYYuDljkOHK8dXKCDldb6?usp=sharing</p>
-<p>(add images of the final thing here)</p>
+<p><img src="imageswebsite/1.png" class="img-fluid" style="width:40.0%" alt="Home Screen"> <img src="imageswebsite/2.png" class="img-fluid" style="width:40.0%" alt="Maps"> <img src="imageswebsite/4.png" class="img-fluid" style="width:40.0%" alt="Restaurant"> <img src="imageswebsite/3.png" class="img-fluid" style="width:40.0%" alt="Top Vibes"></p>
 <p>VibeCheck is an advanced multimodal machine learning application that revolutionizes restaurant discovery by prioritizing <strong>ambience and aesthetic experience</strong> over traditional search parameters like cuisine type, price range, or star ratings. By leveraging state-of-the-art deep learning models for cross-modal understanding, VibeCheck enables users to find dining establishments that match their desired atmosphere, whether expressed through natural language descriptions or reference photographs.</p>
 <p>The system addresses a fundamental gap in current restaurant recommendation systems: the inability to search based on subjective aesthetic qualities and atmospheric characteristics that significantly influence dining experiences but are difficult to capture through conventional metadata.</p>
 <section id="core-value-proposition" class="level3">
@@ -253,10 +253,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="2" type="1">
 <li><strong>Access the Interface</strong></li>
 </ol>
-<ul>
-<li>Application opens automatically at <code>http://localhost:8501</code></li>
-<li>Streamlit interface loads with search options</li>
-</ul>
 </section>
 <section id="search-workflows-needs-to-be-updated-after-frontend-is-finalised" class="level3">
 <h3 class="anchored" data-anchor-id="search-workflows-needs-to-be-updated-after-frontend-is-finalised">Search Workflows (needs to be updated after frontend is finalised)</h3>
@@ -446,34 +442,42 @@ candlelit tables, exposed brick walls, and vintage wine bottles"</code></pre></l
 <p><strong>Production:</strong> 1. Use Docker Compose for MLFlow server 2. Configure remote storage for DVC 3. Run pipeline: <code>dvc repro</code> 4. Generate monitoring reports regularly</p>
 </section>
 </section>
-<section id="testing-to-be-updated-when-tests-are-implemented" class="level2">
-<h2 class="anchored" data-anchor-id="testing-to-be-updated-when-tests-are-implemented">Testing (to be updated when tests are implemented)</h2>
+<section id="testing" class="level2">
+<h2 class="anchored" data-anchor-id="testing">Testing</h2>
 <section id="running-tests" class="level3">
 <h3 class="anchored" data-anchor-id="running-tests">Running Tests</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all tests</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run pytest</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run specific test modules</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run pytest tests/test_encoders.py</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run pytest tests/test_search.py</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run with coverage report</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run pytest <span class="at">--cov</span><span class="op">=</span>. <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup (one time)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv test_env</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> test_env/bin/activate</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest pytest-cov numpy Pillow flask faiss-cpu</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all tests</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/ <span class="at">-v</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Run specific test modules</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/test_api_endpoints.py <span class="at">-v</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/test_embeddings.py <span class="at">-v</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/test_recommender.py <span class="at">-v</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Run with coverage report</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> tests/ <span class="at">--cov</span><span class="op">=</span>src <span class="at">--cov</span><span class="op">=</span>vibecheck <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="test-coverage" class="level3">
 <h3 class="anchored" data-anchor-id="test-coverage">Test Coverage</h3>
 <ul>
-<li><strong>Unit Tests</strong>: Individual component functionality (encoders, search, clustering)</li>
-<li><strong>Integration Tests</strong>: End-to-end search workflows</li>
-<li><strong>Performance Tests</strong>: Latency and throughput benchmarks</li>
-<li><strong>Embedding Quality Tests</strong>: Semantic similarity validation</li>
+<li>API Endpoint Tests (10 tests): Flask routes, search endpoints, image serving</li>
+<li>Embedding Tests (13 tests): CLIP/BERT dimensions, FAISS indexing, vector operations</li>
+<li>Recommendation Tests (18 tests): Search logic, ranking, multimodal queries, vibe matching</li>
+<li>Performance Tests (2 tests): Batch processing, index search efficiency</li>
+<li>Error Handling Tests (2 tests): Invalid inputs, missing data scenarios</li>
+<li>Test Results: 45 passed, 1 skipped, execution time ~0.6 seconds</li>
 </ul>
 </section>
 </section>
 <section id="deployment" class="level2">
 <h2 class="anchored" data-anchor-id="deployment">Deployment</h2>
-<section id="docker-deployment-recommended" class="level3">
-<h3 class="anchored" data-anchor-id="docker-deployment-recommended">Docker Deployment (Recommended)</h3>
+<section id="docker-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="docker-deployment">Docker Deployment</h3>
 <p><strong>Quick Start:</strong></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Setup data directory</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./setup_data.sh</span>  <span class="co"># or manually copy files to data/</span></span>
@@ -538,6 +542,67 @@ candlelit tables, exposed brick walls, and vintage wine bottles"</code></pre></l
 </ol>
 </section>
 </section>
+<section id="fly.io-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="fly.io-deployment">Fly.io Deployment</h2>
+<section id="current-production-instance" class="level3">
+<h3 class="anchored" data-anchor-id="current-production-instance">Current Production Instance</h3>
+<p>Live Application: https://vibecheck-app-1765337464.fly.dev/</p>
+<p>The application is deployed on Fly.io with the following configuration:</p>
+</section>
+<section id="infrastructure" class="level3">
+<h3 class="anchored" data-anchor-id="infrastructure">Infrastructure</h3>
+<ul>
+<li>App Name: vibecheck-app-1765337464</li>
+<li>Region: iad (US East - Ashburn, Virginia)</li>
+<li>Machine Type: Shared CPU with 2 vCPUs</li>
+<li>Memory: 4GB RAM (required for ML models)</li>
+<li>Auto-scaling: Auto-start/auto-stop enabled with minimum 1 machine running</li>
+</ul>
+</section>
+<section id="application-stack" class="level3">
+<h3 class="anchored" data-anchor-id="application-stack">Application Stack</h3>
+<ul>
+<li>Runtime: Python 3.11-slim</li>
+<li>Framework: Flask (port 8080)</li>
+<li>Models Loaded: CLIP (ViT-B/32), Sentence-BERT (all-MiniLM-L6-v2), FAISS index</li>
+<li>Database: SQLite (vibecheck.db)</li>
+<li>Data Size: ~175MB (including 2,682 restaurant images)</li>
+</ul>
+</section>
+</section>
+<section id="deployment-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="deployment-architecture">Deployment Architecture</h2>
+<pre><code>Docker Container (Python 3.11-slim)
+├── Flask App (app.py) - Port 8080
+├── ML Models (loaded at startup)
+│   ├── CLIP (ViT-B/32) - Image encoding
+│   ├── Sentence-BERT (all-MiniLM-L6-v2) - Text encoding
+│   └── FAISS Index - Vector similarity search
+├── Data Directory (~175MB)
+│   ├── vibecheck.db (1.7MB) - Restaurant metadata
+│   ├── vibecheck_index.faiss (1.9MB) - Vector index
+│   ├── vibe_embeddings.npy (1.9MB) - Precomputed embeddings
+│   ├── meta_ids.npy (4.5KB) - Restaurant ID mapping
+│   ├── vibe_map.csv (77KB) - Vibe clustering data
+│   └── images/ (84K total) - Restaurant photos
+├── Templates (HTML/CSS/JS) - Frontend
+└── Health Check (30s interval)</code></pre>
+</section>
+<section id="deploy-commands" class="level2">
+<h2 class="anchored" data-anchor-id="deploy-commands">Deploy Commands</h2>
+<pre><code># First time setup
+flyctl auth login
+cd vibecheck
+flyctl launch
+
+# Updates
+flyctl deploy
+
+# Check status
+flyctl status
+flyctl logs</code></pre>
+<p>Always deploy from /vibecheck/ not root (should be ~175MB not GBs)</p>
+</section>
 <section id="limitations-future-work" class="level2">
 <h2 class="anchored" data-anchor-id="limitations-future-work">Limitations &amp; Future Work</h2>
 <section id="current-limitations" class="level3">
@@ -567,6 +632,9 @@ candlelit tables, exposed brick walls, and vintage wine bottles"</code></pre></l
 <li><strong>Facebook AI Research</strong>: For the FAISS library enabling efficient similarity search</li>
 <li><strong>UMAP Development Team</strong>: For robust dimensionality reduction</li>
 <li><strong>HDBSCAN Authors</strong>: For advanced density-based clustering</li>
+<li><ul>
+<li><strong>Fly.io</strong>: For deployment and hosting support</li>
+</ul></li>
 </ul>
 <hr>
 </section>

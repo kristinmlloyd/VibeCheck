@@ -128,9 +128,19 @@ Our system exhibits several predictable limitations:
 
 ---
 
-## 5. Team Adaptation and Iterative Development
+## 5. Deployment
 
-### 5.1 Feedback Integration
+### 5.1 Platform and Infrastructure
+We deployed VibeCheck on Fly.io, chosen for its persistent container architecture and edge deployment capabilities. Unlike serverless platforms that reload models per-request, Fly.io maintains running containers that load SentenceTransformer, CLIP, and the FAISS index once at startup, then serve queries with sub-second response times.
+Our configuration uses a shared-2x-cpu@4096MB machine in the IAD (Dulles) region, providing 4GB RAM to accommodate our Flask application with pre-loaded models and embeddings (896-dimensional vectors × 556 restaurants). The Docker container bundles pre-computed embeddings and the FAISS index directly, eliminating runtime computation. Restaurant photos are referenced via external Google Maps URLs rather than bundled, keeping deployment lightweight.
+
+### 5.2 Configuration and Performance
+The application serves HTTP on port 8080 internally, with Fly.io handling SSL termination for external ports 80 and 443. We maintained IndexFlatIP (exhaustive search) rather than approximate methods because our 556-restaurant corpus completes exact search in milliseconds, making the accuracy-speed tradeoff unnecessary at this scale.
+For scaling to production volumes (10K+ restaurants, higher query loads), the architecture would benefit from: (1) PostgreSQL with pgvector for incremental embedding updates, (2) multi-region deployment for national coverage, and (3) horizontal scaling across multiple machines with load balancing.
+
+## 6. Team Adaptation and Iterative Development
+
+### 6.1 Feedback Integration
 
 Our project evolved significantly through iterative feedback cycles:
 
@@ -142,7 +152,7 @@ Our project evolved significantly through iterative feedback cycles:
 
 **Adaptation 3:** User testing revealed confusion with UMAP visualizations—users couldn't interpret unlabeled clusters. We added interactive tooltips showing cluster statistics (average rating, top vibes, sample restaurants), dramatically improving interpretability. Post-modification user surveys showed 73% of testers could correctly identify cluster themes versus 28% pre-modification.
 
-### 5.2 Technical Challenges Overcome
+### 6.2 Technical Challenges Overcome
 
 **Challenge 1: API Rate Limiting**  
 SerpAPI imposes 100 requests/hour limits. With 20+ neighborhood queries plus detail fetches for 556 restaurants, we required ~600+ API calls. We implemented checkpoint-based resumption: after each successful restaurant fetch, we save progress to JSON. When rate-limited, the script gracefully terminates, and re-running automatically resumes from the checkpoint. This allowed overnight data collection across multiple sessions without manual tracking.
@@ -155,9 +165,9 @@ Our initial Streamlit prototype lacked real-time map updates—search results di
 
 ---
 
-## 6. Visualizations and Interface Design
+## 7. Visualizations and Interface Design
 
-### 6.1 Interactive Map Architecture
+### 7.1 Interactive Map Architecture
 
 Our dual-map interface presents two complementary views:
 
@@ -167,7 +177,7 @@ Our dual-map interface presents two complementary views:
 
 The dual-map design serves distinct purposes: geographic view answers "Where can I go near me?" while UMAP view answers "What else has a similar vibe?" Together, they support both location-constrained and aesthetic-first discovery patterns.
 
-### 6.2 Results Presentation
+### 7.2 Results Presentation
 
 Search results display in a responsive 3-column grid (collapses to 2-column on tablets, 1-column on mobile):
 - **Visual primacy:** Each card leads with the restaurant's primary vibe photo (200×200px square crop), leveraging visual processing speed (~13ms) versus text comprehension (~250ms/word)
@@ -183,9 +193,9 @@ A supplementary visualization shows aggregate statistics: a horizontal bar chart
 
 ---
 
-## 7. Challenges and Future Directions
+## 8. Challenges and Future Directions
 
-### 7.1 Key Challenges
+### 8.1 Key Challenges
 
 **Subjectivity of "Vibe":** Unlike food quality (amenable to ratings) or price (objective), vibe is inherently subjective and context-dependent. What one diner perceives as "romantic" another might find "stuffy." Our system captures aggregate sentiment across 2,780 reviews but cannot model individual preferences. The 0.694 mean similarity in our embedding space suggests moderate agreement on aesthetic categories, but the 0.054 std indicates meaningful variation in how similar vibes are perceived.
 
@@ -193,7 +203,7 @@ A supplementary visualization shows aggregate statistics: a horizontal bar chart
 
 **Computational Scalability:** CLIP inference on 5 images per restaurant requires GPU for reasonable speed. Our CPU-only deployment averages 15s per restaurant for initial embedding generation. While acceptable for our 556-restaurant dataset (total: 2.3 hours), scaling to national coverage (1M+ restaurants) would require distributed GPU infrastructure or smaller vision models (e.g., MobileViT, which achieves 90% of CLIP accuracy at 5× speed).
 
-### 7.2 Ethical Considerations
+### 8.2 Ethical Considerations
 
 Our system risks amplifying existing biases:
 
@@ -205,7 +215,7 @@ Our system risks amplifying existing biases:
 
 Mitigation strategies include: diversity-aware ranking (downweighting over-represented clusters), explicit "support local/emerging neighborhoods" filters, and transparency about data sources and limitations in the UI.
 
-### 7.3 Conclusions and Impact
+### 8.3 Conclusions and Impact
 
 VibeCheck demonstrates the viability of multimodal search for subjective experiential queries. Our qualitative analysis and user feedback indicate strong practical utility. The system's interpretable visualizations (dual maps, vibe distribution) and flexible query interface (text, image, or both) lower the barrier to discovering restaurants that match desired atmospheres rather than just cuisine types.
 
