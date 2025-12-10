@@ -7,7 +7,7 @@ Manav Arora, Kristin Lloyd, Jessica Joy, Vivi Luccioli, Ping Hill
 *Hosted on Fly.io*
 
 ## **[Final Code Submission](https://github.com/kristinmlloyd/VibeCheck/tree/ping-branch)**
-
+*Final Deliverable on Ping-Branch*
 
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
