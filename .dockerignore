@@ -13,10 +13,12 @@ env/
 
 # Data files (to be mounted as volumes)
 vibecheck_full_output/
-*.db
-*.faiss
-*.npy
-data/
+# Note: data/ directory is included for Fly.io deployment
+# Commented out to include in Docker build:
+# *.db
+# *.faiss
+# *.npy
+# data/
 
 # Git
 .git/

@@ -1,0 +1,37 @@
+# Fly.io configuration for VibeCheck
+app = 'vibecheck-autumn-rain-8384'
+primary_region = 'iad'
+
+[build]
+
+[env]
+  FLASK_ENV = "production"
+  OUTPUT_DIR = "/app/data"
+  DB_PATH = "/app/data/vibecheck.db"
+  IMAGE_DIR = "/app/data/images/restaurant_images"
+  FAISS_PATH = "/app/data/vibecheck_index.faiss"
+  META_PATH = "/app/data/meta_ids.npy"
+  VIBE_MAP_CSV = "/app/data/vibe_map.csv"
+  OMP_NUM_THREADS = "1"
+  MKL_NUM_THREADS = "1"
+  FLASK_PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[http_service.checks]]
+  interval = "30s"
+  timeout = "10s"
+  grace_period = "90s"
+  method = "GET"
+  path = "/"
+
+# VM resources - ML models need decent RAM and CPU
+[vm]
+  cpu_kind = "shared"
+  cpus = 2
+  memory_mb = 4096

@@ -93,7 +93,7 @@ def encode_query(text=None, image_file=None):
     return combined[None, :]
 
 
-def get_restaurant_details(restaurant_id):
+def get_restaurant_details(restaurant_id, review_limit=2):
     """Get full restaurant details from database."""
     conn = get_db()
     cursor = conn.cursor()
@@ -146,22 +146,29 @@ def get_restaurant_details(restaurant_id):
         {"name": v["vibe_name"], "count": v["mention_count"]} for v in vibes
     ]
 
-    # Get sample reviews
+    # Get reviews (configurable limit)
     cursor.execute(
         """
         SELECT review_text, likes
         FROM reviews
         WHERE restaurant_id = ?
         ORDER BY likes DESC
-        LIMIT 2
+        LIMIT ?
     """,
-        (restaurant_id,),
+        (restaurant_id, review_limit),
     )
 
     reviews = cursor.fetchall()
-    restaurant["reviews"] = [
-        {"text": r["review_text"][:200] + "...", "likes": r["likes"]} for r in reviews
-    ]
+    # Truncate only if it's the short preview (2 reviews)
+    if review_limit <= 2:
+        restaurant["reviews"] = [
+            {"text": r["review_text"][:200] + "...", "likes": r["likes"]} for r in reviews
+        ]
+    else:
+        # Full text for detail page
+        restaurant["reviews"] = [
+            {"text": r["review_text"], "likes": r["likes"]} for r in reviews
+        ]
 
     conn.close()
     return restaurant
@@ -211,6 +218,15 @@ def import_vibe_map_to_db():
 def index():
     """Main page."""
     return render_template("index.html")
+
+
+@app.route("/restaurant/<int:restaurant_id>")
+def restaurant_detail(restaurant_id):
+    """Restaurant detail page."""
+    details = get_restaurant_details(restaurant_id, review_limit=10)
+    if details:
+        return render_template("restaurant.html", restaurant=details)
+    return "Restaurant not found", 404
 
 
 @app.route("/api/search", methods=["POST"])

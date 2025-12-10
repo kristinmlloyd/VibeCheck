@@ -1,5 +1,10 @@
 # VibeCheck: Multimodal Restaurant Discovery Through Ambience Intelligence
 
+## **Live App**
+### **[Click Here to Launch VibeCheck](https://vibecheck-app-1765337464.fly.dev/)**  
+*Hosted on Fly.io*
+
+
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/streamlit-1.28.0-FF4B4B)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)

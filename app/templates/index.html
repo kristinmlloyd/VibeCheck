@@ -465,7 +465,7 @@
             section.classList.remove('hidden');
 
             container.innerHTML = results.map(restaurant => `
-                <div class="card-dark rounded-xl shadow-md overflow-hidden card-hover">
+                <a href="/restaurant/${restaurant.id}" class="block card-dark rounded-xl shadow-md overflow-hidden card-hover hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
                     ${restaurant.photo_filename ?
                         `<img src="/images/${restaurant.photo_filename}" class="w-full h-48 object-cover" />` :
                         `<div class="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
@@ -491,8 +491,11 @@
                         ${restaurant.reviews.length > 0 ? `
                             <p class="text-sm text-gray-700 italic">"${restaurant.reviews[0].text}"</p>
                         ` : ''}
+                        <div class="mt-4 text-indigo-600 font-semibold">
+                            Click to see more details →
+                        </div>
                     </div>
-                </div>
+                </a>
             `).join('');
 
             // Update maps with search results

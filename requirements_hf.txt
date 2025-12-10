@@ -1,0 +1,27 @@
+# VibeCheck - Hugging Face Spaces Requirements
+# For deployment on Hugging Face Spaces
+
+# Core ML/AI
+torch==2.5.1
+torchvision==0.20.1
+sentence-transformers==3.3.1
+transformers==4.57.1
+git+https://github.com/openai/CLIP.git
+
+# Vector Search
+faiss-cpu==1.9.0
+
+# Web Framework (Gradio for HF Spaces)
+gradio==5.12.0
+
+# Data Processing
+numpy==1.26.4
+pandas==2.2.3
+Pillow==10.4.0
+
+# Database
+sqlite3  # Built-in with Python
+
+# Utilities
+python-dotenv==1.2.1
+tqdm==4.66.6

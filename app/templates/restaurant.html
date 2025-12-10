@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ restaurant.name }} - VibeCheck</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0e0e0e;
+            color: white;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #ffdd55 0%, #ff66aa 100%);
+            color: black;
+        }
+
+        .card-dark {
+            background-color: #171717;
+        }
+
+        .dark-card {
+            background: linear-gradient(180deg, #1a1a1a 0%, #111111 100%);
+            border: 1px solid #262626;
+            color: white;
+        }
+
+        .review-card {
+            background: linear-gradient(135deg, #1f1f1f 0%, #181818 100%);
+            border: 1px solid #2a2a2a;
+        }
+
+        .vibe-badge {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0e0e0e]">
+
+    <!-- Header -->
+    <header class="hero-gradient text-white shadow-lg">
+        <div class="container mx-auto px-6 py-6">
+            <a href="/" class="text-lg hover:opacity-80 transition">← Back to Search</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Restaurant Header -->
+        <div class="dark-card rounded-2xl shadow-lg p-8 mb-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Restaurant Image -->
+                <div>
+                    {% if restaurant.photo_filename %}
+                        <img
+                            src="/images/{{ restaurant.photo_filename }}"
+                            alt="{{ restaurant.name }}"
+                            class="w-full h-96 object-cover rounded-xl shadow-lg"
+                        />
+                    {% else %}
+                        <div class="w-full h-96 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center">
+                            <span class="text-8xl">🍽️</span>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Restaurant Info -->
+                <div class="flex flex-col justify-center">
+                    <h1 class="text-5xl font-bold mb-4">{{ restaurant.name }}</h1>
+
+                    <div class="flex items-center mb-4">
+                        <span class="text-3xl text-yellow-500">
+                            {% if restaurant.rating %}
+                                ⭐ {{ restaurant.rating }}
+                            {% else %}
+                                ⭐ N/A
+                            {% endif %}
+                        </span>
+                        <span class="text-gray-400 text-lg ml-3">
+                            ({{ restaurant.reviews_count or 0 }} reviews)
+                        </span>
+                    </div>
+
+                    <p class="text-xl text-gray-300 mb-6">
+                        📍 {{ restaurant.address or 'Address not available' }}
+                    </p>
+
+                    <!-- Top Vibes -->
+                    {% if restaurant.vibes %}
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-semibold mb-3">Top Vibes</h3>
+                            <div class="flex flex-wrap gap-3">
+                                {% for vibe in restaurant.vibes %}
+                                    <span class="vibe-badge">
+                                        {{ vibe.name }} ({{ vibe.count }})
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="dark-card rounded-2xl shadow-lg p-8">
+            <h2 class="text-3xl font-bold mb-6">Customer Reviews</h2>
+
+            {% if restaurant.reviews %}
+                <div class="space-y-4">
+                    {% for review in restaurant.reviews %}
+                        <div class="review-card rounded-xl p-6">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-3">💬</span>
+                                    <span class="text-sm text-gray-400">
+                                        👍 {{ review.likes }} people found this helpful
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 leading-relaxed">{{ review.text }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-gray-400 text-center py-8">No reviews available yet.</p>
+            {% endif %}
+        </div>
+
+        <!-- Back to Search Button -->
+        <div class="mt-8 text-center">
+            <a
+                href="/"
+                class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-indigo-700 transition shadow-lg hover:shadow-xl"
+            >
+                ← Back to Search
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>Made with ❤️ using Flask, CLIP, and Sentence Transformers</p>
+        </div>
+    </footer>
+
+</body>
+</html>
