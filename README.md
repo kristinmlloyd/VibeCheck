@@ -1,5 +1,7 @@
 # VibeCheck: Multimodal Restaurant Discovery Through Ambience Intelligence
 
+Manav Arora, Kristin Lloyd, Jessica Joy, Vivi Luccioli, Ping Hill
+
 ## **Live App**
 ### **[Click Here to Launch VibeCheck](https://vibecheck-app-1765337464.fly.dev/)**  
 *Hosted on Fly.io*
