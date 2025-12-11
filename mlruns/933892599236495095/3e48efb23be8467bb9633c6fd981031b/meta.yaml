@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/iphone10/Desktop/VibeCheck/mlruns/933892599236495095/3e48efb23be8467bb9633c6fd981031b/artifacts
+end_time: 1765425590369
+entry_point_name: ''
+experiment_id: '933892599236495095'
+lifecycle_stage: active
+run_id: 3e48efb23be8467bb9633c6fd981031b
+run_name: search_evaluation_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765425590347
+status: 3
+tags: []
+user_id: iphone10

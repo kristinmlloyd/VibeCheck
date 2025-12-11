@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/iphone10/Desktop/VibeCheck/mlruns/194911169787087678/c8c2d23c51c44e6c893c78e4a34be4ad/artifacts
+end_time: 1765425590339
+entry_point_name: ''
+experiment_id: '194911169787087678'
+lifecycle_stage: active
+run_id: c8c2d23c51c44e6c893c78e4a34be4ad
+run_name: umap_clustering_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765425590220
+status: 3
+tags: []
+user_id: iphone10
